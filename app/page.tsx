@@ -22,6 +22,28 @@ export default function Home() {
       { threshold: 0.1 }
     );
     document.querySelectorAll('.reveal').forEach((el) => ro.observe(el));
+    // Counter animacija
+document.querySelectorAll<HTMLElement>('.sn').forEach((el) => {
+  const target = parseInt(el.textContent || '0');
+  const isPercent = el.textContent?.includes('%');
+  let start = 0;
+  const duration = 1800;
+  const step = (timestamp: number) => {
+    if (!start) start = timestamp;
+    const progress = Math.min((timestamp - start) / duration, 1);
+    const ease = 1 - Math.pow(1 - progress, 3);
+    const current = Math.floor(ease * target);
+    el.textContent = current + (isPercent ? '%' : '');
+    if (progress < 1) requestAnimationFrame(step);
+  };
+  const observer = new IntersectionObserver((entries) => {
+    if (entries[0].isIntersecting) {
+      requestAnimationFrame(step);
+      observer.disconnect();
+    }
+  }, { threshold: 0.5 });
+  observer.observe(el);
+});
 
     const handleMouse = (e: MouseEvent) => {
       const cx = window.innerWidth / 2;
