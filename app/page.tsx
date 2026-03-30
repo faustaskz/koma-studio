@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect } from 'react';
+import Pricing from '@/components/Pricing';
 
 export default function Home() {
   useEffect(() => {
@@ -332,14 +333,25 @@ document.querySelectorAll<HTMLElement>('.sn').forEach((el) => {
         #portfolio { background: var(--bg2); border-top: 1px solid var(--border); }
         .port-title { font-family: 'Instrument Serif', serif; font-size: clamp(36px, 4vw, 56px); line-height: 1.1; font-weight: 400; letter-spacing: -0.02em; margin-bottom: 52px; }
         .port-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
-        .port-card { border-radius: 18px; overflow: hidden; background: var(--surface); border: 1px solid var(--border); aspect-ratio: 4/3; position: relative; transition: transform 0.4s cubic-bezier(0.16,1,0.3,1), box-shadow 0.4s; }
+        .port-card { border-radius: 18px; overflow: hidden; background: var(--surface); border: 1px solid var(--border); aspect-ratio: 4/3; position: relative; transition: transform 0.4s cubic-bezier(0.16,1,0.3,1), box-shadow 0.4s; display: block; text-decoration: none; }
         .port-card:hover { transform: translateY(-6px) scale(1.01); box-shadow: var(--shadow-lg); }
         .port-inner { width: 100%; height: 100%; background: linear-gradient(135deg, var(--surface2), var(--bg2)); display: flex; align-items: center; justify-content: center; }
+        .port-inner img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; }
         .port-ph { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--text-dim); letter-spacing: 0.14em; }
-        .port-info { position: absolute; bottom: 0; left: 0; right: 0; padding: 24px; background: linear-gradient(to top, rgba(0,0,0,0.55), transparent); opacity: 0; transition: opacity 0.3s; }
+        .port-info { position: absolute; bottom: 0; left: 0; right: 0; padding: 24px; background: linear-gradient(to top, rgba(0,0,0,0.7), transparent); opacity: 0; transition: opacity 0.3s; }
+        .port-card:hover .port-info { opacity: 1; }
         .port-card:hover .port-info { opacity: 1; }
         .port-name { font-family: 'Instrument Serif', serif; font-size: 20px; color: white; font-weight: 400; }
         .port-type { font-family: 'DM Mono', monospace; font-size: 11px; color: rgba(255,255,255,0.55); letter-spacing: 0.1em; margin-top: 4px; }
+        .port-cta-card { border: 1px dashed var(--border-strong) !important; background: transparent !important; text-decoration: none; }
+        .port-cta-card:hover { border-color: rgba(167,139,250,0.4) !important; background: rgba(167,139,250,0.03) !important; }
+        .port-cta-inner { width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; padding: 2rem; }
+        .port-cta-plus { width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--border-strong); display: flex; align-items: center; justify-content: center; font-size: 22px; color: var(--text-dim); transition: border-color 0.3s, color 0.3s; }
+        .port-cta-card:hover .port-cta-plus { border-color: rgba(167,139,250,0.5); color: #a78bfa; }
+        .port-cta-text { font-family: 'Instrument Serif', serif; font-size: 1.4rem; font-weight: 400; color: var(--text-muted); text-align: center; line-height: 1.3; transition: color 0.3s; }
+        .port-cta-card:hover .port-cta-text { color: var(--text); }
+        .port-cta-btn { font-size: 12px; font-weight: 400; color: var(--text-dim); letter-spacing: 0.04em; transition: color 0.3s; }
+        .port-cta-card:hover .port-cta-btn { color: #a78bfa; }
 
         /* ── BLOB ── */
         #blob-sec { border-top: 1px solid var(--border); display: grid; grid-template-columns: 1fr 1fr; gap: 0; padding: 0; }
@@ -442,6 +454,7 @@ document.querySelectorAll<HTMLElement>('.sn').forEach((el) => {
           <a href="#apie">Apie</a>
           <a href="#paslaugos">Paslaugos</a>
           <a href="#portfolio">Darbai</a>
+          <a href="#kainodara">Kainos</a>
           <a href="#kontaktai" className="lava-btn nav-cta">
             <span className="btn-label">Susisiekite</span>
           </a>
@@ -530,15 +543,23 @@ document.querySelectorAll<HTMLElement>('.sn').forEach((el) => {
         <h2 className="port-title reveal">Mūsų projektai.</h2>
         <div className="port-grid reveal">
           {[
-            {bg:'linear-gradient(135deg,var(--surface2),var(--bg2))',name:'Projektas 01',type:'Web Dizainas'},
-            {bg:'linear-gradient(135deg,#e8e4de,#d0ccc4)',name:'Projektas 02',type:'SEO + Web'},
-            {bg:'linear-gradient(135deg,#dce8e4,#c4d4ce)',name:'Projektas 03',type:'Web Dizainas'},
+            {bg:'linear-gradient(135deg,#0d1c3a,#1a3a6e)',img:'/kamitra.jpg.png',name:'Kamitra ir ko',type:'WordPress',href:'https://kamitra.lt/'},
+            {bg:'linear-gradient(135deg,#1a1a1a,#2d2d2d)',img:'/Sellauto.jpg',name:'Sell-Auto',type:'WordPress',href:'https://sell-auto.lt/'},
           ].map((p,i) => (
-            <div key={i} className="port-card">
-              <div className="port-inner" style={{background:p.bg}}><span className="port-ph">{p.name.toUpperCase()}</span></div>
+            <a key={i} className="port-card" href={p.href} target="_blank" rel="noopener noreferrer">
+              <div className="port-inner" style={{background:p.bg}}>
+                <img src={p.img} alt={p.name} />
+              </div>
               <div className="port-info"><div className="port-name">{p.name}</div><div className="port-type">{p.type}</div></div>
-            </div>
+            </a>
           ))}
+          <a href="#kontaktai" className="port-card port-cta-card">
+            <div className="port-cta-inner">
+              <div className="port-cta-plus">+</div>
+              <div className="port-cta-text">Čia galėtų būti<br />jūsų projektas</div>
+              <div className="port-cta-btn">Susisiekite →</div>
+            </div>
+          </a>
         </div>
       </section>
 
@@ -554,6 +575,8 @@ document.querySelectorAll<HTMLElement>('.sn').forEach((el) => {
         </div>
       </div>
 
+      <Pricing />
+
       <section id="kontaktai">
         <div className="stag reveal">Kontaktai</div>
         <div className="cont-grid">
@@ -568,8 +591,8 @@ document.querySelectorAll<HTMLElement>('.sn').forEach((el) => {
           <div className="reveal d1">
             <form className="cform" id="contactForm" action="https://formspree.io/f/JŪSŲ-KODAS" method="POST">
               <div className="fr2">
-                <div className="fg"><label className="fl">Vardas</label><input className="fi" type="text" name="vardas" placeholder="Jonas" required /></div>
-                <div className="fg"><label className="fl">El. paštas</label><input className="fi" type="email" name="email" placeholder="jonas@gmail.com" required /></div>
+                <div className="fg"><label className="fl">Vardas</label><input className="fi" type="text" name="vardas" placeholder="Vardas" required /></div>
+                <div className="fg"><label className="fl">El. paštas</label><input className="fi" type="email" name="email" placeholder="Jūsų.paštas@gmail.com" required /></div>
               </div>
               <div className="fg"><label className="fl">Žinutė</label><textarea className="fta" name="zinute" placeholder="Papasakokite apie savo projektą..." required></textarea></div>
               <button type="submit" className="lava-btn btn-send-wrap">
