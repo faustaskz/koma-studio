@@ -2,6 +2,7 @@
 
 import { useEffect } from 'react';
 import Pricing from '@/components/Pricing';
+import ContactForm from '@/components/ContactForm';
 
 export default function Home() {
   useEffect(() => {
@@ -589,17 +590,7 @@ document.querySelectorAll<HTMLElement>('.sn').forEach((el) => {
             </div>
           </div>
           <div className="reveal d1">
-            <form className="cform" id="contactForm" action="https://formspree.io/f/JŪSŲ-KODAS" method="POST">
-              <div className="fr2">
-                <div className="fg"><label className="fl">Vardas</label><input className="fi" type="text" name="vardas" placeholder="Vardas" required /></div>
-                <div className="fg"><label className="fl">El. paštas</label><input className="fi" type="email" name="email" placeholder="Jūsų.paštas@gmail.com" required /></div>
-              </div>
-              <div className="fg"><label className="fl">Žinutė</label><textarea className="fta" name="zinute" placeholder="Papasakokite apie savo projektą..." required></textarea></div>
-              <button type="submit" className="lava-btn btn-send-wrap">
-                <span className="btn-label">Siųsti žinutę →</span>
-              </button>
-              <div className="form-ok" id="formOk">✓ Žinutė išsiųsta! Susisieksime greitai.</div>
-            </form>
+            <ContactForm />
           </div>
         </div>
       </section>
