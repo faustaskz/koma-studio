@@ -473,10 +473,12 @@ export default function Pricing() {
           display: flex;
           flex-direction: column;
           gap: 10px;
-          transition: border-color 0.2s ease, background 0.2s ease;
+          transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
         }
         .pr-card:hover {
-          border-color: var(--border-strong);
+          border-color: rgba(167,139,250,0.3);
+          transform: translateY(-3px);
+          box-shadow: 0 8px 32px rgba(167,139,250,0.08), 0 2px 8px rgba(0,0,0,0.2);
         }
         .pr-card.featured {
           border-color: rgba(167,139,250,0.35);
