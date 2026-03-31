@@ -349,6 +349,7 @@ export default function Pricing() {
         .pr-tabs-wrap {
           display: flex;
           justify-content: center;
+          align-items: center;
           margin-bottom: 3rem;
         }
         .pr-tabs {
@@ -377,6 +378,29 @@ export default function Pricing() {
           background: var(--surface2);
           color: var(--text);
           border: 1px solid var(--border-strong);
+        }
+
+        .pr-tabs-wrap {
+          gap: 10px;
+        }
+        .pr-compare-btn {
+          font-family: 'Plus Jakarta Sans', sans-serif;
+          font-size: 13px;
+          font-weight: 400;
+          color: var(--text-muted);
+          background: var(--surface);
+          border: 1px solid var(--border);
+          border-radius: 100px;
+          padding: 12px 20px;
+          cursor: pointer;
+          transition: all 0.2s ease;
+          white-space: nowrap;
+        }
+        .pr-compare-btn:hover { color: var(--text); border-color: var(--border-strong); }
+        .pr-compare-btn.active {
+          background: var(--surface2);
+          color: var(--text);
+          border-color: var(--border-strong);
         }
 
         /* PLATFORM INTRO */
@@ -593,6 +617,51 @@ export default function Pricing() {
         }
         .pr-compare td:first-child { color: var(--text); font-weight: 400; }
         .pr-compare tbody tr:last-child td { border-bottom: none; }
+
+        /* COMPARE MOBILE */
+        .pr-compare-mobile { display: none; }
+        .pr-cmp-card {
+          background: var(--surface);
+          border: 1px solid var(--border);
+          border-radius: 14px;
+          padding: 1.25rem 1.5rem;
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+          margin-bottom: 10px;
+        }
+        .pr-cmp-feature {
+          font-size: 14px;
+          font-weight: 400;
+          color: var(--text);
+          padding-bottom: 10px;
+          border-bottom: 1px solid var(--border);
+        }
+        .pr-cmp-row {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          gap: 12px;
+        }
+        .pr-cmp-platform {
+          font-size: 11px;
+          font-weight: 500;
+          letter-spacing: 0.08em;
+          text-transform: uppercase;
+          font-family: 'DM Mono', monospace;
+          flex-shrink: 0;
+        }
+        .pr-cmp-val {
+          font-size: 13px;
+          color: var(--text-muted);
+          font-weight: 300;
+          text-align: right;
+        }
+
+        @media (max-width: 768px) {
+          .pr-compare-desktop { display: none; }
+          .pr-compare-mobile { display: block; }
+        }
 
         /* SUPPORT */
         .pr-support {
@@ -863,7 +932,7 @@ export default function Pricing() {
         {/* TABS */}
         <div className="pr-tabs-wrap">
           <div className="pr-tabs">
-            {TABS.map((t) => (
+            {TABS.filter(t => t.id !== 'compare').map((t) => (
               <button
                 key={t.id}
                 className={`pr-tab${activeTab === t.id ? ' active' : ''}`}
@@ -873,6 +942,12 @@ export default function Pricing() {
               </button>
             ))}
           </div>
+          <button
+            className={`pr-compare-btn${activeTab === 'compare' ? ' active' : ''}`}
+            onClick={() => setActiveTab('compare')}
+          >
+            Palyginimas
+          </button>
         </div>
 
         {/* PLATFORM VIEWS */}
@@ -936,30 +1011,53 @@ export default function Pricing() {
           );
         })()}
 
-        {/* COMPARE TABLE */}
+        {/* COMPARE TABLE — desktop */}
         {activeTab === 'compare' && (
-          <div className="pr-compare-wrap">
-            <table className="pr-compare">
-              <thead>
-                <tr>
-                  <th>Savybė</th>
-                  <th className="col-wp">WordPress</th>
-                  <th className="col-fr">Framer</th>
-                  <th className="col-ai">AI Svetainė</th>
-                </tr>
-              </thead>
-              <tbody>
-                {COMPARE_ROWS.map((row, i) => (
-                  <tr key={i}>
-                    <td>{row.feature}</td>
-                    <td><CellMark chk={row.wp.chk} crs={row.wp.crs} />{row.wp.text}</td>
-                    <td><CellMark chk={row.fr.chk} crs={row.fr.crs} />{row.fr.text}</td>
-                    <td><CellMark chk={row.ai.chk} crs={row.ai.crs} />{row.ai.text}</td>
+          <>
+            <div className="pr-compare-wrap pr-compare-desktop">
+              <table className="pr-compare">
+                <thead>
+                  <tr>
+                    <th>Savybė</th>
+                    <th className="col-wp">WordPress</th>
+                    <th className="col-fr">Framer</th>
+                    <th className="col-ai">AI Svetainė</th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+                </thead>
+                <tbody>
+                  {COMPARE_ROWS.map((row, i) => (
+                    <tr key={i}>
+                      <td>{row.feature}</td>
+                      <td><CellMark chk={row.wp.chk} crs={row.wp.crs} />{row.wp.text}</td>
+                      <td><CellMark chk={row.fr.chk} crs={row.fr.crs} />{row.fr.text}</td>
+                      <td><CellMark chk={row.ai.chk} crs={row.ai.crs} />{row.ai.text}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+
+            {/* COMPARE CARDS — mobile */}
+            <div className="pr-compare-mobile">
+              {COMPARE_ROWS.map((row, i) => (
+                <div key={i} className="pr-cmp-card">
+                  <div className="pr-cmp-feature">{row.feature}</div>
+                  <div className="pr-cmp-row">
+                    <span className="pr-cmp-platform" style={{ color: '#60a5fa' }}>WordPress</span>
+                    <span className="pr-cmp-val"><CellMark chk={row.wp.chk} crs={row.wp.crs} />{row.wp.text}</span>
+                  </div>
+                  <div className="pr-cmp-row">
+                    <span className="pr-cmp-platform" style={{ color: '#34d399' }}>Framer</span>
+                    <span className="pr-cmp-val"><CellMark chk={row.fr.chk} crs={row.fr.crs} />{row.fr.text}</span>
+                  </div>
+                  <div className="pr-cmp-row">
+                    <span className="pr-cmp-platform" style={{ color: '#a78bfa' }}>AI Svetainė</span>
+                    <span className="pr-cmp-val"><CellMark chk={row.ai.chk} crs={row.ai.crs} />{row.ai.text}</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </>
         )}
 
         {/* SUPPORT SECTION */}
