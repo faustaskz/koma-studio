@@ -165,53 +165,35 @@ document.querySelectorAll<HTMLElement>('.sn').forEach((el) => {
 
         body { background: var(--bg); color: var(--text); font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 300; transition: background 0.4s, color 0.4s; }
 
-        /* ── LAVA MYGTUKAS — pagrindas ── */
-       .lava-btn {
-  position: relative;
-  overflow: hidden;
-  background: var(--btn-bg);
-  color: var(--btn-text) !important;
-  border: none;
-  outline: none;
-  box-shadow: none;
-  cursor: pointer;
-  transition: transform 0.2s;
-  -webkit-text-fill-color: var(--btn-text) !important;
-  text-decoration: none;
-}
+        /* ── MYGTUKAS ── */
+        .lava-btn {
+          position: relative;
+          overflow: hidden;
+          background: rgba(255,255,255,0.06);
+          backdrop-filter: blur(16px);
+          -webkit-backdrop-filter: blur(16px);
+          color: var(--text) !important;
+          -webkit-text-fill-color: var(--text) !important;
+          border: 1px solid rgba(255,255,255,0.15);
+          outline: none;
+          box-shadow: none;
+          cursor: pointer;
+          transition: border-color 0.25s ease, background 0.25s ease, transform 0.2s;
+          text-decoration: none;
+        }
         .lava-btn .btn-label {
           position: relative;
           z-index: 2;
-          color: var(--btn-text);
-          -webkit-text-fill-color: var(--btn-text);
-          transition: color 0.3s;
+          color: var(--text);
+          -webkit-text-fill-color: var(--text);
           pointer-events: none;
         }
-        .lava-btn::before {
-          content: '';
-          position: absolute;
-          inset: 0;
-         background: linear-gradient(135deg,
-  #0d1b4b 0%,
-  #1a0533 40%,
-  #0a1628 70%,
-  #0d1b4b 100%
-);
-          background-size: 400% 400%;
-          opacity: 0;
-          transition: opacity 0.9s ease;
-          animation: lavaFlow 10s ease infinite paused;
-          z-index: 1;
+        .lava-btn::before { display: none; }
+        .lava-btn:hover {
+          border-color: rgba(167,139,250,0.55);
+          background: rgba(167,139,250,0.06);
+          transform: translateY(-1px);
         }
-        .lava-btn:hover::before {
-          opacity: 1;
-          animation-play-state: running;
-        }
-        .lava-btn:hover .btn-label {
-          color: #ffffff;
-          -webkit-text-fill-color: #ffffff;
-        }
-        .lava-btn:hover { transform: translateY(-1px); }
 
         /* ── NAV ── */
         nav { position: fixed; top: 20px; left: 50%; transform: translateX(-50%); z-index: 100; background: var(--pill-bg); border: 1px solid var(--pill-border); backdrop-filter: var(--blur); -webkit-backdrop-filter: var(--blur); border-radius: 100px; padding: 10px 10px 10px 24px; display: flex; align-items: center; gap: 4px; box-shadow: var(--shadow); white-space: nowrap; transition: background 0.4s; }
@@ -263,7 +245,7 @@ document.querySelectorAll<HTMLElement>('.sn').forEach((el) => {
         }
         .hero-sub { margin-top: 28px; font-size: 17px; color: var(--text-muted); font-weight: 300; line-height: 1.65; max-width: 420px; opacity: 0; animation: fadeUp 1s cubic-bezier(0.16,1,0.3,1) 0.4s forwards; }
         .hero-actions { margin-top: 40px; display: flex; gap: 12px; align-items: center; justify-content: center; opacity: 0; animation: fadeUp 1s cubic-bezier(0.16,1,0.3,1) 0.55s forwards; }
-        .btn-primary-wrap { padding: 14px 28px; border-radius: 100px; font-size: 14px; font-weight: 500; text-decoration: none; font-family: 'Plus Jakarta Sans', sans-serif; display: inline-block; background: var(--btn-bg) !important; }
+        .btn-primary-wrap { padding: 14px 28px; border-radius: 100px; font-size: 14px; font-weight: 500; text-decoration: none; font-family: 'Plus Jakarta Sans', sans-serif; display: inline-block; }
         .btn-ghost { color: var(--text-muted); padding: 13px 22px; border-radius: 100px; font-size: 14px; font-weight: 400; text-decoration: none; font-family: 'Plus Jakarta Sans', sans-serif; border: 1px solid var(--border-strong); transition: color 0.2s, border-color 0.2s; }
         .btn-ghost:hover { color: var(--text); border-color: var(--text-muted); }
 
