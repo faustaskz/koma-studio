@@ -245,7 +245,7 @@ document.querySelectorAll<HTMLElement>('.sn').forEach((el) => {
         }
         .hero-sub { margin-top: 28px; font-size: 17px; color: var(--text-muted); font-weight: 300; line-height: 1.65; max-width: 420px; opacity: 0; animation: fadeUp 1s cubic-bezier(0.16,1,0.3,1) 0.4s forwards; }
         .hero-actions { margin-top: 40px; display: flex; gap: 12px; align-items: center; justify-content: center; opacity: 0; animation: fadeUp 1s cubic-bezier(0.16,1,0.3,1) 0.55s forwards; }
-        .btn-primary-wrap { padding: 14px 28px; border-radius: 100px; font-size: 14px; font-weight: 500; text-decoration: none; font-family: 'Plus Jakarta Sans', sans-serif; display: inline-block; }
+        .btn-primary-wrap { padding: 13px 22px; border-radius: 100px; font-size: 14px; font-weight: 400; text-decoration: none; font-family: 'Plus Jakarta Sans', sans-serif; display: inline-block; }
         .btn-ghost { color: var(--text-muted); padding: 13px 22px; border-radius: 100px; font-size: 14px; font-weight: 400; text-decoration: none; font-family: 'Plus Jakarta Sans', sans-serif; border: 1px solid var(--border-strong); transition: color 0.2s, border-color 0.2s; }
         .btn-ghost:hover { color: var(--text); border-color: var(--text-muted); }
 
