@@ -12,7 +12,7 @@ export async function POST(req: NextRequest) {
 
   const { error } = await resend.emails.send({
     from: 'no-reply@koma-studio.lt',
-    to: 'info@koma-studio.lt',
+    to: 'info@komastudio.lt',
     subject: `Naujas užklausimas nuo ${vardas}`,
     text: `Vardas: ${vardas}\nEl. paštas: ${email}\n\nŽinutė:\n${zinute}`,
     replyTo: email,

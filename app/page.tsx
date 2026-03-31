@@ -438,6 +438,10 @@ document.querySelectorAll<HTMLElement>('.sn').forEach((el) => {
           section { padding: 72px 24px; }
           .about-grid, .cont-grid { grid-template-columns: 1fr; gap: 48px; }
           .port-grid { grid-template-columns: 1fr 1fr; }
+          .port-cta-card { grid-column: 1 / -1; aspect-ratio: unset; }
+          .port-cta-inner { flex-direction: row; justify-content: center; gap: 20px; padding: 1.5rem 2rem; }
+          .port-cta-text { font-size: 1.1rem; text-align: left; }
+          .port-cta-text br { display: none; }
           #blob-sec { grid-template-columns: 1fr; }
           .blob-left { border-right: none; border-bottom: 1px solid var(--border); padding: 72px 24px; }
           .blob-right { padding: 72px 24px; }
