@@ -55,7 +55,7 @@ const PLATFORMS: Record<'wp' | 'fr' | 'ai', Platform> = {
     plans: [
       {
         name: 'WordPress Mini',
-        price: '299',
+        price: '399',
         desc: 'Greitas pradžios puslapis',
         features: ['Landing page (1 puslapis)', 'Kontaktų forma', 'Mobili versija', 'Bazinė SEO sąranka'],
         modal: {
@@ -65,7 +65,7 @@ const PLATFORMS: Record<'wp' | 'fr' | 'ai', Platform> = {
       },
       {
         name: 'WordPress Basic',
-        price: '599',
+        price: '799',
         desc: 'Iki 5 puslapių svetainė',
         features: ['Iki 5 puslapių', 'Individuali dizaino tema', 'SEO optimizacija', 'Google Analytics', '1 mėn. palaikymas'],
         featured: true,
@@ -77,7 +77,7 @@ const PLATFORMS: Record<'wp' | 'fr' | 'ai', Platform> = {
       },
       {
         name: 'WordPress Pro',
-        price: '999',
+        price: '1199',
         desc: 'Pilna svetainė su visomis funkcijomis',
         features: ['Iki 15 puslapių', 'El. parduotuvė (WooCommerce)', 'Neriboti puslapiai', 'Daugiakalbystė', 'API integracijos', '3 mėn. palaikymas'],
         modal: {
@@ -160,7 +160,7 @@ const PLATFORMS: Record<'wp' | 'fr' | 'ai', Platform> = {
     plans: [
       {
         name: 'AI Spark',
-        price: '249',
+        price: '349',
         desc: 'Greitas startas su AI',
         features: ['Landing page su AI tekstais', 'Pagrindinis dizainas', 'SEO optimizuoti tekstai'],
         modal: {
@@ -170,7 +170,7 @@ const PLATFORMS: Record<'wp' | 'fr' | 'ai', Platform> = {
       },
       {
         name: 'AI Growth',
-        price: '549',
+        price: '699',
         desc: 'Pilna svetainė su AI turiniu',
         features: ['Iki 8 puslapių', 'AI tekstai ir vaizdai', 'SEO strategija', '2 mėn. palaikymas'],
         featured: true,
@@ -182,7 +182,7 @@ const PLATFORMS: Record<'wp' | 'fr' | 'ai', Platform> = {
       },
       {
         name: 'AI Scale',
-        price: '1199',
+        price: '1099',
         desc: 'Pažangus AI sprendimas',
         features: ['Neriboti puslapiai', 'AI chatbot integracija', 'Automatizacijos', '4 mėn. palaikymas'],
         modal: {
@@ -213,12 +213,12 @@ const COMPARE_ROWS: CompareRow[] = [
 const SUPPORT_PLANS = [
   {
     tier: 'Mini',
-    price: '14',
+    price: '15',
     features: ['Tekstų ir turinio atnaujinimas', 'Spalvų ir stilių korekcijos', 'Nuotraukų keitimas', 'Iki 2 val. darbų per mėnesį'],
   },
   {
     tier: 'Midi',
-    price: '24',
+    price: '25',
     features: ['Visa Mini plano apimtis', 'Puslapio išdėstymo pakeitimai', 'Naujų funkcijų pridėjimas', 'Formų ir mygtukų keitimai', 'Iki 4 val. darbų per mėnesį'],
     featured: true,
     badge: 'Populiariausias',
@@ -247,6 +247,7 @@ function PlanModal({ plan, platform, onClose }: { plan: Plan; platform: string; 
         <button className="pr-modal-close" onClick={onClose}>✕</button>
         <div className="pr-modal-header">
           <div className="pr-modal-name">{plan.name}</div>
+          <div className="pr-modal-from">nuo</div>
           <div className="pr-modal-price">{plan.price}<sup>€</sup></div>
           <div className="pr-modal-pricenote">vienkartinis mokestis</div>
         </div>
@@ -542,6 +543,15 @@ export default function Pricing() {
           font-family: 'Plus Jakarta Sans', sans-serif;
           font-weight: 300;
           margin-left: 2px;
+        }
+        .pr-price-from {
+          font-size: 10px;
+          font-weight: 400;
+          letter-spacing: 0.12em;
+          text-transform: uppercase;
+          color: var(--text-dim);
+          font-family: 'DM Mono', monospace;
+          margin-bottom: 2px;
         }
         .pr-price-note {
           font-size: 12px;
@@ -862,6 +872,14 @@ export default function Pricing() {
           font-size: 1.5rem; font-weight: 400; color: var(--text);
           margin-bottom: 0.5rem;
         }
+        .pr-modal-from {
+          font-size: 10px;
+          letter-spacing: 0.12em;
+          text-transform: uppercase;
+          color: var(--text-dim);
+          font-family: 'DM Mono', monospace;
+          margin-bottom: 2px;
+        }
         .pr-modal-price {
           font-family: 'Plus Jakarta Sans', sans-serif;
           font-size: 2.8rem; font-weight: 300; letter-spacing: -0.02em;
@@ -996,6 +1014,7 @@ export default function Pricing() {
                     {plan.badge && <div className="pr-popular">{plan.badge}</div>}
                     <div className="pr-plan-name">{plan.name}</div>
                     <div>
+                      <div className="pr-price-from">nuo</div>
                       <div className="pr-price">{plan.price}<sup>€</sup></div>
                       <div className="pr-price-note">vienkartinis mokestis</div>
                     </div>
