@@ -369,7 +369,9 @@ document.querySelectorAll<HTMLElement>('.sn').forEach((el) => {
         .cform { display: flex; flex-direction: column; gap: 16px; }
         .fg { display: flex; flex-direction: column; gap: 8px; }
         .fl { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.18em; color: var(--text-dim); text-transform: uppercase; }
-        .fi, .fta { background: var(--surface); border: 1px solid var(--border-strong); border-radius: 12px; color: var(--text); padding: 14px 18px; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 15px; font-weight: 300; outline: none; resize: none; transition: border-color 0.2s, box-shadow 0.2s; }
+        .fi, .fta, .cf-select { background: var(--surface); border: 1px solid var(--border-strong); border-radius: 12px; color: var(--text); padding: 14px 18px; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 15px; font-weight: 300; outline: none; resize: none; transition: border-color 0.2s, box-shadow 0.2s; }
+        .cf-select { appearance: none; -webkit-appearance: none; cursor: pointer; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23908d87' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 16px center; padding-right: 40px; }
+        .cf-select option { background: var(--surface2); color: var(--text); }
         .fi:focus, .fta:focus { border-color: var(--text-dim); box-shadow: 0 0 0 3px rgba(13,27,75,0.06); }
         .fta { height: 140px; }
         .fr2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }

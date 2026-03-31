@@ -4,17 +4,22 @@ import { NextRequest, NextResponse } from 'next/server';
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(req: NextRequest) {
-  const { vardas, email, zinute } = await req.json();
+  const { vardas, email, zinute, paslauga, planas } = await req.json();
 
   if (!vardas || !email || !zinute) {
     return NextResponse.json({ error: 'Trūksta laukų' }, { status: 400 });
   }
 
+  const serviceInfo = [
+    paslauga ? `Paslauga: ${paslauga}` : '',
+    planas ? `Planas: ${planas}` : '',
+  ].filter(Boolean).join('\n');
+
   const { error } = await resend.emails.send({
     from: 'no-reply@koma-studio.lt',
     to: 'info@komastudio.lt',
-    subject: `Naujas užklausimas nuo ${vardas}`,
-    text: `Vardas: ${vardas}\nEl. paštas: ${email}\n\nŽinutė:\n${zinute}`,
+    subject: `Naujas užklausimas nuo ${vardas}${paslauga ? ` — ${paslauga}` : ''}`,
+    text: `Vardas: ${vardas}\nEl. paštas: ${email}${serviceInfo ? '\n' + serviceInfo : ''}\n\nŽinutė:\n${zinute}`,
     replyTo: email,
   });
 

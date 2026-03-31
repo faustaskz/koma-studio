@@ -230,7 +230,7 @@ const SUPPORT_PLANS = [
   },
 ];
 
-function PlanModal({ plan, onClose }: { plan: Plan; onClose: () => void }) {
+function PlanModal({ plan, platform, onClose }: { plan: Plan; platform: string; onClose: () => void }) {
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') onClose(); };
     document.addEventListener('keydown', onKey);
@@ -269,7 +269,7 @@ function PlanModal({ plan, onClose }: { plan: Plan; onClose: () => void }) {
           </div>
         </div>
         <div className="pr-modal-footer">
-          <a href="#kontaktai" className="pr-modal-cta" onClick={onClose}>Susisiekite dėl šio plano →</a>
+          <a href={`#kontaktai?platforma=${encodeURIComponent(platform)}&planas=${encodeURIComponent(plan.name)}`} className="pr-modal-cta" onClick={() => { window.location.hash = ''; setTimeout(() => { const el = document.getElementById('kontaktai'); el?.scrollIntoView({ behavior: 'smooth' }); const params = new URLSearchParams({ platforma: platform, planas: plan.name }); window.history.replaceState(null, '', `?${params}`); }, 10); onClose(); }}>Susisiekite dėl šio plano →</a>
         </div>
       </div>
     </div>
@@ -296,6 +296,7 @@ function CellMark({ chk, crs }: { chk?: boolean; crs?: boolean }) {
 export default function Pricing() {
   const [activeTab, setActiveTab] = useState<Tab>('wp');
   const [selectedPlan, setSelectedPlan] = useState<Plan | null>(null);
+  const [selectedPlatform, setSelectedPlatform] = useState<string>('');
 
   return (
     <>
@@ -991,7 +992,7 @@ export default function Pricing() {
 
               <div className="pr-plans-grid">
                 {p.plans.map((plan, i) => (
-                  <div key={i} className={`pr-card${plan.featured ? ' featured' : ''}`} onClick={() => setSelectedPlan(plan)}>
+                  <div key={i} className={`pr-card${plan.featured ? ' featured' : ''}`} onClick={() => { setSelectedPlan(plan); setSelectedPlatform(p.badge); }}>
                     {plan.badge && <div className="pr-popular">{plan.badge}</div>}
                     <div className="pr-plan-name">{plan.name}</div>
                     <div>
@@ -1100,7 +1101,7 @@ export default function Pricing() {
         </div>
       </section>
 
-      {selectedPlan && <PlanModal plan={selectedPlan} onClose={() => setSelectedPlan(null)} />}
+      {selectedPlan && <PlanModal plan={selectedPlan} platform={selectedPlatform} onClose={() => setSelectedPlan(null)} />}
     </>
   );
 }
