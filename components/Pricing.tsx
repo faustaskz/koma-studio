@@ -38,25 +38,25 @@ const PLATFORMS: Record<'wp' | 'fr' | 'ai', Platform> = {
   wp: {
     badge: 'WordPress',
     badgeColor: '#60a5fa',
-    title: 'Klasikinis sprendimas — pilnas lankstumas',
-    subtitle: 'Tinka verslo, el. parduotuvių ir turinio svetainėms. Lengvai valdoma turinio sistema, kurią galite tvarkyti patys.',
+    title: 'Lankstus sprendimas augančiam verslui',
+    subtitle: 'Puikus pasirinkimas reprezentacinėms svetainėms, turinio projektams ir el. parduotuvėms. Patogi turinio valdymo sistema leidžia lengvai atnaujinti informaciją ir plėsti svetainę ateityje.',
     pros: [
-      'Patogus valdymas be programavimo žinių',
-      'Lengva keisti tekstą ir nuotraukas',
-      'Tūkstančiai papildinių ir temų',
-      'Puikus el. parduotuvėms (WooCommerce)',
-      'Didelė bendruomenė ir palaikymas',
+      'Patogus turinio valdymas be programavimo žinių',
+      'Lengva atnaujinti tekstus ir nuotraukas',
+      'Tinka tiek mažoms, tiek didesnėms svetainėms',
+      'Geras pasirinkimas el. parduotuvėms',
+      'Platus papildinių ir integracijų pasirinkimas',
     ],
     cons: [
-      'Lėtesnis užkrovimo greitis nei modernesnės platformos',
-      'Reikia reguliarių atnaujinimų',
-      'Dizaino galimybės labiau standartizuotos',
+      'Gali reikalauti reguliarios priežiūros',
+      'Greitis priklauso nuo optimizacijos',
+      'Kai kuriems sprendimams reikia papildomo kūrimo',
     ],
     plans: [
       {
         name: 'WordPress Mini',
         price: '399',
-        desc: 'Greitas pradžios puslapis',
+        desc: 'Paprastas startas mažam verslui',
         features: ['Landing page (1 puslapis)', 'Kontaktų forma', 'Mobili versija', 'Bazinė SEO sąranka'],
         modal: {
           details: ['Vieno puslapio landing page dizainas', 'Kontaktų forma su el. pašto siuntimu', 'Pilnai pritaikyta mobiliems įrenginiams', 'Bazinė SEO sąranka (meta žymos, sitemap)', 'Greita įdiegimas ir paleidimas', 'WordPress administravimo prieiga'],
@@ -66,7 +66,7 @@ const PLATFORMS: Record<'wp' | 'fr' | 'ai', Platform> = {
       {
         name: 'WordPress Basic',
         price: '799',
-        desc: 'Iki 5 puslapių svetainė',
+        desc: 'Tvirtas pasirinkimas verslo svetainei',
         features: ['Iki 5 puslapių', 'Individuali dizaino tema', 'SEO optimizacija', 'Google Analytics', '1 mėn. palaikymas'],
         featured: true,
         badge: 'Populiariausias',
@@ -78,8 +78,8 @@ const PLATFORMS: Record<'wp' | 'fr' | 'ai', Platform> = {
       {
         name: 'WordPress Pro',
         price: '1199',
-        desc: 'Pilna svetainė su visomis funkcijomis',
-        features: ['Iki 15 puslapių', 'El. parduotuvė (WooCommerce)', 'Neriboti puslapiai', 'Daugiakalbystė', 'API integracijos', '3 mėn. palaikymas'],
+        desc: 'Išsamesnis sprendimas augančiam verslui',
+        features: ['Iki 15 puslapių', 'El. parduotuvė (WooCommerce)','Daugiakalbystė', 'API integracijos', '3 mėn. palaikymas'],
         modal: {
           details: ['Iki 15 puslapių arba neriboti (susitarus)', 'WooCommerce el. parduotuvė su mokėjimais', 'Daugiakalbystė (LT/EN ir kt.)', 'API integracijos su išoriniais įrankiais', 'Pažangus SEO ir greičio optimizavimas', '3 mėnesių palaikymas ir atnaujinimai', 'Prioritetinis techninis aptarnavimas'],
           process: ['Strateginis pokalbis ir projekto planas', 'UX/UI dizainas ir prototipas (5–7 d.)', 'Kūrimas etapais (3–4 sav.)', 'Kokybės užtikrinimas ir testavimas', 'SEO sąranka ir analitika', 'Perdavimas su pilnu apmokymų paketu'],
@@ -90,8 +90,8 @@ const PLATFORMS: Record<'wp' | 'fr' | 'ai', Platform> = {
   fr: {
     badge: 'Framer',
     badgeColor: '#34d399',
-    title: 'Modernus ir greitas — maksimalus dizainas',
-    subtitle: 'Idealu landing page ir pristatomiesiems puslapiams. Neįtikėtinai greitas ir vizualiai efektingas.',
+    title: 'Greitas ir vizualiai stiprus sprendimas',
+    subtitle: 'Puikiai tinka landing page ir reprezentacinėms svetainėms, kur svarbus modernus dizainas, animacijos ir greitis.',
     pros: [
       'Pats greičiausias užkrovimo laikas',
       'Modernūs animacijos efektai',
@@ -132,7 +132,7 @@ const PLATFORMS: Record<'wp' | 'fr' | 'ai', Platform> = {
         name: 'Framer Premium',
         price: '1299',
         desc: 'Visiškai individualus dizainas',
-        features: ['Neriboti puslapiai', 'CMS turinys', 'Integracija su išoriniais įrankiais', '3 mėn. palaikymas'],
+        features: ['Iki 15 puslapių', 'CMS turinys', 'Integracija su išoriniais įrankiais', '3 mėn. palaikymas'],
         modal: {
           details: ['Neriboti puslapiai su unikaliu dizainu', 'Framer CMS — lengvas turinio valdymas', 'Integracijos: Zapier, Make, API ir kt.', 'Pažangios animacijos ir interaktyvūs elementai', '3 mėnesių palaikymas ir atnaujinimai', 'Prioritetinis aptarnavimas'],
           process: ['Strateginis planavimas ir konkurentų analizė', 'Pilnas UX/UI dizainas (1 sav.)', 'Kūrimas ir CMS sąranka (3–4 sav.)', 'Integracijos ir testavimas', 'Perdavimas su pilnu dokumentavimu'],
@@ -143,8 +143,8 @@ const PLATFORMS: Record<'wp' | 'fr' | 'ai', Platform> = {
   ai: {
     badge: 'AI Svetainė',
     badgeColor: '#a78bfa',
-    title: 'Ateities metodas — greičiau, išmaniau',
-    subtitle: 'Kuriame svetaines naudodami dirbtinį intelektą. Išskirtinis rezultatas per trumpesnį laiką.',
+    title: 'AI pagreitintas svetainių kūrimas',
+    subtitle: 'Naudojame dirbtinio intelekto įrankius tam, kad svetainės kūrimas vyktų greičiau, o rezultatas būtų kokybiškas ir šiuolaikiškas.',
     pros: [
       'Ypač greitas sukūrimo laikas',
       'Žemesnė kaina nei tradicinis kūrimas',
@@ -184,7 +184,7 @@ const PLATFORMS: Record<'wp' | 'fr' | 'ai', Platform> = {
         name: 'AI Scale',
         price: '1099',
         desc: 'Pažangus AI sprendimas',
-        features: ['Neriboti puslapiai', 'AI chatbot integracija', 'Automatizacijos', '4 mėn. palaikymas'],
+        features: ['Iki 20 puslapių', 'AI chatbot integracija', 'Automatizacijos', '4 mėn. palaikymas'],
         modal: {
           details: ['Neriboti puslapiai su AI turiniu', 'AI chatbot — automatinis klientų aptarnavimas 24/7', 'Procesų automatizacija (el. laiškai, užklausos, CRM)', 'Pažangus SEO su AI turinio strategija', '4 mėnesių palaikymas ir tobulinimas', 'Mėnesinė analitikos ataskaita'],
           process: ['Strateginė analizė ir AI galimybių įvertinimas', 'Architektūros planavimas (3–5 d.)', 'Kūrimas etapais (4–6 sav.)', 'Chatbot apmokymas ir testavimas', 'Automatizacijų sąranka', 'Paleidimas ir monitoringas'],
@@ -199,7 +199,7 @@ interface CompareRow { feature: string; wp: Cell; fr: Cell; ai: Cell }
 
 const COMPARE_ROWS: CompareRow[] = [
   { feature: 'Tinkamas pradedantiesiems', wp: { chk: true, text: 'Taip' }, fr: { chk: true, text: 'Taip' }, ai: { chk: true, text: 'Taip' } },
-  { feature: 'Kliento galimybė keisti turinį', wp: { chk: true, text: 'Labai paprasta' }, fr: { text: 'Vidutiniškai' }, ai: { crs: true, text: 'Ribota' } },
+  { feature: 'Kliento galimybė keisti turinį', wp: { chk: true, text: 'Labai patogu' }, fr: { text: 'Vidutiniškai patogu' }, ai: { crs: true, text: 'Ribota' } },
   { feature: 'Dizaino unikalumas', wp: { text: 'Standartinis' }, fr: { text: 'Aukštas' }, ai: { text: 'Aukštas' } },
   { feature: 'Greitis ir našumas', wp: { text: 'Vidutinis' }, fr: { chk: true, text: 'Labai greitas' }, ai: { chk: true, text: 'Greitas' } },
   { feature: 'El. parduotuvė', wp: { chk: true, text: 'Taip' }, fr: { crs: true, text: 'Ne' }, ai: { text: 'Ribota' } },
@@ -207,7 +207,7 @@ const COMPARE_ROWS: CompareRow[] = [
   { feature: 'Daugiakalbė svetainė', wp: { chk: true, text: 'Taip' }, fr: { text: 'Iš dalies' }, ai: { text: 'Iš dalies' } },
   { feature: 'Kūrimo greitis', wp: { text: 'Lėtesnis' }, fr: { text: 'Greitas' }, ai: { chk: true, text: 'Greičiausias' } },
   { feature: 'Pradžios kaina', wp: { text: 'Nuo €299' }, fr: { text: 'Nuo €399' }, ai: { text: 'Nuo €249' } },
-  { feature: 'Geriausia kai...', wp: { text: 'Reikia el. parduotuvės ar didelio turinio valdymo' }, fr: { text: 'Svarbus įspūdingas dizainas ir greitis' }, ai: { text: 'Norima greito, modernaus rezultato už gerą kainą' } },
+  { feature: 'Tinka, kai...', wp: { text: 'Reikia el. parduotuvės ar didelio turinio valdymo' }, fr: { text: 'Svarbus įspūdingas dizainas ir greitis' }, ai: { text: 'Norima greito, modernaus rezultato už gerą kainą' } },
 ];
 
 const SUPPORT_PLANS = [
@@ -945,7 +945,7 @@ export default function Pricing() {
         <div className="pr-header">
           <div className="pr-label">Kainodara</div>
           <h2 className="pr-title">Svetainių kūrimo <em>planai</em></h2>
-          <p className="pr-subtitle">Pasirinkite platformą ir planą, kuris geriausiai atitinka jūsų verslo poreikius.</p>
+          <p className="pr-subtitle">Skirtingi sprendimai skirtingiems verslo poreikiams.</p>
         </div>
 
         {/* TABS */}
@@ -1084,7 +1084,7 @@ export default function Pricing() {
         <div className="pr-support">
           <div className="pr-support-hdr">
             <h3>Administravimo <em>mokesčiai</em></h3>
-            <p>Pasirenkamas mėnesinis planas svetainei prižiūrėti ir tobulinti po sukūrimo</p>
+            <p>Pasirenkamas mėnesinis planas svetainės priežiūrai, atnaujinimams ir tobulinimui.</p>
           </div>
           <div className="pr-support-grid">
             {SUPPORT_PLANS.map((s, i) => (
@@ -1109,11 +1109,11 @@ export default function Pricing() {
 
         {/* CTA */}
         <div className="pr-cta">
-          <h3>Nežinote, kuris variantas jums tinkamiausias?</h3>
-          <p>Užsiregistruokite arba skambinkite dėl nemokamos konsultacijos. Padėsime rasti jums tinkamiausią sprendimą pagal jūsų tikslus ir biudžetą.</p>
+          <h3>Nežinote, nuo ko pradėti?</h3>
+          <p>Susisiekite su mumis nemokamai konsultacijai — padėsime išsirinkti sprendimą pagal jūsų poreikius ir biudžetą.</p>
           <div className="pr-cta-btns">
             <a href="#kontaktai" className="lava-btn btn-primary-wrap" style={{ borderRadius: '100px', padding: '12px 28px', display: 'inline-block' }}>
-              <span className="btn-label">Užsiregistruoti konsultacijai →</span>
+              <span className="btn-label">Susisiekti nemokamai →</span>
             </a>
             <RevealPhone />
           </div>

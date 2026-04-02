@@ -6,7 +6,8 @@
       "Bash(node -e \"const r = require\\(''''./node_modules/resend/dist/index.js''''\\); console.log\\(''''ok''''\\)\")",
       "Bash(python3 -c \"import json,sys; p=json.load\\(sys.stdin\\); print\\(p.get\\(''''version''''\\)\\); print\\(p.get\\(''''main''''\\) or p.get\\(''''exports'''',{}\\)\\)\")",
       "Bash(node -e \"const p = require\\(''c:/Users/faust/Desktop/koma-studio/node_modules/resend/package.json''\\); console.log\\(p.version, JSON.stringify\\(p.exports||p.main\\)\\)\")",
-      "Bash(node -e \"const r = require\\(''c:/Users/faust/Desktop/koma-studio/node_modules/resend/dist/index.cjs''\\); console.log\\(Object.keys\\(r\\)\\)\")"
+      "Bash(node -e \"const r = require\\(''c:/Users/faust/Desktop/koma-studio/node_modules/resend/dist/index.cjs''\\); console.log\\(Object.keys\\(r\\)\\)\")",
+      "Bash(node -e \":*)"
     ]
   }
 }

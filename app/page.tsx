@@ -507,7 +507,7 @@ document.querySelectorAll<HTMLElement>('.sn').forEach((el) => {
             <div className="svc-n">01</div>
             <div>
               <div className="svc-name">Web Dizainas</div>
-              <p className="svc-desc">Kuriame individualias svetaines nuo nulio. Kiekvienas projektas — unikalus dizainas, greitas kodas, mobili versija. Jokių šablonų, jokių kompromisų.</p>
+              <p className="svc-desc">Kuriame modernias, individualiai pritaikytas svetaines pagal jūsų verslo tikslus. Dėmesį skiriame ne tik dizainui, bet ir greičiui, patogiam naudojimui bei sklandžiam veikimui visuose įrenginiuose.</p>
               <div className="svc-tags">
                 {['HTML / CSS / JS','Mobili versija','Greitas įkėlimas','Modernios animacijos'].map((t,i) => <span key={i} className="stag2">{t}</span>)}
               </div>
@@ -518,7 +518,7 @@ document.querySelectorAll<HTMLElement>('.sn').forEach((el) => {
             <div className="svc-n">02</div>
             <div>
               <div className="svc-name">SEO Optimizacija</div>
-              <p className="svc-desc">Optimizuojame svetaines kad jos būtų randamos Google paieškoje. Techninė SEO, greičio optimizacija, vietinė paieška — viskas ką reikia augti.</p>
+              <p className="svc-desc">Padedame pasirūpinti, kad jūsų svetainė būtų geriau matoma Google paieškoje. Sutvarkome techninius pagrindus, greitį ir svarbiausius SEO elementus, reikalingus geresniam matomumui internete.</p>
               <div className="svc-tags">
                 {['Techninė SEO','Google Search Console','Core Web Vitals','Vietinė paieška'].map((t,i) => <span key={i} className="stag2">{t}</span>)}
               </div>
@@ -557,8 +557,8 @@ document.querySelectorAll<HTMLElement>('.sn').forEach((el) => {
         <div className="blob-left reveal"><div className="blob-wrap"></div></div>
         <div className="blob-right reveal d1">
           <div className="blob-tag">Dirbkime kartu</div>
-          <h3 className="blob-title">Dizaino komanda, kuri supranta jūsų verslo tikslus</h3>
-          <p className="blob-desc">Jokių sudėtingų procesų. Tik rezultatas, kuris kalba už save. Nuo pirmojo pokalbio iki veikiančios svetainės — mes esame šalia.</p>
+          <h3 className="blob-title">Kuriame svetaines, kurios atrodo profesionaliai ir veikia efektyviai</h3>
+          <p className="blob-desc">Be nereikalingo sudėtingumo. Nuo pirmo pokalbio iki paleistos svetainės dirbame aiškiai, greitai ir orientuotai į rezultatą.</p>
           <a href="#kontaktai" className="lava-btn btn-primary-wrap">
             <span className="btn-label">Susisiekite →</span>
           </a>
@@ -571,8 +571,8 @@ document.querySelectorAll<HTMLElement>('.sn').forEach((el) => {
         <div className="stag reveal">Kontaktai</div>
         <div className="cont-grid">
           <div className="reveal">
-            <h2 className="cont-title">Pradėkime<br /><em>kartu.</em></h2>
-            <p className="cont-desc">Turite projektą? Parašykite — atsakysime per 24 val. ir aptarsime kaip galime padėti.</p>
+            <h2 className="cont-title">Aptarkime<br /><em>jūsų projektą.</em></h2>
+            <p className="cont-desc">Parašykite mums — atsakysime per 24 val. ir aptarsime, kaip galėtume padėti.</p>
             <div className="cont-details">
               <div><div className="cd-l">El. paštas</div><div className="cd-v">info@komastudio.lt</div></div>
               <div><div className="cd-l">Miestas</div><div className="cd-v">Vilnius, Lietuva</div></div>
