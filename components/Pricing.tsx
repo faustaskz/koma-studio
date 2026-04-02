@@ -1083,7 +1083,7 @@ export default function Pricing() {
         {/* SUPPORT SECTION */}
         <div className="pr-support">
           <div className="pr-support-hdr">
-            <h3>Administravimo <em>mokesčiai</em></h3>
+            <h3>Svetainės priežiūros <em>planai</em></h3>
             <p>Pasirenkamas mėnesinis planas svetainės priežiūrai, atnaujinimams ir tobulinimui.</p>
           </div>
           <div className="pr-support-grid">
