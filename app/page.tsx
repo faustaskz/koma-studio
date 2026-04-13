@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect } from 'react';
-import Pricing from '@/components/Pricing';
+// import Pricing from '@/components/Pricing';
 import ContactForm from '@/components/ContactForm';
 
 export default function Home() {
@@ -444,10 +444,10 @@ document.querySelectorAll<HTMLElement>('.sn').forEach((el) => {
           <a href="#apie">Apie</a>
           <a href="#paslaugos">Paslaugos</a>
           <a href="#portfolio">Darbai</a>
-          <a href="#kainodara">Kainos</a>
-          <a href="#kontaktai" className="lava-btn nav-cta">
+          {/* <a href="#kainodara">Kainos</a> */}
+          {/* <a href="#kontaktai" className="lava-btn nav-cta">
             <span className="btn-label">Susisiekite</span>
-          </a>
+          </a> */}
         </div>
         <button className="theme-btn" id="themeBtn">☀︎</button>
       </nav>
@@ -565,7 +565,7 @@ document.querySelectorAll<HTMLElement>('.sn').forEach((el) => {
         </div>
       </div>
 
-      <Pricing />
+      {/* <Pricing /> */}
 
       <section id="kontaktai">
         <div className="stag reveal">Kontaktai</div>

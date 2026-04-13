@@ -9,7 +9,7 @@ const PLANS: Record<string, string[]> = {
   'AI Svetainė': ['AI Spark', 'AI Growth', 'AI Scale'],
 };
 
-const SERVICE_OPTIONS = ['WordPress', 'Framer', 'AI Svetainė', 'Reprezentacinė svetainė', 'Konsultacija', 'Kita'];
+const SERVICE_OPTIONS = ['Reprezentacinė svetainė', 'Konsultacija', 'Kita'];
 
 function ContactFormInner() {
   const [status, setStatus] = useState<'idle' | 'sending' | 'ok' | 'error'>('idle');
