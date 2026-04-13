@@ -12,7 +12,7 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const BASE_URL = "https://koma-studio.lt";
+const BASE_URL = "https://www.koma-studio.lt";
 
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
@@ -27,6 +27,7 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: '/favicon.svg',
+    apple: '/favicon.svg',
   },
   robots: {
     index: true,

@@ -490,8 +490,8 @@ document.querySelectorAll<HTMLElement>('.sn').forEach((el) => {
             </div>
           </div>
           <div className="reveal d1">
-            <p className="about-p">Esame nedidelė, bet ambicinga kūrybinė studija iš Vilniaus. Kuriame modernias, greitas ir efektyvias svetaines verslams, kuriems svarbus rezultatas — ne tik išvaizda.</p>
-            <p className="about-p">Mūsų darbas derina estetiką su technika: kiekvienas projektas optimizuotas greičiui, paieškos sistemoms ir konversijoms.</p>
+            <p className="about-p">Esame nedidelė, bet ambicinga kūrybinė studija iš Vilniaus. Kuriame skaitmeninę prabangą verslams — modernias, greitas ir efektyvias svetaines, kurioms svarbus rezultatas, o ne tik išvaizda.</p>
+            <p className="about-p">Mūsų darbas derina estetiką su technika: kiekvienas projektas optimizuotas greičiui, paieškos sistemoms ir konversijoms. Kiekviena detalė apgalvota taip, kad jūsų verslas išsiskirtų skaitmeninėje erdvėje.</p>
             <div className="pills">
               {['Web dizainas','SEO optimizacija','Greitas hostingas','Mobili versija'].map((p,i) => <span key={i} className="pill">{p}</span>)}
             </div>
@@ -547,7 +547,7 @@ document.querySelectorAll<HTMLElement>('.sn').forEach((el) => {
             <div className="port-cta-inner">
               <div className="port-cta-plus">+</div>
               <div className="port-cta-text">Čia galėtų būti<br />jūsų projektas</div>
-              <div className="port-cta-btn">Susisiekite →</div>
+              <div className="port-cta-btn">Rašykite mums →</div>
             </div>
           </a>
         </div>
@@ -560,7 +560,7 @@ document.querySelectorAll<HTMLElement>('.sn').forEach((el) => {
           <h3 className="blob-title">Kuriame svetaines, kurios atrodo profesionaliai ir veikia efektyviai</h3>
           <p className="blob-desc">Be nereikalingo sudėtingumo. Nuo pirmo pokalbio iki paleistos svetainės dirbame aiškiai, greitai ir orientuotai į rezultatą.</p>
           <a href="#kontaktai" className="lava-btn btn-primary-wrap">
-            <span className="btn-label">Susisiekite →</span>
+            <span className="btn-label">Pradėkime kartu →</span>
           </a>
         </div>
       </div>

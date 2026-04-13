@@ -1,6 +1,6 @@
 import type { MetadataRoute } from 'next';
 
-const BASE_URL = 'https://koma-studio.lt';
+const BASE_URL = 'https://www.koma-studio.lt';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
