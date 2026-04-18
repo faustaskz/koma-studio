@@ -3,6 +3,8 @@
 import { useEffect } from 'react';
 // import Pricing from '@/components/Pricing';
 import ContactForm from '@/components/ContactForm';
+import DeployAnimation from '@/components/ui/DeployAnimation';
+import TypewriterWord from '@/components/ui/TypewriterWord';
 
 export default function Home() {
   useEffect(() => {
@@ -146,6 +148,60 @@ document.querySelectorAll<HTMLElement>('.sn').forEach((el) => {
           75%  { background-position: 0% 100%; }
           100% { background-position: 0% 0%; }
         }
+        @keyframes pixel8glitch {
+          0%, 85%, 100% {
+            text-shadow: 1px 0 0 #6d28d9, 2px 1px 0 #4c1d95, 3px 2px 0 #1e1b4b;
+            transform: none;
+            -webkit-text-fill-color: #c084fc;
+          }
+          86% {
+            text-shadow: -3px 0 0 #f0abfc, 3px 0 0 #22d3ee, 0 2px 0 #6d28d9;
+            transform: translateX(3px) skewX(-1deg);
+            -webkit-text-fill-color: #f0abfc;
+          }
+          87% {
+            text-shadow: 3px 0 0 #f0abfc, -3px 0 0 #22d3ee, 0 -2px 0 #4c1d95;
+            transform: translateX(-3px) skewX(1deg);
+            -webkit-text-fill-color: #c084fc;
+          }
+          88% {
+            text-shadow: 1px 0 0 #6d28d9, 2px 1px 0 #4c1d95, 3px 2px 0 #1e1b4b;
+            transform: translateY(1px);
+            -webkit-text-fill-color: #e879f9;
+          }
+          89% {
+            text-shadow: 1px 0 0 #6d28d9, 2px 1px 0 #4c1d95, 3px 2px 0 #1e1b4b;
+            transform: none;
+            -webkit-text-fill-color: #c084fc;
+          }
+        }
+        @keyframes pixel8glitch-light {
+          0%, 85%, 100% {
+            text-shadow: 1px 0 0 #4c1d95, 2px 1px 0 #1e1b4b, 3px 2px 0 rgba(0,0,0,0.4);
+            transform: none;
+            -webkit-text-fill-color: #6d28d9;
+          }
+          86% {
+            text-shadow: -3px 0 0 #a855f7, 3px 0 0 #0284c7, 0 2px 0 #4c1d95;
+            transform: translateX(3px) skewX(-1deg);
+            -webkit-text-fill-color: #7c3aed;
+          }
+          87% {
+            text-shadow: 3px 0 0 #a855f7, -3px 0 0 #0284c7, 0 -2px 0 #1e1b4b;
+            transform: translateX(-3px) skewX(1deg);
+            -webkit-text-fill-color: #6d28d9;
+          }
+          88% {
+            text-shadow: 1px 0 0 #4c1d95, 2px 1px 0 #1e1b4b;
+            transform: translateY(1px);
+            -webkit-text-fill-color: #7c3aed;
+          }
+          89% {
+            text-shadow: 1px 0 0 #4c1d95, 2px 1px 0 #1e1b4b, 3px 2px 0 rgba(0,0,0,0.4);
+            transform: none;
+            -webkit-text-fill-color: #6d28d9;
+          }
+        }
         @keyframes gradShift {
           0%   { background-position: 0% 50%; }
           50%  { background-position: 100% 50%; }
@@ -265,17 +321,38 @@ document.querySelectorAll<HTMLElement>('.sn').forEach((el) => {
         .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
         .about-h { font-family: 'Instrument Serif', serif; font-size: clamp(36px, 4vw, 56px); line-height: 1.15; font-weight: 400; letter-spacing: -0.02em; }
         .about-h em {
+          font-family: var(--font-playfair), serif;
           font-style: italic;
-          background: linear-gradient(135deg, #0d1b4b, #3a1a6e, #0d1b4b);
-          background-size: 300% 300%;
-          -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-          animation: gradShift 6s ease infinite;
+          font-weight: 700;
+          font-size: 1.05em;
+          display: inline-block;
+          /* Kill antialiasing — raw pixel edges */
+          -webkit-font-smoothing: none;
+          -moz-osx-font-smoothing: unset;
+          font-smooth: never;
+          text-rendering: optimizeSpeed;
+          /* Solid retro color + hard pixel shadow stack */
+          background: none;
+          -webkit-text-fill-color: #6d28d9;
+          color: #6d28d9;
+          text-shadow: 1px 0 0 #4c1d95, 2px 1px 0 #1e1b4b, 3px 2px 0 rgba(0,0,0,0.4);
+          animation: pixel8glitch-light 4s steps(1) infinite;
         }
         [data-theme="dark"] .about-h em {
-          background: linear-gradient(135deg, #4a6fa5, #7b4fa5, #4a6fa5);
-          background-size: 300% 300%;
-          -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-          animation: gradShift 6s ease infinite;
+          font-family: var(--font-playfair), serif;
+          font-style: italic;
+          font-weight: 700;
+          font-size: 1.05em;
+          display: inline-block;
+          -webkit-font-smoothing: none;
+          -moz-osx-font-smoothing: unset;
+          font-smooth: never;
+          text-rendering: optimizeSpeed;
+          background: none;
+          -webkit-text-fill-color: #c084fc;
+          color: #c084fc;
+          text-shadow: 1px 0 0 #6d28d9, 2px 1px 0 #4c1d95, 3px 2px 0 #1e1b4b;
+          animation: pixel8glitch 4s steps(1) infinite;
         }
         .about-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; margin-top: 52px; padding-top: 44px; border-top: 1px solid var(--border); }
         .sn { font-family: 'Instrument Serif', serif; font-size: 48px; font-weight: 400; line-height: 1; color: var(--text); }
@@ -445,9 +522,9 @@ document.querySelectorAll<HTMLElement>('.sn').forEach((el) => {
           <a href="#paslaugos">Paslaugos</a>
           <a href="#portfolio">Darbai</a>
           {/* <a href="#kainodara">Kainos</a> */}
-          {/* <a href="#kontaktai" className="lava-btn nav-cta">
+          <a href="#kontaktai" className="lava-btn nav-cta">
             <span className="btn-label">Susisiekite</span>
-          </a> */}
+          </a>
         </div>
         <button className="theme-btn" id="themeBtn">☀︎</button>
       </nav>
@@ -460,7 +537,7 @@ document.querySelectorAll<HTMLElement>('.sn').forEach((el) => {
         <div className="float-img fi-5"><div className="float-placeholder"></div></div>
         <div className="float-img fi-6"><div className="float-placeholder"></div></div>
         <p className="hero-eyebrow">Kūrybinė studija — Vilnius, Lietuva</p>
-        <h1 className="hero-title">Skaitmeninė<br /><em>prabanga</em> jūsų<br />verslui.</h1>
+        <h1 className="hero-title">Skaitmeninė<br /><em><TypewriterWord /></em> jūsų<br />verslui.</h1>
         <p className="hero-sub">Jūsų vizija. Mūsų meistriškumas.<br />Rezultatas, kuriantis vertę.</p>
         <div className="hero-actions">
           <a href="#kontaktai" className="lava-btn btn-primary-wrap">
@@ -566,6 +643,8 @@ document.querySelectorAll<HTMLElement>('.sn').forEach((el) => {
       </div>
 
       {/* <Pricing /> */}
+
+      <DeployAnimation />
 
       <section id="kontaktai">
         <div className="stag reveal">Kontaktai</div>
