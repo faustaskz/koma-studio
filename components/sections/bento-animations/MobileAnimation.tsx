@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, memo } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 
 // Blocks that simulate page content inside the phone screen
@@ -17,11 +17,11 @@ const CONTENT_BLOCKS = [
   { w: '70%', h: 6, accent: false },
 ];
 
-export default function MobileAnimation() {
+function MobileAnimation({ forceActive = false }: { forceActive?: boolean }) {
   const [hovered, setHovered] = useState(false);
   const reduced = useReducedMotion();
 
-  const active = hovered && !reduced;
+  const active = (forceActive || hovered) && !reduced;
 
   return (
     <div
@@ -149,3 +149,4 @@ export default function MobileAnimation() {
     </div>
   );
 }
+export default memo(MobileAnimation);

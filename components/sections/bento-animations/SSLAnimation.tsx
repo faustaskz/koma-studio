@@ -1,15 +1,14 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, memo } from 'react';
 import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 import { Lock, LockOpen } from 'lucide-react';
 
-export default function SSLAnimation() {
+function SSLAnimation({ forceActive = false }: { forceActive?: boolean }) {
   const [hovered, setHovered] = useState(false);
   const reduced = useReducedMotion();
 
-  // When reduced motion: always show the "locked" end-state, no transitions
-  const active = hovered || !!reduced;
+  const active = forceActive || hovered || !!reduced;
 
   return (
     <div
@@ -132,3 +131,4 @@ export default function SSLAnimation() {
     </div>
   );
 }
+export default memo(SSLAnimation);

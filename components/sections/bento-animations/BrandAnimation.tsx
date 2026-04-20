@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, memo } from 'react';
 import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 
 // SVG canvas: 220 × 120, centre (110, 60)
@@ -18,11 +18,11 @@ const SWATCHES = [
 
 function toRad(deg: number) { return (deg * Math.PI) / 180; }
 
-export default function BrandAnimation() {
+function BrandAnimation({ forceActive = false }: { forceActive?: boolean }) {
   const [hovered, setHovered] = useState(false);
   const reduced = useReducedMotion();
 
-  const active = hovered || !!reduced;
+  const active = forceActive || hovered || !!reduced;
 
   return (
     <div
@@ -203,3 +203,5 @@ export default function BrandAnimation() {
     </div>
   );
 }
+
+export default memo(BrandAnimation);

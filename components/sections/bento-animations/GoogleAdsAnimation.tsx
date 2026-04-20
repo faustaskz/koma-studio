@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, memo } from 'react';
 import {
   motion,
   AnimatePresence,
@@ -20,11 +20,11 @@ const BARS = [
 
 const IDLE_SCALE = 0.12;
 
-export default function GoogleAdsAnimation() {
+function GoogleAdsAnimation({ forceActive = false }: { forceActive?: boolean }) {
   const [hovered, setHovered] = useState(false);
   const reduced = useReducedMotion();
 
-  const active = hovered || !!reduced;
+  const active = forceActive || hovered || !!reduced;
 
   // Click counter
   const clicksMv = useMotionValue(reduced ? 348 : 0);
@@ -267,3 +267,4 @@ export default function GoogleAdsAnimation() {
     </div>
   );
 }
+export default memo(GoogleAdsAnimation);

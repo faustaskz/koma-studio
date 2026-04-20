@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, memo } from 'react';
 import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 
 const RESULTS = [
@@ -29,11 +29,11 @@ const RESULTS = [
 
 const SPRING = { type: 'spring', stiffness: 280, damping: 28 } as const;
 
-export default function SEOAnimation() {
+function SEOAnimation({ forceActive = false }: { forceActive?: boolean }) {
   const [hovered, setHovered] = useState(false);
   const reduced = useReducedMotion();
 
-  const active = hovered || !!reduced;
+  const active = forceActive || hovered || !!reduced;
 
   // Reorder: koma rises to #1 on hover
   const ordered = active
@@ -245,3 +245,4 @@ export default function SEOAnimation() {
     </div>
   );
 }
+export default memo(SEOAnimation);

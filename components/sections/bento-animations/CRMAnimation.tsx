@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, memo } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 import { FileText, Database, Mail, MessageSquare } from 'lucide-react';
 
@@ -57,14 +57,14 @@ function sleep(ms: number) {
 }
 
 // ── Component ──────────────────────────────────────────────────────────────
-export default function CRMAnimation() {
+function CRMAnimation({ forceActive = false }: { forceActive?: boolean }) {
   const [hovered, setHovered] = useState(false);
   const [phase, setPhase] = useState(-1);
   const reduced = useReducedMotion();
   const cancelRef = useRef(false);
 
   useEffect(() => {
-    if (!hovered || reduced) {
+    if ((!hovered && !forceActive) || reduced) {
       setPhase(reduced ? 7 : -1);
       return;
     }
@@ -85,7 +85,7 @@ export default function CRMAnimation() {
       cancelRef.current = true;
       setPhase(-1);
     };
-  }, [hovered, reduced]);
+  }, [hovered, forceActive, reduced]);
 
   const isNodeLit  = (i: number) => phase >= i * 2;
   const isNodePulse = (i: number) => phase === i * 2;
@@ -261,3 +261,5 @@ export default function CRMAnimation() {
     </div>
   );
 }
+
+export default memo(CRMAnimation);

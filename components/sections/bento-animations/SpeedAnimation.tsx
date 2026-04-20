@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, memo } from 'react';
 import {
   motion,
   useMotionValue,
@@ -9,7 +9,7 @@ import {
   useReducedMotion,
 } from 'framer-motion';
 
-export default function SpeedAnimation() {
+function SpeedAnimation({ forceActive = false }: { forceActive?: boolean }) {
   const [hovered, setHovered] = useState(false);
   const reduced = useReducedMotion();
 
@@ -26,7 +26,7 @@ export default function SpeedAnimation() {
       return;
     }
 
-    if (hovered) {
+    if (hovered || forceActive) {
       const ctrl = animate(progress, 98, {
         duration: 1.5,
         ease: [0.16, 1, 0.3, 1],
@@ -39,7 +39,7 @@ export default function SpeedAnimation() {
       });
       return () => ctrl.stop();
     }
-  }, [hovered, reduced, progress]);
+  }, [hovered, forceActive, reduced, progress]);
 
   return (
     <div
@@ -129,3 +129,4 @@ export default function SpeedAnimation() {
     </div>
   );
 }
+export default memo(SpeedAnimation);

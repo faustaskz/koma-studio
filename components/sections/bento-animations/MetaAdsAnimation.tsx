@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, memo } from 'react';
 import {
   motion,
   AnimatePresence,
@@ -30,11 +30,11 @@ const POST_LINES = [
   [{ w: '60%', h: 4 }, { w: '40%', h: 4 }],
 ];
 
-export default function MetaAdsAnimation() {
+function MetaAdsAnimation({ forceActive = false }: { forceActive?: boolean }) {
   const [hovered, setHovered] = useState(false);
   const reduced = useReducedMotion();
 
-  const active = hovered || !!reduced;
+  const active = forceActive || hovered || !!reduced;
 
   // Motion values for the two counters
   const clicks = useMotionValue(reduced ? 1247 : 0);
@@ -251,3 +251,4 @@ export default function MetaAdsAnimation() {
     </div>
   );
 }
+export default memo(MetaAdsAnimation);

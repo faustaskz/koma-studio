@@ -1,13 +1,13 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, memo } from 'react';
 import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 
 const AI_RESPONSE = 'Rekomenduoju Meta reklamos kampaniją su...';
 const CHAR_DELAY_MS = 38;
 const TYPING_PAUSE_MS = 520;
 
-export default function AIAnimation() {
+function AIAnimation({ forceActive = false }: { forceActive?: boolean }) {
   const [hovered, setHovered] = useState(false);
   const reduced = useReducedMotion();
 
@@ -28,7 +28,7 @@ export default function AIAnimation() {
   useEffect(() => {
     clearTimers();
 
-    if (!hovered) {
+    if (!hovered && !forceActive) {
       setTyped('');
       setIsTyping(false);
       setDone(false);
@@ -65,7 +65,7 @@ export default function AIAnimation() {
     timersRef.current.push(t1);
 
     return clearTimers;
-  }, [hovered, reduced]);
+  }, [hovered, forceActive, reduced]);
 
   return (
     <div
@@ -225,3 +225,5 @@ export default function AIAnimation() {
     </div>
   );
 }
+
+export default memo(AIAnimation);
