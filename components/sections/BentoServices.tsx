@@ -223,7 +223,7 @@ export default function BentoServices() {
         id="bento-services"
         ref={sectionRef}
         aria-label="KOMA Studio — visos paslaugos"
-        style={{ background: '#0A0A0A', padding: '100px 48px', position: 'relative', overflow: 'hidden' }}
+        style={{ background: '#0A0A0A', position: 'relative', overflow: 'hidden' }}
       >
         {/* Styles are component-scoped via #bento-services prefix */}
         <style>{`
@@ -238,9 +238,10 @@ export default function BentoServices() {
             z-index: 0;
           }
 
-          /* Section border */
+          /* Section border + base padding */
           #bento-services {
             border-top: 1px solid rgba(255,255,255,0.06);
+            padding: 100px 48px;
           }
 
           /* ── Typography ── */
@@ -426,8 +427,22 @@ export default function BentoServices() {
 
           /* ── Mobile ── */
           @media (max-width: 767px) {
-            #bento-services { padding: 72px 24px; }
+            #bento-services { padding: 72px 20px; }
             .bento-card { height: auto; }
+
+            .bento-eyebrow,
+            .bento-heading,
+            .bento-sub {
+              text-align: center;
+              margin-left: auto;
+              margin-right: auto;
+            }
+
+            .bento-grid {
+              max-width: 480px;
+              margin-left: auto;
+              margin-right: auto;
+            }
           }
         `}</style>
 
