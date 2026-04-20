@@ -5,6 +5,7 @@ import { useEffect } from 'react';
 import ContactForm from '@/components/ContactForm';
 import DeployAnimation from '@/components/ui/DeployAnimation';
 import TypewriterWord from '@/components/ui/TypewriterWord';
+import BentoServices from '@/components/sections/BentoServices';
 
 export default function Home() {
   useEffect(() => {
@@ -604,6 +605,8 @@ document.querySelectorAll<HTMLElement>('.sn').forEach((el) => {
           </div>
         </div>
       </section>
+
+      <BentoServices />
 
       <section id="portfolio">
         <div className="stag reveal">Darbai</div>
