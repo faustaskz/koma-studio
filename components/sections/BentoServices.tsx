@@ -161,12 +161,8 @@ const BentoCard = memo(function BentoCard({ card, isMobile }: BentoCardProps) {
       // Promote to its own GPU layer once visible
       style={{ willChange: 'opacity, transform' }}
     >
-      {/* ── Full-card keyboard-accessible link ── */}
-      <Link
-        href={CARD_HREFS[card.id]}
-        className="bento-card-link"
-        aria-label={`${card.title} — žiūrėti paslaugą`}
-      />
+      {/* ── Full-card link (disabled — pages not yet created) ── */}
+      {/* <Link href={CARD_HREFS[card.id]} className="bento-card-link" aria-label={`${card.title} — žiūrėti paslaugą`} /> */}
 
       {/* ── Animation (z-index 2 so it sits above the link overlay) ── */}
       <div className="bento-anim-wrap">
