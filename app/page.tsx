@@ -505,23 +505,58 @@ document.querySelectorAll<HTMLElement>('.sn').forEach((el) => {
         @media(max-width:768px){
           nav { top: 12px; padding: 8px 8px 8px 18px; }
           .nav-links a:not(.nav-cta) { display: none; }
-          #hero { padding: 100px 24px 60px; }
-          section { padding: 72px 24px; }
-          .about-grid, .cont-grid { grid-template-columns: 1fr; gap: 48px; }
-          .port-grid { grid-template-columns: 1fr 1fr; }
+
+          /* Hero */
+          #hero { padding: 100px 20px 60px; }
+          .hero-title { font-size: clamp(40px, 11vw, 64px); }
+          .hero-sub { font-size: 15px; max-width: 100%; }
+          .hero-actions { flex-direction: column; gap: 10px; width: 100%; padding: 0 16px; }
+          .btn-primary-wrap, .btn-ghost { width: 100%; text-align: center; }
+
+          /* Slėpiam visas korteles telefone */
+          .fi-1,.fi-2,.fi-3,.fi-4,.fi-5,.fi-6 { display: none; }
+
+          /* Hero video – šiek tiek labiau matomas be kortelių */
+          .hero-video-bg { opacity: 0.1; }
+          [data-theme="dark"] .hero-video-bg { opacity: 0.22; }
+
+          section { padding: 64px 20px; }
+
+          .about-grid { grid-template-columns: 1fr; gap: 40px; }
+          .about-stats { grid-template-columns: 1fr 1fr; gap: 20px; }
+
+          .svc-row { grid-template-columns: 40px 1fr 20px; gap: 14px; padding: 28px 0; }
+          .svc-name { font-size: 24px; }
+
+          .port-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
           .port-cta-card { grid-column: 1 / -1; aspect-ratio: unset; }
           .port-cta-inner { flex-direction: row; align-items: center; justify-content: flex-start; gap: 16px; padding: 1.5rem; }
           .port-cta-text { font-size: 1.1rem; text-align: left; flex: 1; }
-          .port-cta-text br { display: inline; }
           .port-cta-plus { flex-shrink: 0; width: 40px; height: 40px; font-size: 20px; }
+
           #blob-sec { grid-template-columns: 1fr; }
-          .blob-left { border-right: none; border-bottom: 1px solid var(--border); padding: 72px 24px; }
-          .blob-right { padding: 72px 24px; }
-          .fi-1,.fi-2,.fi-3,.fi-4 { width: 95px; height: 120px; border-radius: 14px; }
-          .fi-5,.fi-6 { display: none; }
-          footer { flex-direction: column; gap: 20px; text-align: center; }
+          .blob-left { border-right: none; border-bottom: 1px solid var(--border); padding: 64px 20px; }
+          .blob-right { padding: 64px 20px; }
+
+          /* Paslaugos bg – šiek tiek subtiliau */
+          #paslaugos::before { opacity: 0.12; background-attachment: scroll; }
+
+          /* Kontaktai */
+          .cont-grid { grid-template-columns: 1fr; gap: 40px; }
+          .cont-title { font-size: clamp(36px, 9vw, 52px); }
+          #kontaktai::before { background-attachment: scroll; }
+          .vhs-track { height: 50px; }
           .fr2 { grid-template-columns: 1fr; }
-          .svc-row { grid-template-columns: 48px 1fr 24px; gap: 16px; }
+
+          footer { flex-direction: column; gap: 20px; text-align: center; }
+          .cookie { flex-direction: column; gap: 14px; bottom: 16px; }
+        }
+
+        @media(max-width:480px){
+          .hero-title { font-size: 38px; }
+          .port-grid { grid-template-columns: 1fr; }
+          .port-cta-card { grid-column: unset; }
+          .about-stats { grid-template-columns: 1fr 1fr; }
         }
       `}</style>
 
