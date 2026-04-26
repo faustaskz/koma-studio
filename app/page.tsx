@@ -42,12 +42,7 @@ document.querySelectorAll<HTMLElement>('.sn').forEach((el) => {
       const cy = window.innerHeight / 2;
       const dx = (e.clientX - cx) / cx;
       const dy = (e.clientY - cy) / cy;
-      document.querySelectorAll<HTMLElement>('.float-img').forEach((el, i) => {
-        const d = [9, 13, 7, 11, 5, 8][i] || 9;
-        el.style.transform = `translate(${dx * d}px, ${dy * d}px)`;
-      });
-
-      document.querySelectorAll<HTMLElement>('.svc-row').forEach((row) => {
+document.querySelectorAll<HTMLElement>('.svc-row').forEach((row) => {
         const rect = row.getBoundingClientRect();
         const x = e.clientX - rect.left;
         const y = e.clientY - rect.top;
@@ -263,15 +258,6 @@ document.querySelectorAll<HTMLElement>('.sn').forEach((el) => {
         #hero { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 120px 48px 80px; position: relative; overflow: hidden; }
         .hero-video-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.08; pointer-events: none; z-index: 0; filter: grayscale(1); }
         [data-theme="dark"] .hero-video-bg { opacity: 0.18; }
-        .float-img { position: absolute; border-radius: 20px; overflow: hidden; box-shadow: var(--shadow-lg); will-change: transform; opacity: 0.45; filter: brightness(0.7) saturate(0.85); transition: opacity 0.4s, filter 0.4s; }
-        .float-img:hover { opacity: 0.65; filter: brightness(0.85) saturate(1); }
-        .float-placeholder { width: 100%; height: 100%; background: linear-gradient(135deg, var(--surface2), var(--bg2)); }
-        .fi-1 { width: 175px; height: 215px; top: 14%; left: 4%; animation: f1 7s ease-in-out infinite; }
-        .fi-2 { width: 140px; height: 170px; top: 7%; right: 11%; animation: f2 9s ease-in-out infinite; }
-        .fi-3 { width: 155px; height: 195px; bottom: 17%; left: 7%; animation: f3 8s ease-in-out infinite; }
-        .fi-4 { width: 145px; height: 180px; bottom: 11%; right: 6%; animation: f1 10s ease-in-out infinite reverse; }
-        .fi-5 { width: 115px; height: 145px; top: 42%; left: 0.5%; animation: f2 6s ease-in-out infinite; opacity: 0.65; }
-        .fi-6 { width: 125px; height: 150px; top: 38%; right: 1.5%; animation: f3 11s ease-in-out infinite; opacity: 0.65; }
 
         .hero-eyebrow { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.2em; color: var(--text-dim); text-transform: uppercase; margin-bottom: 28px; opacity: 0; animation: fadeUp 1s cubic-bezier(0.16,1,0.3,1) 0.1s forwards; }
         .hero-title { font-family: 'Instrument Serif', serif; font-size: clamp(52px, 8vw, 108px); line-height: 1.04; letter-spacing: -0.025em; font-weight: 400; max-width: 860px; opacity: 0; animation: fadeUp 1s cubic-bezier(0.16,1,0.3,1) 0.25s forwards; }
@@ -513,10 +499,7 @@ document.querySelectorAll<HTMLElement>('.sn').forEach((el) => {
           .hero-actions { flex-direction: column; gap: 10px; width: 100%; padding: 0 16px; }
           .btn-primary-wrap, .btn-ghost { width: 100%; text-align: center; }
 
-          /* Slėpiam visas korteles telefone */
-          .fi-1,.fi-2,.fi-3,.fi-4,.fi-5,.fi-6 { display: none; }
-
-          /* Hero video – šiek tiek labiau matomas be kortelių */
+          /* Hero video – šiek tiek labiau matomas */
           .hero-video-bg { opacity: 0.1; }
           [data-theme="dark"] .hero-video-bg { opacity: 0.22; }
 
@@ -577,12 +560,6 @@ document.querySelectorAll<HTMLElement>('.sn').forEach((el) => {
         <video className="hero-video-bg" autoPlay muted loop playsInline preload="metadata">
           <source src="/kosmosas1-compressed.mp4" type="video/mp4" />
         </video>
-        <div className="float-img fi-1"><img src="/photostudio.jpg" alt="" style={{width:'100%',height:'100%',objectFit:'cover'}} /></div>
-        <div className="float-img fi-2"><img src="/camera.jpg" alt="" style={{width:'100%',height:'100%',objectFit:'cover'}} /></div>
-        <div className="float-img fi-3"><img src="/coolblur.jpg" alt="" style={{width:'100%',height:'100%',objectFit:'cover'}} /></div>
-        <div className="float-img fi-4"><img src="/city.jpg" alt="" style={{width:'100%',height:'100%',objectFit:'cover'}} /></div>
-        <div className="float-img fi-5"><img src="/flower.jpg" alt="" style={{width:'100%',height:'100%',objectFit:'cover'}} /></div>
-        <div className="float-img fi-6"><img src="/nature.jpg" alt="" style={{width:'100%',height:'100%',objectFit:'cover'}} /></div>
         <p className="hero-eyebrow">Kūrybinė studija — Vilnius, Lietuva</p>
         <h1 className="hero-title">Skaitmeninė<br /><em><TypewriterWord /></em> jūsų<br />verslui.</h1>
         <p className="hero-sub">Jūsų vizija. Mūsų meistriškumas.<br />Rezultatas, kuriantis vertę.</p>
