@@ -9,19 +9,6 @@ import BentoServices from '@/components/sections/BentoServices';
 
 export default function Home() {
   useEffect(() => {
-    const html = document.documentElement;
-    const tb = document.getElementById('themeBtn');
-    const saved = localStorage.getItem('koma-theme') || 'dark';
-    html.setAttribute('data-theme', saved);
-    if (tb) tb.textContent = saved === 'dark' ? '☀︎' : '☾';
-
-    tb?.addEventListener('click', () => {
-      const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-      html.setAttribute('data-theme', next);
-      localStorage.setItem('koma-theme', next);
-      if (tb) tb.textContent = next === 'dark' ? '☀︎' : '☾';
-    });
-
     const ro = new IntersectionObserver(
       (es) => es.forEach((e) => { if (e.isIntersecting) e.target.classList.add('on'); }),
       { threshold: 0.1 }
@@ -271,12 +258,13 @@ document.querySelectorAll<HTMLElement>('.sn').forEach((el) => {
         .nav-links a { color: var(--text-muted); text-decoration: none; font-size: 13px; font-weight: 400; padding: 8px 16px; border-radius: 100px; transition: color 0.2s, background 0.2s; }
         .nav-links a:hover { color: var(--text); background: var(--border); }
         .nav-cta { padding: 10px 20px !important; border-radius: 100px; font-weight: 500 !important; font-size: 13px !important; text-decoration: none !important; display: inline-flex !important; align-items: center !important; }
-        .theme-btn { width: 36px; height: 36px; border-radius: 50%; border: 1px solid var(--border-strong); background: transparent; color: var(--text-muted); font-size: 14px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.2s; margin-left: 6px; }
-        .theme-btn:hover { background: var(--border); color: var(--text); }
 
         /* ── HERO ── */
         #hero { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 120px 48px 80px; position: relative; overflow: hidden; }
-        .float-img { position: absolute; border-radius: 20px; overflow: hidden; box-shadow: var(--shadow-lg); will-change: transform; }
+        .hero-video-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.08; pointer-events: none; z-index: 0; filter: grayscale(1); }
+        [data-theme="dark"] .hero-video-bg { opacity: 0.18; }
+        .float-img { position: absolute; border-radius: 20px; overflow: hidden; box-shadow: var(--shadow-lg); will-change: transform; opacity: 0.45; filter: brightness(0.7) saturate(0.85); transition: opacity 0.4s, filter 0.4s; }
+        .float-img:hover { opacity: 0.65; filter: brightness(0.85) saturate(1); }
         .float-placeholder { width: 100%; height: 100%; background: linear-gradient(135deg, var(--surface2), var(--bg2)); }
         .fi-1 { width: 175px; height: 215px; top: 14%; left: 4%; animation: f1 7s ease-in-out infinite; }
         .fi-2 { width: 140px; height: 170px; top: 7%; right: 11%; animation: f2 9s ease-in-out infinite; }
@@ -364,7 +352,9 @@ document.querySelectorAll<HTMLElement>('.sn').forEach((el) => {
         .pill:hover { background: var(--btn-bg); color: var(--btn-text); border-color: transparent; }
 
         /* ── PASLAUGOS ── */
-        #paslaugos { border-top: 1px solid var(--border); }
+        #paslaugos { border-top: 1px solid var(--border); position: relative; overflow: hidden; }
+        #paslaugos::before { content: ''; position: absolute; inset: 0; background: url('/juodassmelis.jpg') center/cover no-repeat; opacity: 0.18; filter: brightness(0.7); pointer-events: none; z-index: 0; }
+        #paslaugos > * { position: relative; z-index: 1; }
         .svc-title { font-family: 'Instrument Serif', serif; font-size: clamp(36px, 4vw, 56px); line-height: 1.1; font-weight: 400; letter-spacing: -0.02em; margin-bottom: 56px; max-width: 460px; }
         .svc-list { display: flex; flex-direction: column; }
         .svc-row {
@@ -423,8 +413,27 @@ document.querySelectorAll<HTMLElement>('.sn').forEach((el) => {
         .blob-title { font-family: 'Instrument Serif', serif; font-size: clamp(26px, 3vw, 40px); line-height: 1.2; font-weight: 400; letter-spacing: -0.01em; margin-bottom: 28px; }
         .blob-desc { font-size: 15px; color: var(--text-muted); line-height: 1.8; margin-bottom: 36px; }
 
+        @keyframes vhsTrack { 0%,87%{opacity:0;top:-12%} 88%{opacity:0.55;top:-12%} 95%{opacity:0.55;top:112%} 96%,100%{opacity:0;top:112%} }
+
         /* ── KONTAKTAI ── */
-        #kontaktai { border-top: 1px solid var(--border); }
+        #kontaktai { border-top: 1px solid var(--border); position: relative; overflow: hidden; }
+        #kontaktai::before { content: ''; position: absolute; inset: 0; background: url('/nature.jpg') center/cover no-repeat; opacity: 0.32; filter: sepia(0.8) contrast(1.6) brightness(0.45) saturate(0.5); pointer-events: none; z-index: 0; }
+        #kontaktai::after { content: ''; position: absolute; inset: 0; background: repeating-linear-gradient(0deg, transparent 0, transparent 2px, rgba(0,0,0,0.22) 2px, rgba(0,0,0,0.22) 3px); pointer-events: none; z-index: 1; }
+        .vhs-track { position: absolute; left: 0; right: 0; height: 70px; background: linear-gradient(transparent, rgba(255,255,255,0.045) 50%, transparent); pointer-events: none; z-index: 2; animation: vhsTrack 9s linear infinite; }
+        .vhs-noise { position: absolute; inset: 0; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); background-size: 180px; opacity: 0.045; pointer-events: none; z-index: 2; }
+        #kontaktai > * { position: relative; z-index: 3; }
+        #kontaktai > .vhs-track, #kontaktai > .vhs-noise { z-index: 2; }
+        #kontaktai .cont-title { color: #fff; text-shadow: 0 2px 24px rgba(0,0,0,0.6); }
+        #kontaktai .cont-title em { background: linear-gradient(135deg, #fff 0%, #d8d2c8 35%, #fff 60%, #e8e2d8 100%); background-size: 200% 200%; -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; filter: drop-shadow(0 2px 12px rgba(255,255,255,0.2)); animation: gradShift 8s ease infinite; }
+        #kontaktai .cont-desc { color: rgba(255,255,255,0.82); }
+        #kontaktai .cd-l { color: rgba(255,255,255,0.45); }
+        #kontaktai .cd-v { color: rgba(255,255,255,0.8); }
+        #kontaktai .stag { color: rgba(255,255,255,0.38); }
+        #kontaktai .fl { color: rgba(255,255,255,0.45); }
+        #kontaktai .fi, #kontaktai .fta, #kontaktai .cf-select { background: rgba(6,6,5,0.82); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-color: rgba(255,255,255,0.12); color: #fff; }
+        #kontaktai .fi::placeholder, #kontaktai .fta::placeholder { color: rgba(255,255,255,0.28); }
+        #kontaktai .fi:focus, #kontaktai .fta:focus, #kontaktai .cf-select:focus { border-color: rgba(255,255,255,0.45); box-shadow: 0 0 0 3px rgba(255,255,255,0.07), 0 0 18px rgba(255,255,255,0.08); outline: none; }
+        #kontaktai .lava-btn:hover { border-color: rgba(255,255,255,0.45); background: rgba(255,255,255,0.07); }
         .cont-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
         .cont-title { font-family: 'Instrument Serif', serif; font-size: clamp(36px, 4vw, 64px); line-height: 1.08; font-weight: 400; letter-spacing: -0.025em; margin-bottom: 22px; }
         .cont-title em {
@@ -527,16 +536,18 @@ document.querySelectorAll<HTMLElement>('.sn').forEach((el) => {
             <span className="btn-label">Susisiekite</span>
           </a>
         </div>
-        <button className="theme-btn" id="themeBtn">☀︎</button>
       </nav>
 
       <section id="hero">
-        <div className="float-img fi-1"><div className="float-placeholder"></div></div>
-        <div className="float-img fi-2"><div className="float-placeholder"></div></div>
-        <div className="float-img fi-3"><div className="float-placeholder"></div></div>
-        <div className="float-img fi-4"><div className="float-placeholder"></div></div>
-        <div className="float-img fi-5"><div className="float-placeholder"></div></div>
-        <div className="float-img fi-6"><div className="float-placeholder"></div></div>
+        <video className="hero-video-bg" autoPlay muted loop playsInline preload="metadata">
+          <source src="/kosmosas1-compressed.mp4" type="video/mp4" />
+        </video>
+        <div className="float-img fi-1"><img src="/photostudio.jpg" alt="" style={{width:'100%',height:'100%',objectFit:'cover'}} /></div>
+        <div className="float-img fi-2"><img src="/camera.jpg" alt="" style={{width:'100%',height:'100%',objectFit:'cover'}} /></div>
+        <div className="float-img fi-3"><img src="/coolblur.jpg" alt="" style={{width:'100%',height:'100%',objectFit:'cover'}} /></div>
+        <div className="float-img fi-4"><img src="/city.jpg" alt="" style={{width:'100%',height:'100%',objectFit:'cover'}} /></div>
+        <div className="float-img fi-5"><img src="/flower.jpg" alt="" style={{width:'100%',height:'100%',objectFit:'cover'}} /></div>
+        <div className="float-img fi-6"><img src="/nature.jpg" alt="" style={{width:'100%',height:'100%',objectFit:'cover'}} /></div>
         <p className="hero-eyebrow">Kūrybinė studija — Vilnius, Lietuva</p>
         <h1 className="hero-title">Skaitmeninė<br /><em><TypewriterWord /></em> jūsų<br />verslui.</h1>
         <p className="hero-sub">Jūsų vizija. Mūsų meistriškumas.<br />Rezultatas, kuriantis vertę.</p>
@@ -650,6 +661,8 @@ document.querySelectorAll<HTMLElement>('.sn').forEach((el) => {
       <DeployAnimation />
 
       <section id="kontaktai">
+        <div className="vhs-track" />
+        <div className="vhs-noise" />
         <div className="stag reveal">Kontaktai</div>
         <div className="cont-grid">
           <div className="reveal">
