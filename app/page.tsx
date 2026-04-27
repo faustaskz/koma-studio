@@ -486,6 +486,8 @@ document.querySelectorAll<HTMLElement>('.svc-row').forEach((row) => {
         .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.8s cubic-bezier(0.16,1,0.3,1), transform 0.8s cubic-bezier(0.16,1,0.3,1); }
         .reveal.on { opacity: 1; transform: translateY(0); }
         .d1 { transition-delay: 0.1s; }
+        .d2 { transition-delay: 0.2s; }
+        .d3 { transition-delay: 0.3s; }
 
         /* ── RESPONSIVE ── */
         @media(max-width:768px){
@@ -622,6 +624,28 @@ document.querySelectorAll<HTMLElement>('.svc-row').forEach((row) => {
               <p className="svc-desc">Padedame pasirūpinti, kad jūsų svetainė būtų geriau matoma Google paieškoje. Sutvarkome techninius pagrindus, greitį ir svarbiausius SEO elementus, reikalingus geresniam matomumui internete.</p>
               <div className="svc-tags">
                 {['Techninė SEO','Google Search Console','Core Web Vitals','Vietinė paieška'].map((t,i) => <span key={i} className="stag2">{t}</span>)}
+              </div>
+            </div>
+            <div className="svc-arr">↗</div>
+          </div>
+          <div className="svc-row reveal d2">
+            <div className="svc-n">03</div>
+            <div>
+              <div className="svc-name">Meta Ads</div>
+              <p className="svc-desc">Kuriame ir valdome tikslines reklamas Facebook ir Instagram platformose. Pasiekiame jūsų idealų klientą tinkamu laiku ir vietoje – taip, kad kiekvienas investuotas euras duotų rezultatą.</p>
+              <div className="svc-tags">
+                {['Facebook reklama','Instagram reklama','Retargeting','Auditorijų segmentacija'].map((t,i) => <span key={i} className="stag2">{t}</span>)}
+              </div>
+            </div>
+            <div className="svc-arr">↗</div>
+          </div>
+          <div className="svc-row reveal d3">
+            <div className="svc-n">04</div>
+            <div>
+              <div className="svc-name">Google Ads</div>
+              <p className="svc-desc">Valdomos paieškos ir display reklamos, kurios pasiekia žmones aktyviai ieškančius jūsų paslaugų. Optimizuojame kampanijas, kad gautumėte kuo daugiau konversijų už kuo mažesnę kainą.</p>
+              <div className="svc-tags">
+                {['Paieškos reklama','Display reklama','Remarketingas','Konversijų stebėjimas'].map((t,i) => <span key={i} className="stag2">{t}</span>)}
               </div>
             </div>
             <div className="svc-arr">↗</div>
