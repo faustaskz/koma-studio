@@ -253,7 +253,7 @@ export default function BentoServices() {
             z-index: 1;
           }
           .bento-heading {
-            font-family: 'Instrument Serif', serif;
+            font-family: 'Raleway', sans-serif;
             font-size: clamp(36px, 4.5vw, 62px);
             font-weight: 400;
             line-height: 1.1;
@@ -270,7 +270,7 @@ export default function BentoServices() {
             color: rgba(245,241,235,0.50);
             max-width: 440px;
             margin-bottom: 64px;
-            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-family: 'Raleway', sans-serif;
             font-weight: 300;
             position: relative;
             z-index: 1;
@@ -364,7 +364,7 @@ export default function BentoServices() {
             z-index: 2;
           }
           .bento-card-title {
-            font-family: 'Instrument Serif', serif;
+            font-family: 'Raleway', sans-serif;
             font-size: 20px;
             font-weight: 400;
             line-height: 1.2;
@@ -377,7 +377,7 @@ export default function BentoServices() {
             .bento-card[data-card="seo"] .bento-card-title { font-size: 22px; }
           }
           .bento-card-desc {
-            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-family: 'Raleway', sans-serif;
             font-size: 13px;
             font-weight: 300;
             line-height: 1.65;

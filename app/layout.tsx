@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Playfair_Display } from "next/font/google";
 import "./globals.css";
+import ConsultationPopup from "@/components/ConsultationPopup";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -53,7 +54,7 @@ export const metadata: Metadata = {
       "Kuriame modernias, greitas ir efektingas svetaines. WordPress, Framer ir AI sprendimai jūsų verslui.",
     images: [
       {
-        url: "/og-image.jpg",
+        url: "/og-image.webp",
         width: 1200,
         height: 630,
         alt: "KOMA Studio",
@@ -66,7 +67,7 @@ export const metadata: Metadata = {
     title: "KOMA Studio — Kūrybinė skaitmeninė studija",
     description:
       "Kuriame modernias, greitas ir efektingas svetaines. WordPress, Framer ir AI sprendimai jūsų verslui.",
-    images: ["/og-image.jpg"],
+    images: ["/og-image.webp"],
   },
 };
 
@@ -81,7 +82,10 @@ export default function RootLayout({
       data-theme="dark"
       className={`${geistSans.variable} ${geistMono.variable} ${playfair.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col" suppressHydrationWarning>
+        {children}
+        <ConsultationPopup />
+      </body>
     </html>
   );
 }

@@ -6,6 +6,7 @@ import ContactForm from '@/components/ContactForm';
 import DeployAnimation from '@/components/ui/DeployAnimation';
 import TypewriterWord from '@/components/ui/TypewriterWord';
 import BentoServices from '@/components/sections/BentoServices';
+import NavBar from '@/components/NavBar';
 
 export default function Home() {
   useEffect(() => {
@@ -200,9 +201,9 @@ document.querySelectorAll<HTMLElement>('.svc-row').forEach((row) => {
         @keyframes marquee { from{transform:translateX(0)} to{transform:translateX(-50%)} }
         @keyframes blobSpin { from{filter:blur(32px) saturate(1.3) hue-rotate(0deg)} to{filter:blur(32px) saturate(1.6) hue-rotate(360deg)} }
 
-        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600&family=Instrument+Serif:ital@0;1&family=DM+Mono:wght@300;400&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&family=DM+Mono:wght@300;400&display=swap');
 
-        body { background: var(--bg); color: var(--text); font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 300; transition: background 0.4s, color 0.4s; }
+        body { background: var(--bg); color: var(--text); font-family: 'Raleway', sans-serif; font-weight: 300; transition: background 0.4s, color 0.4s; }
 
         /* ── MYGTUKAS ── */
         .lava-btn {
@@ -236,7 +237,7 @@ document.querySelectorAll<HTMLElement>('.svc-row').forEach((row) => {
 
         /* ── NAV ── */
         nav { position: fixed; top: 20px; left: 50%; transform: translateX(-50%); z-index: 100; background: var(--pill-bg); border: 1px solid var(--pill-border); backdrop-filter: var(--blur); -webkit-backdrop-filter: var(--blur); border-radius: 100px; padding: 10px 10px 10px 24px; display: flex; align-items: center; gap: 4px; box-shadow: var(--shadow); white-space: nowrap; transition: background 0.4s; }
-        .nav-logo { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 14px; letter-spacing: 0.04em; color: var(--text); text-decoration: none; margin-right: 8px; }
+        .nav-logo { font-family: 'Raleway', sans-serif; font-weight: 600; font-size: 14px; letter-spacing: 0.04em; color: var(--text); text-decoration: none; margin-right: 8px; }
         .nav-logo .dot {
           background: linear-gradient(135deg, #0d1b4b, #3a1a6e, #0d1b4b);
           background-size: 300% 300%;
@@ -276,8 +277,8 @@ document.querySelectorAll<HTMLElement>('.svc-row').forEach((row) => {
         }
         .hero-sub { margin-top: 28px; font-size: 17px; color: var(--text-muted); font-weight: 300; line-height: 1.65; max-width: 420px; opacity: 0; animation: fadeUp 1s cubic-bezier(0.16,1,0.3,1) 0.4s forwards; }
         .hero-actions { margin-top: 40px; display: flex; gap: 12px; align-items: center; justify-content: center; opacity: 0; animation: fadeUp 1s cubic-bezier(0.16,1,0.3,1) 0.55s forwards; }
-        .btn-primary-wrap { padding: 13px 22px; border-radius: 100px; font-size: 14px; font-weight: 400; text-decoration: none; font-family: 'Plus Jakarta Sans', sans-serif; display: inline-block; }
-        .btn-ghost { color: var(--text-muted); padding: 13px 22px; border-radius: 100px; font-size: 14px; font-weight: 400; text-decoration: none; font-family: 'Plus Jakarta Sans', sans-serif; border: 1px solid var(--border-strong); transition: color 0.2s, border-color 0.2s; }
+        .btn-primary-wrap { padding: 13px 22px; border-radius: 100px; font-size: 14px; font-weight: 400; text-decoration: none; font-family: 'Raleway', sans-serif; display: inline-block; }
+        .btn-ghost { color: var(--text-muted); padding: 13px 22px; border-radius: 100px; font-size: 14px; font-weight: 400; text-decoration: none; font-family: 'Raleway', sans-serif; border: 1px solid var(--border-strong); transition: color 0.2s, border-color 0.2s; }
         .btn-ghost:hover { color: var(--text); border-color: var(--text-muted); }
 
         /* ── MARQUEE ── */
@@ -294,7 +295,7 @@ document.querySelectorAll<HTMLElement>('.svc-row').forEach((row) => {
         /* ── APIE ── */
         #apie { background: var(--bg2); border-top: 1px solid var(--border); }
         .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
-        .about-h { font-family: 'Instrument Serif', serif; font-size: clamp(36px, 4vw, 56px); line-height: 1.15; font-weight: 400; letter-spacing: -0.02em; }
+        .about-h { font-family: 'Raleway', sans-serif; font-size: clamp(36px, 4vw, 56px); line-height: 1.15; font-weight: 400; letter-spacing: -0.02em; }
         .about-h em {
           font-family: var(--font-playfair), serif;
           font-style: italic;
@@ -330,7 +331,7 @@ document.querySelectorAll<HTMLElement>('.svc-row').forEach((row) => {
           animation: pixel8glitch 4s steps(1) infinite;
         }
         .about-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; margin-top: 52px; padding-top: 44px; border-top: 1px solid var(--border); }
-        .sn { font-family: 'Instrument Serif', serif; font-size: 48px; font-weight: 400; line-height: 1; color: var(--text); }
+        .sn { font-family: 'Raleway', sans-serif; font-size: 48px; font-weight: 400; line-height: 1; color: var(--text); }
         .sl { font-size: 13px; color: var(--text-dim); margin-top: 6px; }
         .about-p { font-size: 16px; line-height: 1.8; color: var(--text-muted); margin-bottom: 20px; }
         .pills { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 28px; }
@@ -339,9 +340,9 @@ document.querySelectorAll<HTMLElement>('.svc-row').forEach((row) => {
 
         /* ── PASLAUGOS ── */
         #paslaugos { border-top: 1px solid var(--border); position: relative; overflow: hidden; }
-        #paslaugos::before { content: ''; position: absolute; inset: 0; background: url('/juodassmelis.jpg') center/cover no-repeat; opacity: 0.18; filter: brightness(0.7); pointer-events: none; z-index: 0; }
+        #paslaugos::before { content: ''; position: absolute; inset: 0; background: url('/juodassmelis.webp') center/cover no-repeat; opacity: 0.18; filter: brightness(0.7); pointer-events: none; z-index: 0; }
         #paslaugos > * { position: relative; z-index: 1; }
-        .svc-title { font-family: 'Instrument Serif', serif; font-size: clamp(36px, 4vw, 56px); line-height: 1.1; font-weight: 400; letter-spacing: -0.02em; margin-bottom: 56px; max-width: 460px; }
+        .svc-title { font-family: 'Raleway', sans-serif; font-size: clamp(36px, 4vw, 56px); line-height: 1.1; font-weight: 400; letter-spacing: -0.02em; margin-bottom: 56px; max-width: 460px; }
         .svc-list { display: flex; flex-direction: column; }
         .svc-row {
           --glow-x: 50%; --glow-y: 50%; --glow-opacity: 0;
@@ -358,7 +359,7 @@ document.querySelectorAll<HTMLElement>('.svc-row').forEach((row) => {
         .svc-row:last-child { border-bottom: 1px solid var(--border); }
         .svc-row:hover { padding-left: 8px; }
         .svc-n { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--text-dim); padding-top: 7px; }
-        .svc-name { font-family: 'Instrument Serif', serif; font-size: 32px; font-weight: 400; letter-spacing: -0.01em; margin-bottom: 12px; transition: color 0.2s; color: var(--text); }
+        .svc-name { font-family: 'Raleway', sans-serif; font-size: 32px; font-weight: 400; letter-spacing: -0.01em; margin-bottom: 12px; transition: color 0.2s; color: var(--text); }
         .svc-row:hover .svc-name { color: var(--text-muted); }
         .svc-desc { font-size: 15px; color: var(--text-muted); line-height: 1.7; max-width: 500px; }
         .svc-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 18px; }
@@ -366,9 +367,17 @@ document.querySelectorAll<HTMLElement>('.svc-row').forEach((row) => {
         .svc-arr { font-size: 18px; color: var(--text-dim); padding-top: 5px; transition: transform 0.3s; }
         .svc-row:hover .svc-arr { transform: translate(3px, -3px); }
 
+        /* ── TRUST ── */
+        #patikima { background: var(--bg); border-top: 1px solid var(--border); }
+        .trust-marquee { overflow: hidden; mask-image: linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%); -webkit-mask-image: linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%); }
+        .trust-track { display: flex; width: max-content; animation: marquee 28s linear infinite; }
+        .trust-logo-wrap { padding: 0 52px; display: flex; align-items: center; justify-content: center; height: 72px; flex-shrink: 0; }
+        .trust-logo-img { height: 56px; width: auto; max-width: 180px; object-fit: contain; opacity: 0.85; transition: opacity 0.3s ease, transform 0.3s ease; }
+        .trust-logo-wrap:hover .trust-logo-img { opacity: 1; transform: scale(1.05); }
+
         /* ── PORTFOLIO ── */
         #portfolio { background: var(--bg2); border-top: 1px solid var(--border); }
-        .port-title { font-family: 'Instrument Serif', serif; font-size: clamp(36px, 4vw, 56px); line-height: 1.1; font-weight: 400; letter-spacing: -0.02em; margin-bottom: 52px; }
+        .port-title { font-family: 'Raleway', sans-serif; font-size: clamp(36px, 4vw, 56px); line-height: 1.1; font-weight: 400; letter-spacing: -0.02em; margin-bottom: 52px; }
         .port-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
         .port-card { border-radius: 18px; overflow: hidden; background: var(--surface); border: 1px solid var(--border); aspect-ratio: 4/3; position: relative; transition: transform 0.4s cubic-bezier(0.16,1,0.3,1), box-shadow 0.4s; display: block; text-decoration: none; }
         .port-card:hover { transform: translateY(-6px) scale(1.01); box-shadow: var(--shadow-lg); }
@@ -378,14 +387,14 @@ document.querySelectorAll<HTMLElement>('.svc-row').forEach((row) => {
         .port-info { position: absolute; bottom: 0; left: 0; right: 0; padding: 24px; background: linear-gradient(to top, rgba(0,0,0,0.7), transparent); opacity: 0; transition: opacity 0.3s; }
         .port-card:hover .port-info { opacity: 1; }
         .port-card:hover .port-info { opacity: 1; }
-        .port-name { font-family: 'Instrument Serif', serif; font-size: 20px; color: white; font-weight: 400; }
+        .port-name { font-family: 'Raleway', sans-serif; font-size: 20px; color: white; font-weight: 400; }
         .port-type { font-family: 'DM Mono', monospace; font-size: 11px; color: rgba(255,255,255,0.55); letter-spacing: 0.1em; margin-top: 4px; }
         .port-cta-card { border: 1px dashed var(--border-strong) !important; background: transparent !important; text-decoration: none; }
         .port-cta-card:hover { border-color: rgba(167,139,250,0.4) !important; background: rgba(167,139,250,0.03) !important; }
         .port-cta-inner { width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; padding: 2rem; }
         .port-cta-plus { width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--border-strong); display: flex; align-items: center; justify-content: center; font-size: 22px; color: var(--text-dim); transition: border-color 0.3s, color 0.3s; }
         .port-cta-card:hover .port-cta-plus { border-color: rgba(167,139,250,0.5); color: #a78bfa; }
-        .port-cta-text { font-family: 'Instrument Serif', serif; font-size: 1.4rem; font-weight: 400; color: var(--text-muted); text-align: center; line-height: 1.3; transition: color 0.3s; }
+        .port-cta-text { font-family: 'Raleway', sans-serif; font-size: 1.4rem; font-weight: 400; color: var(--text-muted); text-align: center; line-height: 1.3; transition: color 0.3s; }
         .port-cta-card:hover .port-cta-text { color: var(--text); }
         .port-cta-btn { font-size: 12px; font-weight: 400; color: var(--text-dim); letter-spacing: 0.04em; transition: color 0.3s; }
         .port-cta-card:hover .port-cta-btn { color: #a78bfa; }
@@ -396,14 +405,14 @@ document.querySelectorAll<HTMLElement>('.svc-row').forEach((row) => {
         .blob-right { padding: 100px 48px 100px 80px; display: flex; flex-direction: column; justify-content: center; }
         .blob-wrap { width: 100%; height: 300px; border-radius: 24px; overflow: hidden; background: conic-gradient(from 200deg at 40% 60%, #0d1b4b, #1a0533, #0a1628, #0d1b4b, #1a0533, #0d1b4b); filter: blur(32px) saturate(1.5); animation: blobSpin 16s linear infinite; }
         .blob-tag { display: inline-block; background: var(--surface2); border: 1px solid var(--border); padding: 8px 16px; border-radius: 100px; font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.15em; color: var(--text-dim); text-transform: uppercase; margin-bottom: 20px; }
-        .blob-title { font-family: 'Instrument Serif', serif; font-size: clamp(26px, 3vw, 40px); line-height: 1.2; font-weight: 400; letter-spacing: -0.01em; margin-bottom: 28px; }
+        .blob-title { font-family: 'Raleway', sans-serif; font-size: clamp(26px, 3vw, 40px); line-height: 1.2; font-weight: 400; letter-spacing: -0.01em; margin-bottom: 28px; }
         .blob-desc { font-size: 15px; color: var(--text-muted); line-height: 1.8; margin-bottom: 36px; }
 
         @keyframes vhsTrack { 0%,87%{opacity:0;top:-12%} 88%{opacity:0.55;top:-12%} 95%{opacity:0.55;top:112%} 96%,100%{opacity:0;top:112%} }
 
         /* ── KONTAKTAI ── */
         #kontaktai { border-top: 1px solid var(--border); position: relative; overflow: hidden; }
-        #kontaktai::before { content: ''; position: absolute; inset: 0; background: url('/nature.jpg') center/cover no-repeat; opacity: 0.32; filter: sepia(0.8) contrast(1.6) brightness(0.45) saturate(0.5); pointer-events: none; z-index: 0; }
+        #kontaktai::before { content: ''; position: absolute; inset: 0; background: url('/nature.webp') center/cover no-repeat; opacity: 0.32; filter: sepia(0.8) contrast(1.6) brightness(0.45) saturate(0.5); pointer-events: none; z-index: 0; }
         #kontaktai::after { content: ''; position: absolute; inset: 0; background: repeating-linear-gradient(0deg, transparent 0, transparent 2px, rgba(0,0,0,0.22) 2px, rgba(0,0,0,0.22) 3px); pointer-events: none; z-index: 1; }
         .vhs-track { position: absolute; left: 0; right: 0; height: 70px; background: linear-gradient(transparent, rgba(255,255,255,0.045) 50%, transparent); pointer-events: none; z-index: 2; animation: vhsTrack 9s linear infinite; }
         .vhs-noise { position: absolute; inset: 0; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); background-size: 180px; opacity: 0.045; pointer-events: none; z-index: 2; }
@@ -442,18 +451,18 @@ document.querySelectorAll<HTMLElement>('.svc-row').forEach((row) => {
         .cform { display: flex; flex-direction: column; gap: 16px; }
         .fg { display: flex; flex-direction: column; gap: 8px; }
         .fl { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.18em; color: var(--text-dim); text-transform: uppercase; }
-        .fi, .fta, .cf-select { background: var(--surface); border: 1px solid var(--border-strong); border-radius: 12px; color: var(--text); padding: 14px 18px; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 15px; font-weight: 300; outline: none; resize: none; transition: border-color 0.2s, box-shadow 0.2s; }
+        .fi, .fta, .cf-select { background: var(--surface); border: 1px solid var(--border-strong); border-radius: 12px; color: var(--text); padding: 14px 18px; font-family: 'Raleway', sans-serif; font-size: 15px; font-weight: 300; outline: none; resize: none; transition: border-color 0.2s, box-shadow 0.2s; }
         .cf-select { appearance: none; -webkit-appearance: none; cursor: pointer; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23908d87' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 16px center; padding-right: 40px; }
         .cf-select option { background: var(--surface2); color: var(--text); }
         .fi:focus, .fta:focus { border-color: var(--text-dim); box-shadow: 0 0 0 3px rgba(13,27,75,0.06); }
         .fta { height: 140px; }
         .fr2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-        .btn-send-wrap { padding: 15px 32px; border-radius: 100px; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 14px; font-weight: 500; align-self: flex-start; margin-top: 6px; }
+        .btn-send-wrap { padding: 15px 32px; border-radius: 100px; font-family: 'Raleway', sans-serif; font-size: 14px; font-weight: 500; align-self: flex-start; margin-top: 6px; }
         .form-ok { display: none; padding: 16px 20px; border-radius: 12px; background: var(--surface); border: 1px solid var(--border-strong); color: var(--text-muted); font-size: 14px; }
 
         /* ── FOOTER ── */
         footer { border-top: 1px solid var(--border); padding: 32px 48px; display: flex; justify-content: space-between; align-items: center; background: var(--bg2); }
-        .flogo { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 14px; letter-spacing: 0.04em; }
+        .flogo { font-family: 'Raleway', sans-serif; font-weight: 600; font-size: 14px; letter-spacing: 0.04em; }
         .flogo .dot {
           background: linear-gradient(135deg, #0d1b4b, #3a1a6e, #0d1b4b);
           background-size: 300% 300%;
@@ -477,7 +486,7 @@ document.querySelectorAll<HTMLElement>('.svc-row').forEach((row) => {
         .cookie-txt { font-size: 13px; color: var(--text-muted); line-height: 1.5; }
         .cookie-txt a { color: var(--text); text-decoration: underline; text-underline-offset: 3px; }
         .cookie-btns { display: flex; gap: 8px; flex-shrink: 0; }
-        .cbtn { padding: 9px 18px; border-radius: 100px; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 13px; font-weight: 500; border: none; cursor: pointer; transition: all 0.2s; white-space: nowrap; }
+        .cbtn { padding: 9px 18px; border-radius: 100px; font-family: 'Raleway', sans-serif; font-size: 13px; font-weight: 500; border: none; cursor: pointer; transition: all 0.2s; white-space: nowrap; }
         .cacc-wrap { padding: 9px 18px; border-radius: 100px; font-size: 13px; font-weight: 500; }
         .cdec { background: transparent; color: var(--text-muted); border: 1px solid var(--border-strong); }
         .cdec:hover { color: var(--text); }
@@ -545,18 +554,7 @@ document.querySelectorAll<HTMLElement>('.svc-row').forEach((row) => {
         }
       `}</style>
 
-      <nav>
-        <a href="#" className="nav-logo">KOMA <span className="dot">·</span> Studio</a>
-        <div className="nav-links">
-          <a href="#apie">Apie</a>
-          <a href="#paslaugos">Paslaugos</a>
-          <a href="#portfolio">Darbai</a>
-          {/* <a href="#kainodara">Kainos</a> */}
-          <a href="#kontaktai" className="lava-btn nav-cta">
-            <span className="btn-label">Susisiekite</span>
-          </a>
-        </div>
-      </nav>
+      <NavBar />
 
       <section id="hero">
         <video className="hero-video-bg" autoPlay muted loop playsInline preload="metadata">
@@ -566,41 +564,13 @@ document.querySelectorAll<HTMLElement>('.svc-row').forEach((row) => {
         <h1 className="hero-title">Skaitmeninė<br /><em><TypewriterWord /></em> jūsų<br />verslui.</h1>
         <p className="hero-sub">Jūsų vizija. Mūsų meistriškumas.<br />Rezultatas, kuriantis vertę.</p>
         <div className="hero-actions">
-          <a href="#kontaktai" className="lava-btn btn-primary-wrap">
+          <button onClick={() => window.dispatchEvent(new CustomEvent('openConsultPopup'))} className="lava-btn btn-primary-wrap">
             <span className="btn-label">Susisiekite →</span>
-          </a>
+          </button>
           <a href="#portfolio" className="btn-ghost">Peržiūrėti darbus</a>
         </div>
       </section>
 
-      <div className="marquee-wrap">
-        <div className="marquee-track">
-          {['Web Dizainas','SEO Optimizacija','Greitos Svetainės','Modernūs Sprendimai','Individualus Dizainas',
-            'Web Dizainas','SEO Optimizacija','Greitos Svetainės','Modernūs Sprendimai','Individualus Dizainas'].map((t,i) => (
-            <span key={i} className="marquee-item">{t} <span className="msep">·</span></span>
-          ))}
-        </div>
-      </div>
-
-      <section id="apie">
-        <div className="stag reveal">Apie mus</div>
-        <div className="about-grid">
-          <div className="reveal">
-            <h2 className="about-h">Dirbame su tais, kurie vertina<br /><em>dizaino galią.</em></h2>
-            <div className="about-stats">
-              <div><div className="sn">2</div><div className="sl">Kūrėjai</div></div>
-              <div><div className="sn">100%</div><div className="sl">Individualūs sprendimai</div></div>
-            </div>
-          </div>
-          <div className="reveal d1">
-            <p className="about-p">Esame nedidelė, bet ambicinga kūrybinė studija iš Vilniaus. Kuriame skaitmeninę prabangą verslams — modernias, greitas ir efektyvias svetaines, kurioms svarbus rezultatas, o ne tik išvaizda.</p>
-            <p className="about-p">Mūsų darbas derina estetiką su technika: kiekvienas projektas optimizuotas greičiui, paieškos sistemoms ir konversijoms. Kiekviena detalė apgalvota taip, kad jūsų verslas išsiskirtų skaitmeninėje erdvėje.</p>
-            <div className="pills">
-              {['Web dizainas','SEO optimizacija','Greitas hostingas','Mobili versija'].map((p,i) => <span key={i} className="pill">{p}</span>)}
-            </div>
-          </div>
-        </div>
-      </section>
 
       <section id="paslaugos">
         <div className="stag reveal">Paslaugos</div>
@@ -653,30 +623,39 @@ document.querySelectorAll<HTMLElement>('.svc-row').forEach((row) => {
         </div>
       </section>
 
-      <BentoServices />
-
-      <section id="portfolio">
-        <div className="stag reveal">Darbai</div>
-        <h2 className="port-title reveal">Mūsų projektai.</h2>
-        <div className="port-grid reveal">
-          {[
-            {bg:'linear-gradient(135deg,#0d1c3a,#1a3a6e)',img:'/kamitra.jpg.png',name:'Kamitra ir ko',type:'WordPress',href:'https://kamitra.lt/'},
-            {bg:'linear-gradient(135deg,#1a1a1a,#2d2d2d)',img:'/Sellauto.jpg',name:'Sell-Auto',type:'WordPress',href:'https://sell-auto.lt/'},
-          ].map((p,i) => (
-            <a key={i} className="port-card" href={p.href} target="_blank" rel="noopener noreferrer">
-              <div className="port-inner" style={{background:p.bg}}>
-                <img src={p.img} alt={p.name} />
+      <section id="patikima" style={{paddingBottom: '80px'}}>
+        <div className="stag reveal">Mumis pasitiki</div>
+        <div className="trust-marquee">
+          <div className="trust-track">
+            {[
+              {src:'/sellaut-logo.webp',     alt:'Sell-Auto'},
+              {src:'/vsr-statyba-logo.webp', alt:'VSR Statyba',  big: true, pill: true},
+              {src:'/kamitra-ir-ko-logo.webp',alt:'Kamitra ir ko'},
+              {src:'/greenas-logo.webp',     alt:'Greenas',      height: 110},
+              {src:'/artvomit-logo.webp',    alt:'Artvomit',     big: true},
+              {src:'/white-logo.webp',       alt:'White'},
+              {src:'/sellaut-logo.webp',     alt:'Sell-Auto'},
+              {src:'/vsr-statyba-logo.webp', alt:'VSR Statyba',  big: true, pill: true},
+              {src:'/kamitra-ir-ko-logo.webp',alt:'Kamitra ir ko'},
+              {src:'/greenas-logo.webp',     alt:'Greenas',      height: 110},
+              {src:'/artvomit-logo.webp',    alt:'Artvomit',     big: true},
+              {src:'/white-logo.webp',       alt:'White'},
+            ].map((logo, i) => (
+              <div key={i} className="trust-logo-wrap">
+                <img
+                  src={logo.src}
+                  alt={logo.alt}
+                  className="trust-logo-img"
+                  style={{
+                    height: logo.height ? `${logo.height}px` : logo.big ? '80px' : undefined,
+                    ...(logo.pill ? {
+                      filter: 'drop-shadow(0 0 4px rgba(255,255,255,0.5)) drop-shadow(0 0 8px rgba(255,255,255,0.25))',
+                    } : {}),
+                  }}
+                />
               </div>
-              <div className="port-info"><div className="port-name">{p.name}</div><div className="port-type">{p.type}</div></div>
-            </a>
-          ))}
-          <a href="#kontaktai" className="port-card port-cta-card">
-            <div className="port-cta-inner">
-              <div className="port-cta-plus">+</div>
-              <div className="port-cta-text">Čia galėtų būti<br />jūsų projektas</div>
-              <div className="port-cta-btn">Rašykite mums →</div>
-            </div>
-          </a>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -686,11 +665,33 @@ document.querySelectorAll<HTMLElement>('.svc-row').forEach((row) => {
           <div className="blob-tag">Dirbkime kartu</div>
           <h3 className="blob-title">Kuriame svetaines, kurios atrodo profesionaliai ir veikia efektyviai</h3>
           <p className="blob-desc">Be nereikalingo sudėtingumo. Nuo pirmo pokalbio iki paleistos svetainės dirbame aiškiai, greitai ir orientuotai į rezultatą.</p>
-          <a href="#kontaktai" className="lava-btn btn-primary-wrap">
+          <button onClick={() => window.dispatchEvent(new CustomEvent('openConsultPopup'))} className="lava-btn btn-primary-wrap">
             <span className="btn-label">Pradėkime kartu →</span>
-          </a>
+          </button>
         </div>
       </div>
+
+      <BentoServices />
+
+      <section id="apie">
+        <div className="stag reveal">Apie mus</div>
+        <div className="about-grid">
+          <div className="reveal">
+            <h2 className="about-h">Dirbame su tais, kurie vertina<br /><em>dizaino galią.</em></h2>
+            <div className="about-stats">
+              <div><div className="sn">2</div><div className="sl">Kūrėjai</div></div>
+              <div><div className="sn">100%</div><div className="sl">Individualūs sprendimai</div></div>
+            </div>
+          </div>
+          <div className="reveal d1">
+            <p className="about-p">Esame nedidelė, bet ambicinga kūrybinė studija iš Vilniaus. Kuriame skaitmeninę prabangą verslams — modernias, greitas ir efektyvias svetaines, kurioms svarbus rezultatas, o ne tik išvaizda.</p>
+            <p className="about-p">Mūsų darbas derina estetiką su technika: kiekvienas projektas optimizuotas greičiui, paieškos sistemoms ir konversijoms. Kiekviena detalė apgalvota taip, kad jūsų verslas išsiskirtų skaitmeninėje erdvėje.</p>
+            <div className="pills">
+              {['Web dizainas','SEO optimizacija','Greitas hostingas','Mobili versija'].map((p,i) => <span key={i} className="pill">{p}</span>)}
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* <Pricing /> */}
 
@@ -716,7 +717,7 @@ document.querySelectorAll<HTMLElement>('.svc-row').forEach((row) => {
       </section>
 
       <footer>
-        <div className="flogo">KOMA <span className="dot">·</span> Studio</div>
+        <div className="flogo"><img src="/KOMALOGO.webp" alt="KOMA Studio" style={{ height: '56px', width: 'auto' }} /></div>
         <div className="fcopy">© 2026 KOMA Studio</div>
         <div className="flinks"><a href="/privatumo-politika">Privatumo politika</a></div>
       </footer>

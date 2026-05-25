@@ -1,0 +1,366 @@
+'use client';
+
+import NavBar from '@/components/NavBar';
+import { useState } from 'react';
+
+const FAQS = [
+  { q: 'Kiek reikia reklamos biudžeto?', a: 'Priklauso nuo rinkos, tačiau dažniausiai verta pradėti bent nuo 300–500 € mėnesinio reklamos biudžeto.' },
+  { q: 'Kada matosi rezultatai?', a: 'Pirmi duomenys matomi greitai, tačiau optimaliam vertinimui dažniausiai reikia 2–4 savaičių.' },
+  { q: 'Ar kuriate reklamos vizualus?', a: 'Taip, padedame su reklamos kūryba ir kryptimi.' },
+  { q: 'Ar galima optimizuoti jau veikiančias kampanijas?', a: 'Taip, galime perimti ir sutvarkyti esamas reklamas.' },
+];
+
+export default function MetaAdsPage() {
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const cta = () => window.dispatchEvent(new CustomEvent('openConsultPopup'));
+
+  return (
+    <>
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800&display=swap');
+        body{background:#0a0a0a;color:#f0ede8;font-family:'Raleway',sans-serif;font-weight:300;}
+        @keyframes fadeUp{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:translateY(0);}}
+        @keyframes gradShift{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+
+        .page-bg{position:fixed;inset:0;z-index:-1;background:url('/meta%20ads%20back.webp') center/cover no-repeat;}
+        .page-bg::after{content:'';position:absolute;inset:0;background:rgba(0,0,0,0.75);}
+
+        /* ── HERO ── */
+        .svc-hero{min-height:100vh;display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-end;padding:140px 80px 100px;position:relative;overflow:hidden;background:transparent;}
+        .svc-eyebrow{font-size:11px;letter-spacing:0.2em;color:rgba(255,255,255,0.4);text-transform:uppercase;margin-bottom:28px;opacity:0;animation:fadeUp 0.8s cubic-bezier(0.16,1,0.3,1) 0.1s forwards;display:flex;align-items:center;gap:12px;}
+        .svc-eyebrow::before{content:'';width:20px;height:1px;background:rgba(255,255,255,0.3);}
+        .svc-hero-title{font-family:'Raleway',sans-serif;font-size:clamp(44px,6.5vw,88px);line-height:1.05;letter-spacing:-0.02em;font-weight:700;max-width:760px;color:#f0ede8;opacity:0;animation:fadeUp 0.8s cubic-bezier(0.16,1,0.3,1) 0.2s forwards;}
+        .svc-hero-title em{font-style:normal;font-weight:800;background:linear-gradient(135deg,#3b82f6,#8b5cf6,#3b82f6);background-size:300% 300%;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:gradShift 6s ease infinite;}
+        .svc-hero-sub{margin-top:24px;font-size:18px;color:rgba(255,255,255,0.55);line-height:1.7;max-width:460px;opacity:0;animation:fadeUp 0.8s cubic-bezier(0.16,1,0.3,1) 0.35s forwards;}
+        .svc-hero-actions{margin-top:40px;display:flex;gap:14px;align-items:center;opacity:0;animation:fadeUp 0.8s cubic-bezier(0.16,1,0.3,1) 0.5s forwards;}
+        .btn-primary{background:#f0ede8;color:#0a0a0a;padding:14px 28px;border-radius:100px;font-size:14px;font-weight:600;text-decoration:none;border:none;cursor:pointer;transition:opacity 0.2s,transform 0.2s;font-family:'Raleway',sans-serif;}
+        .btn-primary:hover{opacity:0.88;transform:translateY(-1px);}
+        .btn-outline{color:rgba(255,255,255,0.6);padding:14px 28px;border-radius:100px;font-size:14px;text-decoration:none;border:1px solid rgba(255,255,255,0.2);background:transparent;cursor:pointer;transition:color 0.2s,border-color 0.2s;font-family:'Raleway',sans-serif;}
+        .btn-outline:hover{color:#fff;border-color:rgba(255,255,255,0.5);}
+
+        /* ── SHARED ── */
+        .sec{padding:80px 80px;background:rgba(0,0,0,0.52);backdrop-filter:blur(14px);border-top:1px solid rgba(255,255,255,0.07);}
+        .sec-tag{font-size:10px;letter-spacing:0.2em;color:rgba(255,255,255,0.3);text-transform:uppercase;margin-bottom:16px;display:flex;align-items:center;gap:10px;}
+        .sec-tag::before{content:'';width:20px;height:1px;background:rgba(255,255,255,0.2);}
+        .sec-h{font-size:clamp(28px,3.5vw,48px);font-weight:700;letter-spacing:-0.02em;line-height:1.15;color:#f0ede8;margin-bottom:16px;}
+        .sec-sub{font-size:16px;color:rgba(255,255,255,0.5);line-height:1.7;max-width:560px;margin-bottom:48px;}
+
+        /* ── PROBLEM ── */
+        .prob-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2px;margin-top:48px;}
+        .prob-card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);padding:28px 32px;transition:background 0.2s;}
+        .prob-card:hover{background:rgba(255,255,255,0.07);}
+        .prob-icon{font-size:22px;margin-bottom:14px;}
+        .prob-text{font-size:15px;font-weight:500;color:#f0ede8;line-height:1.5;}
+
+        /* ── CTA STRIP ── */
+        .cta-strip{padding:48px 80px;background:rgba(0,0,0,0.6);backdrop-filter:blur(14px);border-top:1px solid rgba(255,255,255,0.07);display:flex;align-items:center;justify-content:space-between;gap:24px;}
+        .cta-strip-text{font-size:18px;font-weight:600;color:#f0ede8;max-width:480px;line-height:1.4;}
+
+        /* ── SOLUTION ── */
+        .sol-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:48px;}
+        .sol-card{background:rgba(139,92,246,0.06);border:1px solid rgba(139,92,246,0.15);padding:28px 28px;transition:background 0.2s;}
+        .sol-card:hover{background:rgba(139,92,246,0.11);}
+        .sol-num{font-size:10px;letter-spacing:0.15em;color:rgba(139,92,246,0.6);margin-bottom:12px;}
+        .sol-title{font-size:16px;font-weight:600;color:#f0ede8;line-height:1.4;}
+
+        /* ── WHAT YOU GET ── */
+        .get-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:48px;}
+        .get-card{padding:32px 28px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);transition:background 0.2s,border-color 0.2s;}
+        .get-card:hover{background:rgba(255,255,255,0.06);border-color:rgba(139,92,246,0.25);}
+        .get-icon{width:36px;height:36px;border-radius:10px;background:rgba(139,92,246,0.12);border:1px solid rgba(139,92,246,0.2);display:flex;align-items:center;justify-content:center;font-size:16px;margin-bottom:16px;}
+        .get-title{font-size:15px;font-weight:600;color:#f0ede8;line-height:1.4;}
+
+        /* ── PROCESS ── */
+        .proc-list{display:flex;flex-direction:column;gap:0;margin-top:48px;}
+        .proc-row{display:grid;grid-template-columns:48px 1fr;gap:28px;padding:28px 0;border-top:1px solid rgba(255,255,255,0.07);align-items:start;}
+        .proc-row:last-child{border-bottom:1px solid rgba(255,255,255,0.07);}
+        .proc-n{font-size:11px;color:rgba(255,255,255,0.25);letter-spacing:0.1em;padding-top:4px;}
+        .proc-title{font-size:20px;font-weight:600;color:#f0ede8;margin-bottom:6px;}
+        .proc-desc{font-size:14px;color:rgba(255,255,255,0.5);line-height:1.65;}
+
+        /* ── FIT ── */
+        .fit-list{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:48px;}
+        .fit-item{display:flex;align-items:center;gap:14px;padding:18px 22px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:8px;transition:border-color 0.2s;}
+        .fit-item:hover{border-color:rgba(139,92,246,0.3);}
+        .fit-dot{width:6px;height:6px;border-radius:50%;background:linear-gradient(135deg,#3b82f6,#8b5cf6);flex-shrink:0;}
+        .fit-text{font-size:15px;color:rgba(255,255,255,0.8);font-weight:400;}
+
+        /* ── TRUST ── */
+        .trust-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:2px;margin-top:48px;}
+        .trust-card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);padding:28px 20px;text-align:center;transition:background 0.2s;}
+        .trust-card:hover{background:rgba(255,255,255,0.07);}
+        .trust-icon{font-size:24px;margin-bottom:12px;}
+        .trust-title{font-size:13px;font-weight:600;color:#f0ede8;line-height:1.4;}
+
+        /* ── FAQ ── */
+        .faq-list{display:flex;flex-direction:column;gap:0;margin-top:48px;max-width:720px;}
+        .faq-item{border-top:1px solid rgba(255,255,255,0.08);}
+        .faq-item:last-child{border-bottom:1px solid rgba(255,255,255,0.08);}
+        .faq-q{width:100%;background:transparent;border:none;color:#f0ede8;font-family:'Raleway',sans-serif;font-size:16px;font-weight:500;text-align:left;padding:22px 0;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;transition:color 0.2s;}
+        .faq-q:hover{color:rgba(255,255,255,0.7);}
+        .faq-arrow{font-size:18px;color:rgba(255,255,255,0.3);transition:transform 0.25s;flex-shrink:0;}
+        .faq-arrow.open{transform:rotate(45deg);}
+        .faq-a{font-size:15px;color:rgba(255,255,255,0.5);line-height:1.7;padding-bottom:22px;max-width:580px;}
+
+        /* ── GIF PANEL ── */
+        .gif-split{padding:64px 80px;background:rgba(0,0,0,0.52);backdrop-filter:blur(14px);border-top:1px solid rgba(255,255,255,0.07);display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;}
+        .gif-copy-tag{font-size:10px;letter-spacing:0.2em;color:rgba(255,255,255,0.3);text-transform:uppercase;margin-bottom:16px;display:flex;align-items:center;gap:10px;}
+        .gif-copy-tag::before{content:'';width:20px;height:1px;background:rgba(255,255,255,0.2);}
+        .gif-copy-h{font-size:clamp(22px,2.5vw,34px);font-weight:700;letter-spacing:-0.02em;line-height:1.2;color:#f0ede8;margin-bottom:14px;}
+        .gif-copy-p{font-size:15px;color:rgba(255,255,255,0.5);line-height:1.7;}
+        .gif-frame{border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,255,0.1);box-shadow:0 24px 60px rgba(0,0,0,0.5);}
+        .gif-frame img{width:100%;height:auto;display:block;}
+
+        /* ── FINAL CTA ── */
+        .final-cta{padding:120px 80px;text-align:center;background:rgba(0,0,0,0.6);backdrop-filter:blur(14px);border-top:1px solid rgba(255,255,255,0.07);}
+        .final-h{font-size:clamp(32px,4vw,56px);font-weight:700;letter-spacing:-0.02em;line-height:1.15;color:#f0ede8;margin-bottom:16px;}
+        .final-sub{font-size:16px;color:rgba(255,255,255,0.5);max-width:440px;margin:0 auto 40px;line-height:1.7;}
+
+        /* ── FOOTER ── */
+        footer{border-top:1px solid rgba(255,255,255,0.08);padding:28px 80px;display:flex;justify-content:space-between;align-items:center;background:rgba(0,0,0,0.6);backdrop-filter:blur(12px);}
+        .fcopy{font-size:11px;color:rgba(255,255,255,0.25);}
+
+        /* ── STICKY MOBILE CTA ── */
+        .sticky-cta{display:none;position:fixed;bottom:0;left:0;right:0;z-index:50;padding:14px 20px;background:rgba(8,8,8,0.95);backdrop-filter:blur(20px);border-top:1px solid rgba(255,255,255,0.1);}
+        .sticky-cta button{width:100%;padding:14px;border-radius:100px;background:#f0ede8;color:#0a0a0a;font-family:'Raleway',sans-serif;font-size:14px;font-weight:600;border:none;cursor:pointer;}
+
+        /* ── MOBILE ── */
+        @media(max-width:768px){
+          .svc-hero{padding:120px 24px 80px;}
+          .svc-hero-actions{flex-direction:column;width:100%;}
+          .btn-primary,.btn-outline{width:100%;text-align:center;}
+          .sec{padding:64px 24px;}
+          .prob-grid{grid-template-columns:1fr;}
+          .sol-grid{grid-template-columns:1fr;}
+          .get-grid{grid-template-columns:1fr;}
+          .trust-grid{grid-template-columns:repeat(2,1fr);}
+          .fit-list{grid-template-columns:1fr;}
+          .gif-split{grid-template-columns:1fr;gap:32px;padding:48px 24px;}
+          .cta-strip{flex-direction:column;align-items:flex-start;padding:40px 24px;}
+          .final-cta{padding:80px 24px 100px;}
+          footer{flex-direction:column;gap:12px;text-align:center;padding:24px;}
+          .sticky-cta{display:block;}
+        }
+      `}</style>
+
+      <div className="page-bg" />
+      <NavBar />
+
+      {/* 1. HERO */}
+      <section className="svc-hero">
+        <p className="svc-eyebrow">Meta Ads</p>
+        <h1 className="svc-hero-title">Pasiekite savo<br /><em>idealų klientą</em></h1>
+        <p className="svc-hero-sub">Facebook ir Instagram kampanijos, orientuotos į rezultatą — ne pasiekiamumą, o realias užklausas ir pardavimus.</p>
+        <div className="svc-hero-actions">
+          <button onClick={cta} className="btn-primary">Gauti nemokamą konsultaciją →</button>
+          <a href="#procesas" className="btn-outline">Kaip dirbame</a>
+        </div>
+      </section>
+
+      {/* 2. PROBLEMA */}
+      <section className="sec" id="problema">
+        <div className="sec-tag">Problema</div>
+        <h2 className="sec-h">Leidžiate reklamas,<br />bet rezultatai nestabilūs?</h2>
+        <p className="sec-sub">Dauguma Meta Ads kampanijų sudega dėl silpnos kūrybos, blogo targeting'o arba neoptimizuojamų reklamų.</p>
+        <div className="prob-grid">
+          {[
+            { icon: '🖱️', text: 'Reklama generuoja bereikalingus paspaudimus' },
+            { icon: '📈', text: 'Aukšta užklausos kaina' },
+            { icon: '😐', text: 'Kūryba nepritraukia dėmesio' },
+            { icon: '🔕', text: 'Kampanijos paleistos ir pamirštos' },
+          ].map(p => (
+            <div key={p.text} className="prob-card">
+              <div className="prob-icon">{p.icon}</div>
+              <div className="prob-text">{p.text}</div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* CTA STRIP 1 */}
+      <div className="cta-strip">
+        <div className="cta-strip-text">Atpažįstate bent vieną iš šių problemų?</div>
+        <button onClick={cta} className="btn-primary">Kalbėkimės →</button>
+      </div>
+
+      {/* GIF — Meta naršymas */}
+      <div className="gif-split">
+        <div className="gif-frame">
+          <img src="/meta%20adsgif.gif" alt="Meta Ads Facebook" />
+        </div>
+        <div>
+          <div className="gif-copy-tag">Kaip tai veikia</div>
+          <h3 className="gif-copy-h">Jūsų reklama pasirodo ten, kur žmonės leidžia laiką</h3>
+          <p className="gif-copy-p">Facebook ir Instagram pasiekia auditoriją pagal pomėgius, elgseną ir demografiją — dar prieš jiems pradedant ieškoti.</p>
+        </div>
+      </div>
+
+      {/* 3. SPRENDIMAS */}
+      <section className="sec" id="sprendimas">
+        <div className="sec-tag">Sprendimas</div>
+        <h2 className="sec-h">Meta Ads turi ne tik atrodyti gerai.<br />Jos turi veikti.</h2>
+        <p className="sec-sub">Kuriame reklamos sistemą, kuri orientuota į rezultatą – užklausas, pardavimus ir augimą.</p>
+        <div className="sol-grid">
+          {[
+            { n: '01', t: 'Audience research' },
+            { n: '02', t: 'Creative strategija' },
+            { n: '03', t: 'Video ir vizualų optimizacija' },
+            { n: '04', t: 'Retargeting kampanijos' },
+            { n: '05', t: 'Conversion tracking' },
+            { n: '06', t: 'Nuolatinis testavimas ir optimizacija' },
+          ].map(s => (
+            <div key={s.n} className="sol-card">
+              <div className="sol-num">{s.n}</div>
+              <div className="sol-title">{s.t}</div>
+            </div>
+          ))}
+        </div>
+        <div style={{ marginTop: '40px' }}>
+          <button onClick={cta} className="btn-primary">Noriu Meta Ads reklamos →</button>
+        </div>
+      </section>
+
+      {/* SVG — biznio planas */}
+      <div className="gif-split">
+        <div className="gif-frame">
+          <img src="/biznioplanas.svg" alt="Meta Ads kampanijų planas" />
+        </div>
+        <div>
+          <div className="gif-copy-tag">Strategija</div>
+          <h3 className="gif-copy-h">Kiekviena kampanija prasideda nuo aiškaus plano</h3>
+          <p className="gif-copy-p">Analizuojame jūsų verslą, auditoriją ir tikslus — ir tik tada kuriame reklamos strategiją, kuri veikia.</p>
+        </div>
+      </div>
+
+      {/* 4. KĄ GAUNATE */}
+      <section className="sec" id="ka-gaunate">
+        <div className="sec-tag">Ką gaunate</div>
+        <h2 className="sec-h">Pilnai sutvarkytą<br />Meta Ads sistemą</h2>
+        <div className="get-grid">
+          {[
+            { icon: '🚀', t: 'Reklamų paleidimas' },
+            { icon: '📡', t: 'Facebook Pixel setup' },
+            { icon: '🎯', t: 'Auditorijų kūrimas' },
+            { icon: '🎨', t: 'Reklaminių vizualų kryptis' },
+            { icon: '📊', t: 'Campaign scaling' },
+            { icon: '🔍', t: 'Performance monitoring' },
+          ].map(c => (
+            <div key={c.t} className="get-card">
+              <div className="get-icon">{c.icon}</div>
+              <div className="get-title">{c.t}</div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* 5. PROCESAS */}
+      <section className="sec" id="procesas">
+        <div className="sec-tag">Procesas</div>
+        <h2 className="sec-h">Procesas paprastas</h2>
+        <div className="proc-list">
+          {[
+            { n: '01', t: 'Analizė', d: 'Peržiūrime jūsų verslą, auditoriją ir konkurenciją.' },
+            { n: '02', t: 'Strategija', d: 'Paruošiame reklamos kryptį ir kūrybos planą.' },
+            { n: '03', t: 'Paleidimas', d: 'Sukuriame ir paleidžiame kampanijas.' },
+            { n: '04', t: 'Optimizacija', d: 'Stebime rezultatus ir nuolat geriname reklamas.' },
+          ].map(p => (
+            <div key={p.n} className="proc-row">
+              <div className="proc-n">{p.n}</div>
+              <div>
+                <div className="proc-title">{p.t}</div>
+                <p className="proc-desc">{p.d}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* CTA STRIP 2 */}
+      <div className="cta-strip">
+        <div className="cta-strip-text">Nori pradėti? Pirmasis žingsnis — nemokama konsultacija.</div>
+        <button onClick={cta} className="btn-primary">Pradėkime →</button>
+      </div>
+
+      {/* 6. KAM TINKA */}
+      <section className="sec" id="kam-tinka">
+        <div className="sec-tag">Tikslinė auditorija</div>
+        <h2 className="sec-h">Tinka verslams,<br />kurie nori augti</h2>
+        <div className="fit-list">
+          {[
+            'E-komercijai',
+            'Paslaugų verslams',
+            'Statybų / NT sektoriui',
+            'Grožio ir estetikos verslams',
+            'Brandams, kurie nori auginti žinomumą',
+            'Verslams, kurie nori daugiau užklausų',
+          ].map(t => (
+            <div key={t} className="fit-item">
+              <div className="fit-dot" />
+              <div className="fit-text">{t}</div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* 7. TRUST */}
+      <section className="sec" id="rezultatai">
+        <div className="sec-tag">Skaidrumas</div>
+        <h2 className="sec-h">Aiškiai matysite<br />kas veikia</h2>
+        <div className="trust-grid">
+          {[
+            { icon: '📊', t: 'Reklamos rezultatų ataskaitos' },
+            { icon: '💰', t: 'CPA / ROAS stebėjimas' },
+            { icon: '🎨', t: 'Creative performance analizė' },
+            { icon: '🎯', t: 'Auditorijų testavimas' },
+            { icon: '💡', t: 'Rekomendacijos augimui' },
+          ].map(c => (
+            <div key={c.t} className="trust-card">
+              <div className="trust-icon">{c.icon}</div>
+              <div className="trust-title">{c.t}</div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* CTA STRIP 3 */}
+      <div className="cta-strip">
+        <div className="cta-strip-text">Norite reklamos, kuri dirba net tada, kai jūs nedirbate?</div>
+        <button onClick={cta} className="btn-primary">Susisiekite →</button>
+      </div>
+
+      {/* 8. FAQ */}
+      <section className="sec" id="faq">
+        <div className="sec-tag">Dažni klausimai</div>
+        <h2 className="sec-h">Klausimai ir atsakymai</h2>
+        <div className="faq-list">
+          {FAQS.map((f, i) => (
+            <div key={i} className="faq-item">
+              <button className="faq-q" onClick={() => setOpenFaq(openFaq === i ? null : i)}>
+                {f.q}
+                <span className={`faq-arrow${openFaq === i ? ' open' : ''}`}>+</span>
+              </button>
+              {openFaq === i && <p className="faq-a">{f.a}</p>}
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* 9. FINAL CTA */}
+      <section className="final-cta">
+        <h2 className="final-h">Norite reklamos, kuri<br />ne tik renka like'us?</h2>
+        <p className="final-sub">Parašykite – įvertinsime situaciją ir pasiūlysime aiškų veiksmų planą.</p>
+        <button onClick={cta} className="btn-primary">Gauti Meta Ads pasiūlymą →</button>
+      </section>
+
+      <footer>
+        <div><img src="/KOMALOGO.webp" alt="KOMA Studio" style={{ height: '56px', width: 'auto' }} /></div>
+        <div className="fcopy">© 2026 KOMA Studio</div>
+      </footer>
+
+      {/* STICKY MOBILE CTA */}
+      <div className="sticky-cta">
+        <button onClick={cta}>Gauti nemokamą konsultaciją →</button>
+      </div>
+    </>
+  );
+}
