@@ -101,14 +101,48 @@ export default function ConsultationPopup() {
       <style>{`
         @keyframes cpFadeIn{from{opacity:0}to{opacity:1}}
         @keyframes cpSlideUp{from{opacity:0;transform:translate(-50%,-46%)}to{opacity:1;transform:translate(-50%,-50%)}}
+        @keyframes cpSlideSheet{from{transform:translateY(100%)}to{transform:translateY(0)}}
         @keyframes cpShake{0%,100%{transform:translateX(0)}15%{transform:translateX(-8px)}35%{transform:translateX(8px)}55%{transform:translateX(-5px)}75%{transform:translateX(5px)}90%{transform:translateX(-2px)}}
+
         .cp-wrap::-webkit-scrollbar{display:none}
-        .cp-wrap{scrollbar-width:none}
-        .cp-close{position:absolute;top:16px;right:16px;width:30px;height:30px;border-radius:50%;border:1px solid rgba(255,255,255,0.12);background:transparent;cursor:pointer;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.35);font-size:13px;transition:all 0.2s;z-index:2}
+        .cp-wrap{
+          scrollbar-width:none;
+          position:fixed;z-index:901;
+          top:50%;left:50%;
+          transform:translate(-50%,-50%);
+          width:min(480px,calc(100vw - 24px));
+          background-image:url(/juodassmelis.webp);
+          background-size:cover;background-position:center;
+          border:1px solid rgba(255,255,255,0.1);
+          border-radius:20px;
+          padding:32px;
+          box-shadow:0 8px 48px rgba(0,0,0,0.7);
+          animation:cpSlideUp 0.35s cubic-bezier(0.16,1,0.3,1) forwards;
+          max-height:calc(100dvh - 32px);
+          overflow-y:auto;
+        }
+        .cp-overlay{position:absolute;inset:0;border-radius:20px;background:rgba(7,7,6,0.86);pointer-events:none;z-index:0}
+        .cp-handle{display:none}
+
+        @media(max-width:640px){
+          .cp-wrap{
+            top:auto;bottom:0;left:0;right:0;
+            transform:none;
+            width:100%;
+            border-radius:20px 20px 0 0;
+            padding:16px 20px 36px;
+            max-height:92dvh;
+            animation:cpSlideSheet 0.38s cubic-bezier(0.16,1,0.3,1) forwards;
+          }
+          .cp-overlay{border-radius:20px 20px 0 0}
+          .cp-handle{display:block;width:36px;height:4px;border-radius:2px;background:rgba(255,255,255,0.15);margin:0 auto 16px}
+        }
+
+        .cp-close{position:absolute;top:16px;right:16px;width:32px;height:32px;border-radius:50%;border:1px solid rgba(255,255,255,0.12);background:transparent;cursor:pointer;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.35);font-size:13px;transition:all 0.2s;z-index:2}
         .cp-close:hover{background:rgba(255,255,255,0.07);color:#f0ede8}
-        .cp-tag{display:inline-block;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);padding:5px 12px;border-radius:100px;font-size:10px;letter-spacing:0.16em;color:rgba(255,255,255,0.35);text-transform:uppercase;margin-bottom:14px}
+        .cp-tag{display:inline-block;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);padding:5px 12px;border-radius:100px;font-size:10px;letter-spacing:0.16em;color:rgba(255,255,255,0.35);text-transform:uppercase;margin-bottom:12px}
         .cp-title{font-family:'Instrument Serif',serif;font-size:clamp(20px,3vw,26px);font-weight:400;line-height:1.2;letter-spacing:-0.02em;margin-bottom:6px;color:#f0ede8}
-        .cp-sub{font-size:13px;color:rgba(255,255,255,0.45);line-height:1.6;margin-bottom:20px}
+        .cp-sub{font-size:13px;color:rgba(255,255,255,0.45);line-height:1.6;margin-bottom:16px}
         .cp-fg{display:flex;flex-direction:column;gap:5px;margin-bottom:10px;position:relative}
         .cp-label{font-size:10px;letter-spacing:0.14em;color:rgba(255,255,255,0.3);text-transform:uppercase}
         .cp-req{color:rgba(239,68,68,0.7);margin-left:2px}
@@ -124,7 +158,7 @@ export default function ConsultationPopup() {
         .cp-drop-list{position:absolute;top:calc(100% + 4px);left:0;right:0;background:rgba(14,14,12,0.98);border:1px solid rgba(255,255,255,0.12);border-radius:8px;overflow:hidden;z-index:200;box-shadow:0 8px 24px rgba(0,0,0,0.7)}
         .cp-drop-opt{padding:10px 14px;font-size:14px;color:rgba(255,255,255,0.65);cursor:pointer;transition:background 0.1s,color 0.1s}
         .cp-drop-opt:hover,.cp-drop-opt.sel{background:rgba(255,255,255,0.07);color:#f0ede8}
-        .cp-textarea{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;color:#f0ede8;padding:10px 14px;font-size:16px;font-weight:300;outline:none;width:100%;transition:border-color 0.2s;resize:none;min-height:80px;font-family:'Plus Jakarta Sans',sans-serif;line-height:1.5}
+        .cp-textarea{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;color:#f0ede8;padding:10px 14px;font-size:16px;font-weight:300;outline:none;width:100%;transition:border-color 0.2s;resize:none;min-height:72px;font-family:'Plus Jakarta Sans',sans-serif;line-height:1.5}
         .cp-textarea::placeholder{color:rgba(255,255,255,0.2)}
         .cp-textarea:focus{border-color:rgba(255,255,255,0.28)}
         .cp-opt-lbl{font-size:10px;letter-spacing:0.1em;color:rgba(255,255,255,0.18);text-transform:uppercase;margin-left:6px}
@@ -132,7 +166,7 @@ export default function ConsultationPopup() {
         .cp-check{width:15px;height:15px;flex-shrink:0;margin-top:2px;accent-color:#f0ede8;cursor:pointer}
         .cp-check-lbl{font-size:12px;color:rgba(255,255,255,0.4);line-height:1.5}
         .cp-check-lbl a{color:rgba(255,255,255,0.7);text-underline-offset:2px}
-        .cp-submit{width:100%;padding:13px;border-radius:100px;font-size:14px;font-weight:500;cursor:pointer;transition:all 0.2s;margin-top:8px}
+        .cp-submit{width:100%;padding:13px;border-radius:100px;font-size:15px;font-weight:600;cursor:pointer;transition:all 0.2s;margin-top:8px}
         .cp-submit:disabled{opacity:0.5;cursor:not-allowed}
         .cp-ok{text-align:center;padding:24px 0 4px}
         .cp-ok-icon{width:56px;height:56px;border-radius:50%;background:rgba(16,185,129,0.12);border:1px solid rgba(16,185,129,0.3);display:flex;align-items:center;justify-content:center;margin:0 auto 18px;font-size:22px;color:#34d399}
@@ -155,31 +189,10 @@ export default function ConsultationPopup() {
       />
 
       {/* Modal */}
-      <div
-        ref={wrapRef}
-        className="cp-wrap"
-        style={{
-          position: 'fixed', zIndex: 901,
-          top: '50%', left: '50%',
-          transform: 'translate(-50%, -50%)',
-          width: 'min(480px, calc(100vw - 24px))',
-          backgroundImage: 'url(/juodassmelis.webp)',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          border: '1px solid rgba(255,255,255,0.1)',
-          borderRadius: '20px',
-          padding: '32px',
-          boxShadow: '0 8px 48px rgba(0,0,0,0.7)',
-          animation: 'cpSlideUp 0.35s cubic-bezier(0.16,1,0.3,1) forwards',
-          maxHeight: 'calc(100dvh - 32px)',
-          overflowY: 'auto',
-        }}
-      >
+      <div ref={wrapRef} className="cp-wrap">
+        <div className="cp-handle" />
         {/* Dark overlay */}
-        <div style={{
-          position: 'absolute', inset: 0, borderRadius: '20px',
-          background: 'rgba(7,7,6,0.86)', pointerEvents: 'none', zIndex: 0,
-        }} />
+        <div className="cp-overlay" />
 
         <div style={{ position: 'relative', zIndex: 1 }}>
           <button className="cp-close" onClick={() => setOpen(false)}>✕</button>

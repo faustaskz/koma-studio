@@ -126,11 +126,7 @@ export default function SvetainiuKurimasPage() {
         footer { border-top: 1px solid rgba(255,255,255,0.08); padding: 28px 80px; display: flex; justify-content: space-between; align-items: center; background: rgba(0,0,0,0.6); backdrop-filter: blur(12px); }
         .fcopy { font-size: 11px; color: rgba(255,255,255,0.25); }
 
-        /* STICKY MOBILE CTA */
-        .sticky-cta { display: none; position: fixed; bottom: 0; left: 0; right: 0; z-index: 50; padding: 14px 20px; background: rgba(8,8,8,0.95); backdrop-filter: blur(20px); border-top: 1px solid rgba(255,255,255,0.1); }
-        .sticky-cta button { width: 100%; padding: 14px; border-radius: 100px; background: #f0ede8; color: #0a0a0a; font-family: 'Raleway', sans-serif; font-size: 14px; font-weight: 600; border: none; cursor: pointer; }
-
-        @media (max-width: 1024px) {
+@media (max-width: 1024px) {
           .sol-grid { grid-template-columns: repeat(2,1fr); }
           .get-grid { grid-template-columns: repeat(2,1fr); }
           .prob-grid { grid-template-columns: repeat(2,1fr); }
@@ -156,7 +152,6 @@ export default function SvetainiuKurimasPage() {
           .trust-grid { grid-template-columns: 1fr 1fr; gap: 2px; }
           footer { flex-direction: column; gap: 16px; text-align: center; padding: 32px 24px; }
           .final-cta { padding: 80px 24px; }
-          .sticky-cta { display: block; }
         }
         @media (max-width: 480px) {
           .prob-grid { grid-template-columns: 1fr; }
@@ -417,10 +412,6 @@ export default function SvetainiuKurimasPage() {
         <div className="fcopy">© 2026 KOMA Studio</div>
       </footer>
 
-      {/* STICKY MOBILE CTA */}
-      <div className="sticky-cta">
-        <button onClick={cta}>Gauti svetainės pasiūlymą →</button>
-      </div>
     </>
   );
 }
