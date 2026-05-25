@@ -25,11 +25,11 @@ const BASE_URL = "https://www.koma-studio.lt";
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
   title: {
-    default: "KOMA Studio — Kūrybinė skaitmeninė studija",
+    default: "KOMA Studio | Reklama, SEO ir Modernių Svetainių Kūrimas",
     template: "%s | KOMA Studio",
   },
   description:
-    "Kuriame modernias, greitas ir efektingas svetaines. WordPress, Framer ir AI sprendimai jūsų verslui.",
+    "Google Ads, Meta Ads ir SEO optimizacija jūsų verslo augimui. Modernios svetainės kurios atrodo profesionaliai ir generuoja klientus.",
   alternates: {
     canonical: BASE_URL,
   },
@@ -49,9 +49,9 @@ export const metadata: Metadata = {
     type: "website",
     url: BASE_URL,
     siteName: "KOMA Studio",
-    title: "KOMA Studio — Kūrybinė skaitmeninė studija",
+    title: "KOMA Studio | Reklama, SEO ir Modernių Svetainių Kūrimas",
     description:
-      "Kuriame modernias, greitas ir efektingas svetaines. WordPress, Framer ir AI sprendimai jūsų verslui.",
+      "Google Ads, Meta Ads ir SEO optimizacija jūsų verslo augimui. Modernios svetainės kurios atrodo profesionaliai ir generuoja klientus.",
     images: [
       {
         url: "/og-image.webp",
@@ -64,9 +64,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "KOMA Studio — Kūrybinė skaitmeninė studija",
+    title: "KOMA Studio | Reklama, SEO ir Modernių Svetainių Kūrimas",
     description:
-      "Kuriame modernias, greitas ir efektingas svetaines. WordPress, Framer ir AI sprendimai jūsų verslui.",
+      "Google Ads, Meta Ads ir SEO optimizacija jūsų verslo augimui. Modernios svetainės kurios atrodo profesionaliai ir generuoja klientus.",
     images: ["/og-image.webp"],
   },
 };

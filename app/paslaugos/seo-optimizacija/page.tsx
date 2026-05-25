@@ -131,9 +131,9 @@ export default function SeoPage() {
           .btn-primary,.btn-outline{width:100%;text-align:center;}
           .sec{padding:64px 24px;}
           .prob-grid{grid-template-columns:1fr;}
-          .sol-grid{grid-template-columns:repeat(2,1fr);}
+          .sol-grid{grid-template-columns:1fr;}
           .how-grid{grid-template-columns:1fr;}
-          .get-grid{grid-template-columns:repeat(2,1fr);}
+          .get-grid{grid-template-columns:1fr;}
           .trust-grid{grid-template-columns:1fr;}
           .fit-list{grid-template-columns:1fr;}
           .gif-split{grid-template-columns:1fr;gap:32px;padding:48px 24px;}

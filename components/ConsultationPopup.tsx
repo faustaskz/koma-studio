@@ -112,19 +112,19 @@ export default function ConsultationPopup() {
         .cp-fg{display:flex;flex-direction:column;gap:5px;margin-bottom:10px;position:relative}
         .cp-label{font-size:10px;letter-spacing:0.14em;color:rgba(255,255,255,0.3);text-transform:uppercase}
         .cp-req{color:rgba(239,68,68,0.7);margin-left:2px}
-        .cp-input{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;color:#f0ede8;padding:10px 14px;font-size:14px;font-weight:300;outline:none;width:100%;transition:border-color 0.2s}
+        .cp-input{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;color:#f0ede8;padding:10px 14px;font-size:16px;font-weight:300;outline:none;width:100%;transition:border-color 0.2s}
         .cp-input::placeholder{color:rgba(255,255,255,0.2)}
         .cp-input:focus{border-color:rgba(255,255,255,0.28)}
         .cp-input.err,.cp-drop-trigger.err{border-color:rgba(239,68,68,0.6)!important;background:rgba(239,68,68,0.04)!important}
         .cp-err{font-size:11px;color:#f87171}
-        .cp-drop-trigger{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;color:#f0ede8;padding:10px 14px;font-size:14px;font-weight:300;outline:none;width:100%;transition:border-color 0.2s;cursor:pointer;display:flex;justify-content:space-between;align-items:center;text-align:left}
+        .cp-drop-trigger{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;color:#f0ede8;padding:10px 14px;font-size:16px;font-weight:300;outline:none;width:100%;transition:border-color 0.2s;cursor:pointer;display:flex;justify-content:space-between;align-items:center;text-align:left}
         .cp-drop-trigger.empty{color:rgba(255,255,255,0.2)}
         .cp-drop-arrow{font-size:10px;opacity:0.4;transition:transform 0.18s;margin-left:6px;flex-shrink:0}
         .cp-drop-arrow.open{transform:rotate(180deg)}
         .cp-drop-list{position:absolute;top:calc(100% + 4px);left:0;right:0;background:rgba(14,14,12,0.98);border:1px solid rgba(255,255,255,0.12);border-radius:8px;overflow:hidden;z-index:200;box-shadow:0 8px 24px rgba(0,0,0,0.7)}
         .cp-drop-opt{padding:10px 14px;font-size:14px;color:rgba(255,255,255,0.65);cursor:pointer;transition:background 0.1s,color 0.1s}
         .cp-drop-opt:hover,.cp-drop-opt.sel{background:rgba(255,255,255,0.07);color:#f0ede8}
-        .cp-textarea{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;color:#f0ede8;padding:10px 14px;font-size:14px;font-weight:300;outline:none;width:100%;transition:border-color 0.2s;resize:none;min-height:80px;font-family:'Plus Jakarta Sans',sans-serif;line-height:1.5}
+        .cp-textarea{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;color:#f0ede8;padding:10px 14px;font-size:16px;font-weight:300;outline:none;width:100%;transition:border-color 0.2s;resize:none;min-height:80px;font-family:'Plus Jakarta Sans',sans-serif;line-height:1.5}
         .cp-textarea::placeholder{color:rgba(255,255,255,0.2)}
         .cp-textarea:focus{border-color:rgba(255,255,255,0.28)}
         .cp-opt-lbl{font-size:10px;letter-spacing:0.1em;color:rgba(255,255,255,0.18);text-transform:uppercase;margin-left:6px}

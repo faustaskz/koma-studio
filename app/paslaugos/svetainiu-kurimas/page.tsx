@@ -148,15 +148,21 @@ export default function SvetainiuKurimasPage() {
           .section { padding: 64px 24px; }
           .cta-strip { padding: 32px 24px; flex-direction: column; text-align: center; }
           .cta-strip .btn-main { width: 100%; }
-          .prob-grid { grid-template-columns: 1fr 1fr; gap: 0; }
-          .sol-grid { grid-template-columns: 1fr 1fr; gap: 0; }
-          .get-grid { grid-template-columns: 1fr 1fr; gap: 0; }
-          .proc-grid { grid-template-columns: 1fr 1fr; gap: 0; }
+          .prob-grid { grid-template-columns: 1fr 1fr; gap: 2px; }
+          .sol-grid { grid-template-columns: 1fr 1fr; gap: 2px; }
+          .get-grid { grid-template-columns: 1fr 1fr; gap: 2px; }
+          .proc-grid { grid-template-columns: 1fr; gap: 2px; }
           .fit-grid { grid-template-columns: 1fr; }
-          .trust-grid { grid-template-columns: 1fr; gap: 0; }
+          .trust-grid { grid-template-columns: 1fr 1fr; gap: 2px; }
           footer { flex-direction: column; gap: 16px; text-align: center; padding: 32px 24px; }
           .final-cta { padding: 80px 24px; }
           .sticky-cta { display: block; }
+        }
+        @media (max-width: 480px) {
+          .prob-grid { grid-template-columns: 1fr; }
+          .sol-grid { grid-template-columns: 1fr; }
+          .get-grid { grid-template-columns: 1fr; }
+          .trust-grid { grid-template-columns: 1fr; }
         }
       `}</style>
 

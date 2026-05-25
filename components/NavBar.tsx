@@ -12,6 +12,7 @@ const PASLAUGOS = [
 
 export default function NavBar() {
   const [open, setOpen] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const onEnter = () => {
@@ -21,6 +22,8 @@ export default function NavBar() {
   const onLeave = () => {
     closeTimer.current = setTimeout(() => setOpen(false), 120);
   };
+
+  const closeMobile = () => setMobileOpen(false);
 
   return (
     <>
@@ -42,18 +45,6 @@ export default function NavBar() {
         .nav-logo {
           font-weight: 600; font-size: 14px; letter-spacing: 0.04em;
           color: #f0ede8; text-decoration: none; margin-right: 8px;
-        }
-        .nav-logo .dot {
-          background: linear-gradient(135deg, #0d1b4b, #3a1a6e, #0d1b4b);
-          background-size: 300% 300%;
-          -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-          animation: gradShift 6s ease infinite;
-        }
-        [data-theme="dark"] .nav-logo .dot {
-          background: linear-gradient(135deg, #4a6fa5, #7b4fa5, #4a6fa5);
-          background-size: 300% 300%;
-          -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-          animation: gradShift 6s ease infinite;
         }
         @keyframes gradShift { 0%{background-position:0% 50%} 50%{background-position:100% 50%} 100%{background-position:0% 50%} }
         .nav-links { display: flex; align-items: center; gap: 2px; }
@@ -105,7 +96,7 @@ export default function NavBar() {
           border: 1px solid rgba(255,255,255,0.12);
           border-radius: 16px; padding: 6px;
           min-width: 200px;
-          box-shadow: var(--shadow-lg);
+          box-shadow: 0 8px 32px rgba(0,0,0,0.5);
           display: flex; flex-direction: column; gap: 1px;
           animation: dropIn 0.18s cubic-bezier(0.16,1,0.3,1) forwards;
           z-index: 10;
@@ -122,10 +113,84 @@ export default function NavBar() {
         .nav-drop-item:hover { background: rgba(255,255,255,0.08); color: #f0ede8; }
         .nav-drop-icon { width: 22px; height: 22px; object-fit: contain; flex-shrink: 0; }
 
+        /* ── HAMBURGER ── */
+        .hamburger {
+          display: none;
+          flex-direction: column; justify-content: center; gap: 5px;
+          background: none; border: none; padding: 8px; cursor: pointer;
+          width: 40px; height: 40px; border-radius: 50%;
+          transition: background 0.2s;
+        }
+        .hamburger:hover { background: rgba(255,255,255,0.08); }
+        .hamburger span {
+          display: block; width: 20px; height: 1.5px;
+          background: #f0ede8; border-radius: 1px;
+          transition: transform 0.3s, opacity 0.3s;
+          transform-origin: center;
+        }
+        .hamburger.is-open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+        .hamburger.is-open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+        .hamburger.is-open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+        /* ── MOBILE MENU ── */
+        .mob-menu {
+          position: fixed; inset: 0; z-index: 99;
+          background: rgba(8,8,8,0.97);
+          backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+          display: flex; flex-direction: column;
+          padding: 100px 28px 48px;
+          transform: translateY(-100%);
+          transition: transform 0.4s cubic-bezier(0.16,1,0.3,1);
+          font-family: 'Raleway', sans-serif;
+          overflow-y: auto;
+        }
+        .mob-menu.open { transform: translateY(0); }
+        .mob-section-label {
+          font-size: 10px; letter-spacing: 0.2em; color: rgba(255,255,255,0.25);
+          text-transform: uppercase; margin-bottom: 12px; margin-top: 32px;
+        }
+        .mob-section-label:first-child { margin-top: 0; }
+        .mob-link {
+          display: flex; align-items: center; gap: 14px;
+          padding: 16px 0;
+          border-bottom: 1px solid rgba(255,255,255,0.06);
+          color: rgba(255,255,255,0.8); text-decoration: none;
+          font-size: 20px; font-weight: 500;
+          transition: color 0.2s;
+        }
+        .mob-link:hover { color: #f0ede8; }
+        .mob-link-icon { width: 28px; height: 28px; object-fit: contain; opacity: 0.7; }
+        .mob-plain-link {
+          display: block; padding: 16px 0;
+          border-bottom: 1px solid rgba(255,255,255,0.06);
+          color: rgba(255,255,255,0.7); text-decoration: none;
+          font-size: 20px; font-weight: 400;
+          transition: color 0.2s;
+        }
+        .mob-plain-link:hover { color: #f0ede8; }
+        .mob-cta {
+          margin-top: 40px;
+          background: #f0ede8; color: #0a0a0a;
+          border: none; border-radius: 100px;
+          padding: 18px 32px;
+          font-size: 15px; font-weight: 600;
+          font-family: 'Raleway', sans-serif;
+          cursor: pointer; width: 100%; text-align: center;
+          transition: background 0.2s, transform 0.2s;
+        }
+        .mob-cta:hover { background: #fff; transform: translateY(-1px); }
+
         @media(max-width:768px){
-          nav { top: 12px; padding: 8px 8px 8px 18px; }
-          .nav-links a:not(.nav-cta):not(.nav-drop-trigger) { display: none; }
-          .nav-drop-wrap { display: none; }
+          nav {
+            top: 12px;
+            left: 24px; right: 24px;
+            transform: none;
+            width: auto;
+            padding: 8px 8px 8px 16px;
+            justify-content: space-between;
+          }
+          .nav-links { display: none; }
+          .hamburger { display: flex; }
         }
       `}</style>
 
@@ -133,12 +198,10 @@ export default function NavBar() {
         <Link href="/" className="nav-logo" style={{ height: '34px', overflow: 'visible', display: 'flex', alignItems: 'center' }}>
           <img src="/KOMALOGO.webp" alt="KOMA Studio" style={{ height: '68px', width: 'auto' }} />
         </Link>
+
+        {/* Desktop nav */}
         <div className="nav-links">
-          <div
-            className="nav-drop-wrap"
-            onMouseEnter={onEnter}
-            onMouseLeave={onLeave}
-          >
+          <div className="nav-drop-wrap" onMouseEnter={onEnter} onMouseLeave={onLeave}>
             <button className={`nav-drop-trigger${open ? ' active' : ''}`}>
               Paslaugos
               <span className={`nav-drop-chevron${open ? ' open' : ''}`}>▾</span>
@@ -154,14 +217,46 @@ export default function NavBar() {
               </div>
             )}
           </div>
-
           <Link href="/#apie" className="">Apie</Link>
-
           <button className="nav-cta" onClick={() => window.dispatchEvent(new CustomEvent('openConsultPopup'))}>
             Susisiekite
           </button>
         </div>
+
+        {/* Hamburger */}
+        <button
+          className={`hamburger${mobileOpen ? ' is-open' : ''}`}
+          onClick={() => setMobileOpen(v => !v)}
+          aria-label="Meniu"
+        >
+          <span /><span /><span />
+        </button>
       </nav>
+
+      {/* Mobile menu */}
+      <div className={`mob-menu${mobileOpen ? ' open' : ''}`}>
+        <p className="mob-section-label">Paslaugos</p>
+        {PASLAUGOS.map(p => (
+          <Link key={p.href} href={p.href} className="mob-link" onClick={closeMobile}>
+            <img src={p.icon} alt="" className="mob-link-icon" />
+            {p.label}
+          </Link>
+        ))}
+
+        <p className="mob-section-label">Navigacija</p>
+        <Link href="/#apie" className="mob-plain-link" onClick={closeMobile}>Apie mus</Link>
+        <Link href="/privatumo-politika" className="mob-plain-link" onClick={closeMobile}>Privatumo politika</Link>
+
+        <button
+          className="mob-cta"
+          onClick={() => {
+            closeMobile();
+            window.dispatchEvent(new CustomEvent('openConsultPopup'));
+          }}
+        >
+          Susisiekite →
+        </button>
+      </div>
     </>
   );
 }
