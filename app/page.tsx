@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect } from 'react';
+import Link from 'next/link';
 // import Pricing from '@/components/Pricing';
 import ContactForm from '@/components/ContactForm';
 import DeployAnimation from '@/components/ui/DeployAnimation';
@@ -346,7 +347,7 @@ document.querySelectorAll<HTMLElement>('.svc-row').forEach((row) => {
         .svc-list { display: flex; flex-direction: column; }
         .svc-row {
           --glow-x: 50%; --glow-y: 50%; --glow-opacity: 0;
-          display: grid; grid-template-columns: 60px 1fr 28px; align-items: start; gap: 28px; padding: 40px 0; border-top: 1px solid var(--border); transition: padding-left 0.3s cubic-bezier(0.16,1,0.3,1); cursor: default; position: relative; overflow: hidden;
+          display: grid; grid-template-columns: 60px 1fr 28px; align-items: start; gap: 28px; padding: 40px 0; border-top: 1px solid var(--border); transition: padding-left 0.3s cubic-bezier(0.16,1,0.3,1); cursor: pointer; position: relative; overflow: hidden;
         }
         .svc-row::before {
           content: ''; position: absolute; inset: 0;
@@ -358,8 +359,12 @@ document.querySelectorAll<HTMLElement>('.svc-row').forEach((row) => {
         }
         .svc-row:last-child { border-bottom: 1px solid var(--border); }
         .svc-row:hover { padding-left: 8px; }
+        a.svc-row { text-decoration: none; color: inherit; display: grid; }
         .svc-n { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--text-dim); padding-top: 7px; }
-        .svc-name { font-family: 'Raleway', sans-serif; font-size: 32px; font-weight: 400; letter-spacing: -0.01em; margin-bottom: 12px; transition: color 0.2s; color: var(--text); }
+        .svc-name-row { display: flex; align-items: center; gap: 14px; margin-bottom: 12px; }
+        .svc-icon { width: 30px; height: 30px; object-fit: contain; opacity: 0.75; flex-shrink: 0; transition: opacity 0.2s; }
+        .svc-row:hover .svc-icon { opacity: 1; }
+        .svc-name { font-family: 'Raleway', sans-serif; font-size: 32px; font-weight: 400; letter-spacing: -0.01em; transition: color 0.2s; color: var(--text); }
         .svc-row:hover .svc-name { color: var(--text-muted); }
         .svc-desc { font-size: 15px; color: var(--text-muted); line-height: 1.7; max-width: 500px; }
         .svc-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 18px; }
@@ -505,7 +510,7 @@ document.querySelectorAll<HTMLElement>('.svc-row').forEach((row) => {
 
           /* Hero */
           #hero { padding: 100px 20px 60px; }
-          .hero-title { font-size: clamp(40px, 11vw, 64px); }
+          .hero-title { font-size: clamp(56px, 15vw, 80px); }
           .hero-sub { font-size: 15px; max-width: 100%; }
           .hero-actions { flex-direction: column; gap: 10px; width: 100%; padding: 0 16px; }
           .btn-primary-wrap, .btn-ghost { width: 100%; text-align: center; }
@@ -521,6 +526,8 @@ document.querySelectorAll<HTMLElement>('.svc-row').forEach((row) => {
 
           .svc-row { grid-template-columns: 40px 1fr 20px; gap: 14px; padding: 28px 0; }
           .svc-name { font-size: 24px; }
+          .svc-icon { width: 24px; height: 24px; }
+          .svc-name-row { gap: 10px; }
 
           .port-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
           .port-cta-card { grid-column: 1 / -1; aspect-ratio: unset; }
@@ -547,7 +554,7 @@ document.querySelectorAll<HTMLElement>('.svc-row').forEach((row) => {
         }
 
         @media(max-width:480px){
-          .hero-title { font-size: 38px; }
+          .hero-title { font-size: 54px; }
           .port-grid { grid-template-columns: 1fr; }
           .port-cta-card { grid-column: unset; }
           .about-stats { grid-template-columns: 1fr 1fr; }
@@ -576,50 +583,62 @@ document.querySelectorAll<HTMLElement>('.svc-row').forEach((row) => {
         <div className="stag reveal">Paslaugos</div>
         <h2 className="svc-title reveal">Ką mes darome.</h2>
         <div className="svc-list">
-          <div className="svc-row reveal">
+          <Link href="/paslaugos/google-ads" className="svc-row reveal">
             <div className="svc-n">01</div>
             <div>
-              <div className="svc-name">Web Dizainas</div>
-              <p className="svc-desc">Kuriame modernias, individualiai pritaikytas svetaines pagal jūsų verslo tikslus. Dėmesį skiriame ne tik dizainui, bet ir greičiui, patogiam naudojimui bei sklandžiam veikimui visuose įrenginiuose.</p>
-              <div className="svc-tags">
-                {['HTML / CSS / JS','Mobili versija','Greitas įkėlimas','Modernios animacijos'].map((t,i) => <span key={i} className="stag2">{t}</span>)}
+              <div className="svc-name-row">
+                <img src="/googleadss.webp" className="svc-icon" alt="" />
+                <div className="svc-name">Google Ads</div>
               </div>
-            </div>
-            <div className="svc-arr">↗</div>
-          </div>
-          <div className="svc-row reveal d1">
-            <div className="svc-n">02</div>
-            <div>
-              <div className="svc-name">SEO Optimizacija</div>
-              <p className="svc-desc">Padedame pasirūpinti, kad jūsų svetainė būtų geriau matoma Google paieškoje. Sutvarkome techninius pagrindus, greitį ir svarbiausius SEO elementus, reikalingus geresniam matomumui internete.</p>
-              <div className="svc-tags">
-                {['Techninė SEO','Google Search Console','Core Web Vitals','Vietinė paieška'].map((t,i) => <span key={i} className="stag2">{t}</span>)}
-              </div>
-            </div>
-            <div className="svc-arr">↗</div>
-          </div>
-          <div className="svc-row reveal d2">
-            <div className="svc-n">03</div>
-            <div>
-              <div className="svc-name">Meta Ads</div>
-              <p className="svc-desc">Kuriame ir valdome tikslines reklamas Facebook ir Instagram platformose. Pasiekiame jūsų idealų klientą tinkamu laiku ir vietoje – taip, kad kiekvienas investuotas euras duotų rezultatą.</p>
-              <div className="svc-tags">
-                {['Facebook reklama','Instagram reklama','Retargeting','Auditorijų segmentacija'].map((t,i) => <span key={i} className="stag2">{t}</span>)}
-              </div>
-            </div>
-            <div className="svc-arr">↗</div>
-          </div>
-          <div className="svc-row reveal d3">
-            <div className="svc-n">04</div>
-            <div>
-              <div className="svc-name">Google Ads</div>
               <p className="svc-desc">Valdomos paieškos ir display reklamos, kurios pasiekia žmones aktyviai ieškančius jūsų paslaugų. Optimizuojame kampanijas, kad gautumėte kuo daugiau konversijų už kuo mažesnę kainą.</p>
               <div className="svc-tags">
                 {['Paieškos reklama','Display reklama','Remarketingas','Konversijų stebėjimas'].map((t,i) => <span key={i} className="stag2">{t}</span>)}
               </div>
             </div>
             <div className="svc-arr">↗</div>
-          </div>
+          </Link>
+          <Link href="/paslaugos/meta-ads" className="svc-row reveal d1">
+            <div className="svc-n">02</div>
+            <div>
+              <div className="svc-name-row">
+                <img src="/metalogo.webp" className="svc-icon" alt="" />
+                <div className="svc-name">Meta Ads</div>
+              </div>
+              <p className="svc-desc">Kuriame ir valdome tikslines reklamas Facebook ir Instagram platformose. Pasiekiame jūsų idealų klientą tinkamu laiku ir vietoje – taip, kad kiekvienas investuotas euras duotų rezultatą.</p>
+              <div className="svc-tags">
+                {['Facebook reklama','Instagram reklama','Retargeting','Auditorijų segmentacija'].map((t,i) => <span key={i} className="stag2">{t}</span>)}
+              </div>
+            </div>
+            <div className="svc-arr">↗</div>
+          </Link>
+          <Link href="/paslaugos/svetainiu-kurimas" className="svc-row reveal d2">
+            <div className="svc-n">03</div>
+            <div>
+              <div className="svc-name-row">
+                <img src="/svetainiulogo.webp" className="svc-icon" alt="" style={{ filter: 'brightness(0) invert(1)' }} />
+                <div className="svc-name">Web Dizainas</div>
+              </div>
+              <p className="svc-desc">Kuriame modernias, individualiai pritaikytas svetaines pagal jūsų verslo tikslus. Dėmesį skiriame ne tik dizainui, bet ir greičiui, patogiam naudojimui bei sklandžiam veikimui visuose įrenginiuose.</p>
+              <div className="svc-tags">
+                {['HTML / CSS / JS','Mobili versija','Greitas įkėlimas','Modernios animacijos'].map((t,i) => <span key={i} className="stag2">{t}</span>)}
+              </div>
+            </div>
+            <div className="svc-arr">↗</div>
+          </Link>
+          <Link href="/paslaugos/seo-optimizacija" className="svc-row reveal d3">
+            <div className="svc-n">04</div>
+            <div>
+              <div className="svc-name-row">
+                <img src="/magnifyingglass.webp" className="svc-icon" alt="" />
+                <div className="svc-name">SEO Optimizacija</div>
+              </div>
+              <p className="svc-desc">Padedame pasirūpinti, kad jūsų svetainė būtų geriau matoma Google paieškoje. Sutvarkome techninius pagrindus, greitį ir svarbiausius SEO elementus, reikalingus geresniam matomumui internete.</p>
+              <div className="svc-tags">
+                {['Techninė SEO','Google Search Console','Core Web Vitals','Vietinė paieška'].map((t,i) => <span key={i} className="stag2">{t}</span>)}
+              </div>
+            </div>
+            <div className="svc-arr">↗</div>
+          </Link>
         </div>
       </section>
 

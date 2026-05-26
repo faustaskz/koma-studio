@@ -210,7 +210,7 @@ export default function NavBar() {
               <div className="nav-dropdown" onMouseEnter={onEnter} onMouseLeave={onLeave}>
                 {PASLAUGOS.map(p => (
                   <Link key={p.href} href={p.href} className="nav-drop-item" onClick={() => setOpen(false)}>
-                    <img src={p.icon} alt="" className="nav-drop-icon" style={p.icon === '/magnifyingglass.webp' ? {width:'30px', height:'30px'} : undefined} />
+                    <img src={p.icon} alt="" className="nav-drop-icon" style={{ ...(p.icon === '/magnifyingglass.webp' ? {width:'30px', height:'30px'} : {}), ...(p.icon === '/svetainiulogo.webp' ? {filter:'brightness(0) invert(1)'} : {}) }} />
                     {p.label}
                   </Link>
                 ))}
@@ -238,7 +238,7 @@ export default function NavBar() {
         <p className="mob-section-label">Paslaugos</p>
         {PASLAUGOS.map(p => (
           <Link key={p.href} href={p.href} className="mob-link" onClick={closeMobile}>
-            <img src={p.icon} alt="" className="mob-link-icon" />
+            <img src={p.icon} alt="" className="mob-link-icon" style={p.icon === '/svetainiulogo.webp' ? {filter:'brightness(0) invert(1)'} : undefined} />
             {p.label}
           </Link>
         ))}
