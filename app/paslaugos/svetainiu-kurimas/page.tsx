@@ -150,14 +150,21 @@ export default function SvetainiuKurimasPage() {
           .proc-grid { grid-template-columns: 1fr; gap: 2px; }
           .fit-grid { grid-template-columns: 1fr; }
           .trust-grid { grid-template-columns: 1fr 1fr; gap: 2px; }
-          footer { flex-direction: column; gap: 16px; text-align: center; padding: 32px 24px; }
+          footer { flex-direction: column; gap: 16px; text-align: center; padding: 24px 20px; }
           .final-cta { padding: 80px 24px; }
         }
         @media (max-width: 480px) {
+          .hero { padding: 100px 20px 60px; }
+          .hero-sub { font-size: 16px; }
+          .section { padding: 48px 20px; }
+          .cta-strip { padding: 28px 20px; }
+          .gif-split { padding: 36px 20px; }
+          .final-cta { padding: 60px 20px; }
           .prob-grid { grid-template-columns: 1fr; }
           .sol-grid { grid-template-columns: 1fr; }
           .get-grid { grid-template-columns: 1fr; }
           .trust-grid { grid-template-columns: 1fr; }
+          footer { padding: 20px; }
         }
       `}</style>
 

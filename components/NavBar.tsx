@@ -183,7 +183,7 @@ export default function NavBar() {
         @media(max-width:768px){
           nav {
             top: 12px;
-            left: 24px; right: 24px;
+            left: 16px; right: 16px;
             transform: none;
             width: auto;
             padding: 8px 8px 8px 16px;

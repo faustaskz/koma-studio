@@ -547,14 +547,17 @@ document.querySelectorAll<HTMLElement>('.svc-row').forEach((row) => {
           .vhs-track { height: 50px; }
           .fr2 { grid-template-columns: 1fr; }
 
-          footer { flex-direction: column; gap: 20px; text-align: center; }
+          footer { flex-direction: column; gap: 20px; text-align: center; padding: 28px 20px; }
           .cookie { flex-direction: column; gap: 14px; bottom: 16px; }
         }
 
         @media(max-width:480px){
-          .hero-title { font-size: 54px; }
+          #hero { padding: 90px 20px 50px; }
+          .hero-title { font-size: clamp(38px, 13vw, 52px); overflow-wrap: break-word; }
           .port-grid { grid-template-columns: 1fr; }
           .port-cta-card { grid-column: unset; }
+          .svc-row { grid-template-columns: 32px 1fr 16px; gap: 10px; }
+          .svc-name { font-size: 22px; }
         }
       `}</style>
 

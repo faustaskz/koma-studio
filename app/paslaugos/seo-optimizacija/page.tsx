@@ -143,10 +143,20 @@ export default function SeoPage() {
           .get-svg-wrap{order:-1;}
           .trust-grid{grid-template-columns:1fr;}
           .fit-split{grid-template-columns:1fr;gap:32px;}
-          .gif-split{grid-template-columns:1fr;gap:32px;padding:48px 24px;}
+          .gif-split{grid-template-columns:1fr!important;gap:32px;padding:48px 24px;}
           .cta-strip{flex-direction:column;align-items:flex-start;padding:40px 24px;}
           .final-cta{padding:80px 24px;}
           footer{flex-direction:column;gap:12px;text-align:center;padding:24px;}
+        }
+        @media(max-width:480px){
+          .svc-hero{padding:100px 20px 60px;}
+          .svc-hero-sub{font-size:16px;}
+          .sec{padding:48px 20px;}
+          .cta-strip{padding:32px 20px;}
+          .cta-strip-text{font-size:16px;}
+          .gif-split{padding:40px 20px;}
+          .final-cta{padding:60px 20px;}
+          footer{padding:20px;}
         }
       `}</style>
 
