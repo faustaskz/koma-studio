@@ -33,10 +33,6 @@ export const metadata: Metadata = {
   alternates: {
     canonical: BASE_URL,
   },
-  icons: {
-    icon: '/favicon.svg',
-    apple: '/favicon.svg',
-  },
   robots: {
     index: true,
     follow: true,

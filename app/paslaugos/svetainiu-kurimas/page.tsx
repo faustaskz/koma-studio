@@ -58,12 +58,14 @@ export default function SvetainiuKurimasPage() {
         .prob-desc { font-size: 13px; color: rgba(255,255,255,0.45); line-height: 1.6; }
 
         /* SOLUTION */
-        .sol-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 2px; margin-top: 48px; }
-        .sol-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); padding: 24px; transition: background 0.2s; }
-        .sol-card:hover { background: rgba(255,255,255,0.07); }
-        .sol-icon { font-size: 20px; margin-bottom: 12px; }
-        .sol-title { font-size: 14px; font-weight: 600; color: #f0ede8; line-height: 1.4; margin-bottom: 0; }
-        .sol-desc { font-size: 13px; color: rgba(255,255,255,0.45); line-height: 1.6; margin-top: 6px; }
+        .sol-split { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+        .sol-body { font-size: 15px; color: rgba(255,255,255,0.55); line-height: 1.8; margin-bottom: 16px; }
+        .sol-list { display: flex; flex-direction: column; gap: 0; }
+        .sol-item { display: flex; align-items: baseline; gap: 14px; padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,0.07); }
+        .sol-item:first-child { border-top: 1px solid rgba(255,255,255,0.07); }
+        .sol-item-dot { width: 4px; height: 4px; border-radius: 50%; background: rgba(255,255,255,0.25); flex-shrink: 0; margin-top: 8px; }
+        .sol-item-label { font-size: 14px; font-weight: 600; color: #f0ede8; margin-bottom: 2px; }
+        .sol-item-desc { font-size: 13px; color: rgba(255,255,255,0.4); line-height: 1.5; }
 
         /* GET */
         .get-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 2px; margin-top: 48px; }
@@ -145,7 +147,7 @@ export default function SvetainiuKurimasPage() {
           .cta-strip { padding: 32px 24px; flex-direction: column; text-align: center; }
           .cta-strip .btn-main { width: 100%; }
           .prob-grid { grid-template-columns: 1fr 1fr; gap: 2px; }
-          .sol-grid { grid-template-columns: 1fr 1fr; gap: 2px; }
+          .sol-split { grid-template-columns: 1fr; gap: 40px; }
           .get-grid { grid-template-columns: 1fr 1fr; gap: 2px; }
           .proc-grid { grid-template-columns: 1fr; gap: 2px; }
           .fit-grid { grid-template-columns: 1fr; }
@@ -180,24 +182,37 @@ export default function SvetainiuKurimasPage() {
         </div>
       </section>
 
-      {/* 2. PROBLEMA */}
+      {/* 2. SPRENDIMAS */}
       <section className="section">
-        <div className="sec-tag">Problema</div>
-        <h2 className="sec-title">Dauguma svetainių atrodo pasenusios ir nekonvertuoja</h2>
-        <p className="sec-sub">Žmonės per kelias sekundes nusprendžia ar jūsų verslas atrodo patikimas. Lėta, pasenusi ar neaiški svetainė dažnai reiškia prarastus klientus.</p>
-        <div className="prob-grid">
-          {[
-            { icon: '🕸️', title: 'Pasenęs dizainas', desc: 'Sena svetainė sukuria blogą pirmą įspūdį. Lankytojai nelieka.' },
-            { icon: '🌀', title: 'Neaiški struktūra', desc: 'Žmonės nesupranta ką daryti toliau ir tiesiog išeina.' },
-            { icon: '🐌', title: 'Lėtas veikimas', desc: 'Kiekviena sekundė laukimo mažina konversijų rodiklius.' },
-            { icon: '📉', title: 'Svetainė neatveda užklausų', desc: 'Gražus dizainas be strategijos neneša verslo rezultatų.' },
-          ].map(p => (
-            <div key={p.title} className="prob-card">
-              <div className="prob-icon">{p.icon}</div>
-              <div className="prob-title">{p.title}</div>
-              <p className="prob-desc">{p.desc}</p>
+        <div className="sol-split">
+          <div>
+            <div className="sec-tag">Sprendimas</div>
+            <h2 className="sec-title">Svetainė turi ne tik atrodyti gerai. Ji turi veikti.</h2>
+            <p className="sol-body">Kuriame svetaines nuo nulio — individualiai, be šablonų. Kiekvienas puslapis suprojektuotas taip, kad lankytojas intuityviai žinotų ką daryti toliau ir lengvai susisiektų su jumis.</p>
+            <p className="sol-body">Dėmesį skiriame ne tik vizualui — kiekviena svetainė optimizuojama greičiui, mobiliems įrenginiams ir Google paieškos pagrindams. Tai reiškia, kad svetainė ne tik gerai atrodo, bet ir greitai kraustosi, gerai veikia telefone ir lengviau randama.</p>
+            <p className="sol-body">Proceso pabaigoje gausite svetainę, kuri aiškiai pristato jūsų verslą, kuria pasitikėjimą ir padeda paversti lankytojus klientais — be nereikalingo sudėtingumo.</p>
+            <div style={{ marginTop: '36px' }}>
+              <button className="btn-main" onClick={cta}>Aptarti projektą →</button>
             </div>
-          ))}
+          </div>
+          <div className="sol-list">
+            {[
+              { label: 'Individualus dizainas', desc: 'Kuriama tik jums, ne pagal šabloną' },
+              { label: 'Mobile-first', desc: 'Tobulai veikia visuose įrenginiuose' },
+              { label: 'Greitas veikimas', desc: 'Optimizuoti puslapiai — greitas įkėlimas' },
+              { label: 'SEO pagrindai', desc: 'Teisingi techniniai pagrindai Google paieškoje' },
+              { label: 'Kontaktų formos', desc: 'Integruotos ir veikiančios užklausų formos' },
+              { label: 'Lengvas administravimas', desc: 'Keiskite turinį patys be programavimo žinių' },
+            ].map(s => (
+              <div key={s.label} className="sol-item">
+                <div className="sol-item-dot" />
+                <div>
+                  <div className="sol-item-label">{s.label}</div>
+                  <div className="sol-item-desc">{s.desc}</div>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -221,34 +236,6 @@ export default function SvetainiuKurimasPage() {
         </div>
         <button className="btn-main" onClick={cta}>Noriu modernios svetainės →</button>
       </div>
-
-      {/* 3. SPRENDIMAS */}
-      <section className="section">
-        <div className="sec-tag">Sprendimas</div>
-        <h2 className="sec-title">Svetainė turi ne tik atrodyti gerai. Ji turi veikti.</h2>
-        <p className="sec-sub">Kuriame modernias svetaines kurios aiškiai pristato jūsų verslą ir padeda žmonėms atlikti veiksmą.</p>
-        <div className="sol-grid">
-          {[
-            { icon: '🎨', title: 'Modernus UI/UX dizainas', desc: 'Kiekvienas ekranas veda lankytoją link veiksmo.' },
-            { icon: '📱', title: 'Mobile-first kūrimas', desc: 'Tobulai veikia nuo telefono iki monitoriaus.' },
-            { icon: '⚡', title: 'Greitas veikimas', desc: 'Optimizuoti puslapiai kraustosi greičiau.' },
-            { icon: '🔍', title: 'SEO pagrindai', desc: 'Teisingi techniniai pagrindai Google paieškoje.' },
-            { icon: '📣', title: 'Aiškūs CTA mygtukai', desc: 'Strategiškai išdėstyti raginimai veikti.' },
-            { icon: '✨', title: 'Premium animacijos', desc: 'Subtilios animacijos sukuria moderną pojūtį.' },
-            { icon: '📋', title: 'Kontaktų formos', desc: 'Integruotos formos priima užklausas be trukdžių.' },
-            { icon: '🛠️', title: 'Lengvas administravimas', desc: 'Keiskite turinį patys be programavimo žinių.' },
-          ].map(s => (
-            <div key={s.title} className="sol-card">
-              <div className="sol-icon">{s.icon}</div>
-              <div className="sol-title">{s.title}</div>
-              <p className="sol-desc">{s.desc}</p>
-            </div>
-          ))}
-        </div>
-        <div style={{ marginTop: '48px', display: 'flex', justifyContent: 'center' }}>
-          <button className="btn-main" onClick={cta}>Noriu modernios svetainės →</button>
-        </div>
-      </section>
 
       {/* 4. KĄ GAUNATE */}
       <section className="section">
@@ -369,17 +356,6 @@ export default function SvetainiuKurimasPage() {
         </div>
       </section>
 
-      {/* GIF 3 — naršymo patirtis */}
-      <div className="gif-split">
-        <div>
-          <div className="gif-copy-tag">Galutinis rezultatas</div>
-          <h3 className="gif-copy-h">Štai kaip tai atrodo lankytojo akimis</h3>
-          <p className="gif-copy-p">Greita, sklandi, aiški. Tai ką žmonės jaučia atėję į modernią, gerai sukurtą svetainę.</p>
-        </div>
-        <div className="gif-frame">
-          <img src="/svetaineskurimasgif.webp" alt="Svetainės naršymas" />
-        </div>
-      </div>
 
       {/* 9. FAQ */}
       <section className="section">

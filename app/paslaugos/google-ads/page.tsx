@@ -47,11 +47,11 @@ export default function GoogleAdsPage() {
 
         /* ── PROBLEM SECTION ── */
         .prob-split{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center;}
-        .prob-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2px;margin-top:32px;}
-        .prob-card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);padding:20px 22px;transition:background 0.2s;}
-        .prob-card:hover{background:rgba(255,255,255,0.07);}
-        .prob-icon{font-size:18px;margin-bottom:10px;}
-        .prob-text{font-size:13px;font-weight:500;color:#f0ede8;line-height:1.5;}
+        .prob-list{display:flex;flex-direction:column;gap:0;margin-top:32px;}
+        .prob-item{display:flex;align-items:baseline;gap:12px;padding:14px 0;border-bottom:1px solid rgba(255,255,255,0.07);}
+        .prob-item:first-child{border-top:1px solid rgba(255,255,255,0.07);}
+        .prob-item-dot{width:4px;height:4px;border-radius:50%;background:rgba(255,255,255,0.25);flex-shrink:0;margin-top:8px;}
+        .prob-item-text{font-size:14px;color:rgba(255,255,255,0.65);line-height:1.6;}
         .prob-img-wrap{border-radius:20px;overflow:hidden;border:1px solid rgba(255,255,255,0.1);box-shadow:0 32px 80px rgba(0,0,0,0.6);}
         .prob-img-wrap img{width:100%;height:auto;display:block;}
 
@@ -88,11 +88,11 @@ export default function GoogleAdsPage() {
 
         /* ── TRUST ── */
         .trust-split{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center;}
-        .trust-pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:28px;}
-        .trust-pill{display:flex;align-items:center;gap:10px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);padding:10px 16px;border-radius:8px;transition:background 0.2s;}
-        .trust-pill:hover{background:rgba(255,255,255,0.09);}
-        .trust-pill-icon{font-size:16px;line-height:1;}
-        .trust-pill-text{font-size:13px;font-weight:500;color:#f0ede8;white-space:nowrap;}
+        .trust-list{display:flex;flex-direction:column;gap:0;margin-top:32px;}
+        .trust-item{display:flex;align-items:baseline;gap:12px;padding:14px 0;border-bottom:1px solid rgba(255,255,255,0.07);}
+        .trust-item:first-child{border-top:1px solid rgba(255,255,255,0.07);}
+        .trust-item-dot{width:4px;height:4px;border-radius:50%;background:rgba(255,255,255,0.25);flex-shrink:0;margin-top:8px;}
+        .trust-item-text{font-size:14px;color:rgba(255,255,255,0.65);line-height:1.6;}
         .trust-img-wrap{border-radius:20px;overflow:hidden;border:1px solid rgba(255,255,255,0.1);box-shadow:0 32px 80px rgba(0,0,0,0.6);}
         .trust-img-wrap img{width:100%;height:auto;display:block;}
 
@@ -132,7 +132,6 @@ export default function GoogleAdsPage() {
           .sec{padding:64px 24px;}
           .prob-split{grid-template-columns:1fr;gap:32px;}
           .prob-img-order{order:-1;}
-          .prob-grid{grid-template-columns:1fr;}
           .sol-split{grid-template-columns:1fr;gap:32px;}
           .sol-img-order{order:-1;}
           .trust-split{grid-template-columns:1fr;gap:32px;}
@@ -175,16 +174,16 @@ export default function GoogleAdsPage() {
             <div className="sec-tag">Problema</div>
             <h2 className="sec-h">Mokate už reklamą,<br />bet negaunate klientų?</h2>
             <p className="sec-sub" style={{ marginBottom: 0 }}>Dažniausia problema nėra Google Ads. Problema – bloga struktūra, netikslūs raktažodžiai ir kampanijos be aiškaus tikslo.</p>
-            <div className="prob-grid">
+            <div className="prob-list">
               {[
-                { icon: '📉', text: 'Daug paspaudimų, mažai užklausų' },
-                { icon: '💸', text: 'Reklama leidžia pinigus be aiškaus rezultato' },
-                { icon: '🤷', text: 'Neaišku, kas veikia ir kas ne' },
-                { icon: '🔕', text: 'Kampanijos paleistos, bet niekas jų neoptimizuoja' },
-              ].map(p => (
-                <div key={p.text} className="prob-card">
-                  <div className="prob-icon">{p.icon}</div>
-                  <div className="prob-text">{p.text}</div>
+                'Daug paspaudimų, mažai užklausų',
+                'Reklama leidžia pinigus be aiškaus rezultato',
+                'Neaišku, kas veikia ir kas ne',
+                'Kampanijos paleistos, bet niekas jų neoptimizuoja',
+              ].map(t => (
+                <div key={t} className="prob-item">
+                  <div className="prob-item-dot" />
+                  <span className="prob-item-text">{t}</span>
                 </div>
               ))}
             </div>
@@ -310,17 +309,17 @@ export default function GoogleAdsPage() {
           <div>
             <div className="sec-tag">Skaidrumas</div>
             <h2 className="sec-h">Matysite ne pažadus,<br />o aiškius skaičius</h2>
-            <div className="trust-pills">
+            <div className="trust-list">
               {[
-                { icon: '📊', t: 'Konversijų sekimas' },
-                { icon: '🔑', t: 'Raktažodžių ataskaitos' },
-                { icon: '💰', t: 'Biudžeto panaudojimas' },
-                { icon: '📬', t: 'Užklausų kaina' },
-                { icon: '💡', t: 'Rekomendacijos, ką gerinti' },
-              ].map(c => (
-                <div key={c.t} className="trust-pill">
-                  <span className="trust-pill-icon">{c.icon}</span>
-                  <span className="trust-pill-text">{c.t}</span>
+                'Konversijų sekimas',
+                'Raktažodžių ataskaitos',
+                'Biudžeto panaudojimas',
+                'Užklausų kaina',
+                'Rekomendacijos, ką gerinti',
+              ].map(t => (
+                <div key={t} className="trust-item">
+                  <div className="trust-item-dot" />
+                  <span className="trust-item-text">{t}</span>
                 </div>
               ))}
             </div>
