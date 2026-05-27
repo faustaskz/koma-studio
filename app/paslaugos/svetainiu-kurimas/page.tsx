@@ -154,8 +154,6 @@ export default function SvetainiuKurimasPage() {
           .final-cta { padding: 80px 24px; }
         }
         @media (max-width: 480px) {
-          .hero { padding: 100px 20px 60px; }
-          .hero-sub { font-size: 16px; }
           .section { padding: 48px 20px; }
           .cta-strip { padding: 28px 20px; }
           .gif-split { padding: 36px 20px; }

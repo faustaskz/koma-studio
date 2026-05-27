@@ -552,8 +552,7 @@ document.querySelectorAll<HTMLElement>('.svc-row').forEach((row) => {
         }
 
         @media(max-width:480px){
-          #hero { padding: 90px 20px 50px; }
-          .hero-title { font-size: clamp(38px, 13vw, 52px); overflow-wrap: break-word; }
+          .hero-title { font-size: 54px; }
           .port-grid { grid-template-columns: 1fr; }
           .port-cta-card { grid-column: unset; }
           .svc-row { grid-template-columns: 32px 1fr 16px; gap: 10px; }

@@ -149,8 +149,6 @@ export default function SeoPage() {
           footer{flex-direction:column;gap:12px;text-align:center;padding:24px;}
         }
         @media(max-width:480px){
-          .svc-hero{padding:100px 20px 60px;}
-          .svc-hero-sub{font-size:16px;}
           .sec{padding:48px 20px;}
           .cta-strip{padding:32px 20px;}
           .cta-strip-text{font-size:16px;}
