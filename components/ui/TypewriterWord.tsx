@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 
-const WORDS = ['prabanga', 'kokybė', 'patirtis', 'vertė', 'vizija'];
+const WORDS = ['reklama', 'svetainė', 'strategija', 'rinkodara', 'optimizacija'];
 const HOLD_MS    = 3200;
 const TYPE_MS    = 68;
 const DELETE_MS  = 42;

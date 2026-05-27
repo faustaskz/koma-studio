@@ -46,29 +46,34 @@ export default function MetaAdsPage() {
         .sec-sub{font-size:16px;color:rgba(255,255,255,0.5);line-height:1.7;max-width:560px;margin-bottom:48px;}
 
         /* ── PROBLEM ── */
-        .prob-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2px;margin-top:48px;}
-        .prob-card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);padding:28px 32px;transition:background 0.2s;}
-        .prob-card:hover{background:rgba(255,255,255,0.07);}
-        .prob-icon{font-size:22px;margin-bottom:14px;}
-        .prob-text{font-size:15px;font-weight:500;color:#f0ede8;line-height:1.5;}
+        .prob-split{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center;}
+        .prob-text-list{display:flex;flex-direction:column;margin-top:32px;}
+        .prob-text-item{padding:18px 0;border-bottom:1px solid rgba(255,255,255,0.07);}
+        .prob-text-item:first-child{border-top:1px solid rgba(255,255,255,0.07);}
+        .prob-text-title{font-size:15px;font-weight:600;color:#f0ede8;margin-bottom:6px;}
+        .prob-text-desc{font-size:14px;color:rgba(255,255,255,0.5);line-height:1.65;}
+        .prob-img-wrap{border-radius:20px;overflow:hidden;border:1px solid rgba(255,255,255,0.1);box-shadow:0 32px 80px rgba(0,0,0,0.6);}
+        .prob-img-wrap img{width:100%;height:auto;display:block;}
 
         /* ── CTA STRIP ── */
         .cta-strip{padding:48px 80px;background:rgba(0,0,0,0.6);backdrop-filter:blur(14px);border-top:1px solid rgba(255,255,255,0.07);display:flex;align-items:center;justify-content:space-between;gap:24px;}
         .cta-strip-text{font-size:18px;font-weight:600;color:#f0ede8;max-width:480px;line-height:1.4;}
 
         /* ── SOLUTION ── */
-        .sol-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:48px;}
-        .sol-card{background:rgba(139,92,246,0.06);border:1px solid rgba(139,92,246,0.15);padding:28px 28px;transition:background 0.2s;}
-        .sol-card:hover{background:rgba(139,92,246,0.11);}
-        .sol-num{font-size:10px;letter-spacing:0.15em;color:rgba(139,92,246,0.6);margin-bottom:12px;}
-        .sol-title{font-size:16px;font-weight:600;color:#f0ede8;line-height:1.4;}
+        .sol-split{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center;}
+        .sol-body{font-size:15px;color:rgba(255,255,255,0.55);line-height:1.8;margin-bottom:16px;}
+        .sol-img-wrap{border-radius:20px;overflow:hidden;border:1px solid rgba(255,255,255,0.1);box-shadow:0 32px 80px rgba(0,0,0,0.6);}
+        .sol-img-wrap img{width:100%;height:auto;display:block;}
 
         /* ── WHAT YOU GET ── */
-        .get-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:48px;}
-        .get-card{padding:32px 28px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);transition:background 0.2s,border-color 0.2s;}
-        .get-card:hover{background:rgba(255,255,255,0.06);border-color:rgba(139,92,246,0.25);}
-        .get-icon{width:36px;height:36px;border-radius:10px;background:rgba(139,92,246,0.12);border:1px solid rgba(139,92,246,0.2);display:flex;align-items:center;justify-content:center;font-size:16px;margin-bottom:16px;}
-        .get-title{font-size:15px;font-weight:600;color:#f0ede8;line-height:1.4;}
+        .get-split{display:grid;grid-template-columns:370px 1fr;gap:56px;align-items:center;margin-left:100px;}
+        .get-img-wrap{border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,255,0.1);box-shadow:0 16px 48px rgba(0,0,0,0.5);}
+        .get-img-wrap img{width:100%;height:auto;display:block;}
+        .get-text-list{display:flex;flex-direction:column;margin-top:28px;}
+        .get-text-item{padding:16px 0;border-bottom:1px solid rgba(255,255,255,0.07);}
+        .get-text-item:first-child{border-top:1px solid rgba(255,255,255,0.07);}
+        .get-text-title{font-size:14px;font-weight:600;color:#f0ede8;margin-bottom:5px;display:flex;align-items:center;gap:8px;}
+        .get-text-desc{font-size:13px;color:rgba(255,255,255,0.5);line-height:1.65;}
 
         /* ── PROCESS ── */
         .proc-list{display:flex;flex-direction:column;gap:0;margin-top:48px;}
@@ -86,11 +91,14 @@ export default function MetaAdsPage() {
         .fit-text{font-size:15px;color:rgba(255,255,255,0.8);font-weight:400;}
 
         /* ── TRUST ── */
-        .trust-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:2px;margin-top:48px;}
-        .trust-card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);padding:28px 20px;text-align:center;transition:background 0.2s;}
-        .trust-card:hover{background:rgba(255,255,255,0.07);}
-        .trust-icon{font-size:24px;margin-bottom:12px;}
-        .trust-title{font-size:13px;font-weight:600;color:#f0ede8;line-height:1.4;}
+        .trust-split{display:grid;grid-template-columns:1fr 0.6fr;gap:64px;align-items:center;}
+        .trust-pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:28px;}
+        .trust-pill{display:flex;align-items:center;gap:10px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);padding:10px 16px;border-radius:8px;transition:background 0.2s;}
+        .trust-pill:hover{background:rgba(255,255,255,0.09);}
+        .trust-pill-icon{font-size:16px;line-height:1;}
+        .trust-pill-text{font-size:13px;font-weight:500;color:#f0ede8;white-space:nowrap;}
+        .trust-accent-wrap{border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,255,0.07);opacity:0.82;}
+        .trust-accent-wrap img{width:100%;height:auto;display:block;}
 
         /* ── FAQ ── */
         .faq-list{display:flex;flex-direction:column;gap:0;margin-top:48px;max-width:720px;}
@@ -126,10 +134,13 @@ export default function MetaAdsPage() {
           .svc-hero-actions{flex-direction:column;width:100%;}
           .btn-primary,.btn-outline{width:100%;text-align:center;}
           .sec{padding:64px 24px;}
-          .prob-grid{grid-template-columns:1fr;}
-          .sol-grid{grid-template-columns:1fr;}
-          .get-grid{grid-template-columns:1fr;}
-          .trust-grid{grid-template-columns:repeat(2,1fr);}
+          .prob-split{grid-template-columns:1fr;gap:32px;}
+          .prob-img-order{order:-1;}
+          .sol-split{grid-template-columns:1fr;gap:32px;}
+          .sol-img-order{order:-1;}
+          .get-split{grid-template-columns:1fr;gap:32px;margin-left:0;}
+          .trust-split{grid-template-columns:1fr;gap:28px;}
+          .trust-accent-hide{display:none;}
           .fit-list{grid-template-columns:1fr;}
           .gif-split{grid-template-columns:1fr;gap:32px;padding:48px 24px;}
           .cta-strip{flex-direction:column;align-items:flex-start;padding:40px 24px;}
@@ -154,21 +165,51 @@ export default function MetaAdsPage() {
 
       {/* 2. PROBLEMA */}
       <section className="sec" id="problema">
-        <div className="sec-tag">Problema</div>
-        <h2 className="sec-h">Leidžiate reklamas,<br />bet rezultatai nestabilūs?</h2>
-        <p className="sec-sub">Dauguma Meta Ads kampanijų sudega dėl silpnos kūrybos, blogo targeting'o arba neoptimizuojamų reklamų.</p>
-        <div className="prob-grid">
-          {[
-            { icon: '🖱️', text: 'Reklama generuoja bereikalingus paspaudimus' },
-            { icon: '📈', text: 'Aukšta užklausos kaina' },
-            { icon: '😐', text: 'Kūryba nepritraukia dėmesio' },
-            { icon: '🔕', text: 'Kampanijos paleistos ir pamirštos' },
-          ].map(p => (
-            <div key={p.text} className="prob-card">
-              <div className="prob-icon">{p.icon}</div>
-              <div className="prob-text">{p.text}</div>
+        <div className="prob-split">
+          <div>
+            <div className="sec-tag">Problema</div>
+            <h2 className="sec-h">Leidžiate reklamas,<br />bet rezultatai nestabilūs?</h2>
+            <p className="sec-sub" style={{ marginBottom: 0 }}>Dauguma Meta Ads kampanijų sudega dėl silpnos kūrybos, blogo targeting'o arba neoptimizuojamų reklamų.</p>
+            <div className="prob-text-list">
+              {[
+                { t: 'Reklama generuoja bereikalingus paspaudimus', d: 'Reklama gauna daug paspaudimų, tačiau į svetainę ateinantys žmonės nesidomisi jūsų paslaugomis ir neketina pirkti. Tai rodo netikslų targetingą arba silpną skelbimo kryptį.' },
+                { t: 'Aukšta užklausos kaina', d: 'Kiekvienas gautas lead\'as kainuoja per daug, nes auditorija pasirinkta per plačiai arba kūryba nepakankamai stipri, kad išskirtų jus iš konkurentų.' },
+                { t: 'Kūryba nepritraukia dėmesio', d: 'Facebook ir Instagram vartotojai per dieną mato šimtus reklamų. Jei vizualas ar tekstas neišsiskiria per pirmąsias sekundes – jūsų reklama tiesiog praslys pro šalį.' },
+                { t: 'Kampanijos paleistos ir pamirštos', d: 'Viena dažniausių klaidų — paleisti kampaniją ir jos neoptimizuoti. Meta algoritmas reikalauja nuolatinio testavimo, nes auditorijos ir kainos keičiasi.' },
+              ].map(p => (
+                <div key={p.t} className="prob-text-item">
+                  <div className="prob-text-title">{p.t}</div>
+                  <p className="prob-text-desc">{p.d}</p>
+                </div>
+              ))}
             </div>
-          ))}
+          </div>
+          <div className="prob-img-order">
+            <div className="prob-img-wrap">
+              <img src="/leads%200.webp" alt="Meta Ads leads problema" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 3. SPRENDIMAS */}
+      <section className="sec" id="sprendimas">
+        <div className="sol-split">
+          <div>
+            <div className="sec-tag">Sprendimas</div>
+            <h2 className="sec-h" style={{ marginBottom: '24px' }}>Meta Ads turi ne tik atrodyti gerai.<br />Jos turi veikti.</h2>
+            <p className="sol-body">Meta Ads sėkmė priklauso nuo trijų dalykų: tinkamos auditorijos, stiprios kūrybos ir nuolatinės optimizacijos. Prieš paleisdami bet kokią kampaniją, ištiriame jūsų tikslinę auditoriją — kas yra jūsų klientas, kur jis leidžia laiką ir kokie pranešimai jį pasiekia.</p>
+            <p className="sol-body">Reklaminį turinį kuriame orientuotą į konversiją — ne tik gražų vizualą, bet žinutę, kuri verčia imtis veiksmo. Facebook ir Instagram algoritmai atlygina reklamoms su aukštu engagement rate ir žema klikų kaina, todėl kūryba yra vienas svarbiausių sėkmės veiksnių.</p>
+            <p className="sol-body">Kiekvieną kampaniją valdome aktyviai: sekame konversijas per Facebook Pixel, testuojame auditorijų segmentus, lyginame vizualus A/B testais ir optimizuojame pagal realius ROAS bei CPA rodiklius — ne spėliojimus.</p>
+            <div style={{ marginTop: '32px' }}>
+              <button onClick={cta} className="btn-primary">Noriu Meta Ads reklamos →</button>
+            </div>
+          </div>
+          <div className="sol-img-order">
+            <div className="sol-img-wrap">
+              <img src="/meta%20campaigns.webp" alt="Meta Ads kampanijų valdymas" />
+            </div>
+          </div>
         </div>
       </section>
 
@@ -186,65 +227,49 @@ export default function MetaAdsPage() {
         <div>
           <div className="gif-copy-tag">Kaip tai veikia</div>
           <h3 className="gif-copy-h">Jūsų reklama pasirodo ten, kur žmonės leidžia laiką</h3>
-          <p className="gif-copy-p">Facebook ir Instagram pasiekia auditoriją pagal pomėgius, elgseną ir demografiją — dar prieš jiems pradedant ieškoti.</p>
+          <p className="gif-copy-p">Skirtingai nei Google Ads, Meta reklama pasiekia auditoriją dar prieš jiems pradedant aktyviai ieškoti. Facebook ir Instagram algoritmai leidžia nukreipti reklamą pagal amžių, vietą, pomėgius, elgseną ir net panašumą į jūsų esamus klientus.</p>
+          <p className="gif-copy-p" style={{ marginTop: '14px' }}>Tai reiškia, kad galite pasiekti potencialius klientus ankstyvame sprendimo priėmimo etape — kurti žinomumą, generuoti susidomėjimą ir skatinti užklausas dar prieš konkurentai juos pastebi. Tinkamai sukonfigūruota Meta Ads kampanija dirba nuolat — generuoja srautą ir užklausas net tada, kai jūs nedirbate.</p>
         </div>
       </div>
 
-      {/* 3. SPRENDIMAS */}
-      <section className="sec" id="sprendimas">
-        <div className="sec-tag">Sprendimas</div>
-        <h2 className="sec-h">Meta Ads turi ne tik atrodyti gerai.<br />Jos turi veikti.</h2>
-        <p className="sec-sub">Kuriame reklamos sistemą, kuri orientuota į rezultatą – užklausas, pardavimus ir augimą.</p>
-        <div className="sol-grid">
-          {[
-            { n: '01', t: 'Audience research' },
-            { n: '02', t: 'Creative strategija' },
-            { n: '03', t: 'Video ir vizualų optimizacija' },
-            { n: '04', t: 'Retargeting kampanijos' },
-            { n: '05', t: 'Conversion tracking' },
-            { n: '06', t: 'Nuolatinis testavimas ir optimizacija' },
-          ].map(s => (
-            <div key={s.n} className="sol-card">
-              <div className="sol-num">{s.n}</div>
-              <div className="sol-title">{s.t}</div>
-            </div>
-          ))}
-        </div>
-        <div style={{ marginTop: '40px' }}>
-          <button onClick={cta} className="btn-primary">Noriu Meta Ads reklamos →</button>
-        </div>
-      </section>
 
       {/* SVG — biznio planas */}
-      <div className="gif-split">
-        <div className="gif-frame">
-          <img src="/biznioplanas.svg" alt="Meta Ads kampanijų planas" />
-        </div>
+      <div className="gif-split" style={{ gridTemplateColumns: '1fr 0.5fr' }}>
         <div>
           <div className="gif-copy-tag">Strategija</div>
           <h3 className="gif-copy-h">Kiekviena kampanija prasideda nuo aiškaus plano</h3>
-          <p className="gif-copy-p">Analizuojame jūsų verslą, auditoriją ir tikslus — ir tik tada kuriame reklamos strategiją, kuri veikia.</p>
+          <p className="gif-copy-p">Prieš paleisdami bet kokią Meta Ads kampaniją, atliekame verslo ir konkurencijos analizę: kas yra jūsų tikslinė auditorija, kokie pranešimai jai rezonuoja ir kaip pozicionuojasi konkurentai. Tik su šia informacija galima sukurti kampaniją, kuri iš tikrųjų veikia.</p>
+          <p className="gif-copy-p" style={{ marginTop: '14px' }}>Planas apima auditorijų segmentavimą, kampanijų struktūrą, biudžeto paskirstymą ir kūrybos kryptį. Tokiu būdu kiekvienas investuotas euras dirba pagal aiškią logiką — ne atsitiktinai.</p>
+        </div>
+        <div className="gif-frame">
+          <img src="/biznioplanas.svg" alt="Meta Ads kampanijų planas" />
         </div>
       </div>
 
       {/* 4. KĄ GAUNATE */}
       <section className="sec" id="ka-gaunate">
-        <div className="sec-tag">Ką gaunate</div>
-        <h2 className="sec-h">Pilnai sutvarkytą<br />Meta Ads sistemą</h2>
-        <div className="get-grid">
-          {[
-            { icon: '🚀', t: 'Reklamų paleidimas' },
-            { icon: '📡', t: 'Facebook Pixel setup' },
-            { icon: '🎯', t: 'Auditorijų kūrimas' },
-            { icon: '🎨', t: 'Reklaminių vizualų kryptis' },
-            { icon: '📊', t: 'Campaign scaling' },
-            { icon: '🔍', t: 'Performance monitoring' },
-          ].map(c => (
-            <div key={c.t} className="get-card">
-              <div className="get-icon">{c.icon}</div>
-              <div className="get-title">{c.t}</div>
+        <div className="get-split">
+          <div className="get-img-wrap">
+            <img src="/meta%20telefonas.webp" alt="Meta Ads telefonas" />
+          </div>
+          <div>
+            <div className="sec-tag">Ką gaunate</div>
+            <h2 className="sec-h">Pilnai sutvarkytą<br />Meta Ads sistemą</h2>
+            <div className="get-text-list">
+              {[
+                { icon: '🚀', t: 'Reklamų paleidimas', d: 'Sukuriame ir paleidžiame Facebook bei Instagram kampanijas – nuo struktūros ir tekstų iki tikslinės auditorijos nustatymo.' },
+                { icon: '📡', t: 'Facebook Pixel ir konversijų sekimas', d: 'Sutvarkome Pixel integraciją, kad galėtume tiksliai sekti, kas ateina iš reklamos ir kiek kainuoja kiekvienas pirkimas ar užklausa.' },
+                { icon: '🎯', t: 'Auditorijų kūrimas ir testavimas', d: 'Kuriame tikslines auditorijas pagal demografiją, pomėgius ir elgseną, taip pat lookalike bei retargeting segmentus.' },
+                { icon: '🎨', t: 'Reklaminių vizualų kryptis', d: 'Padedame suformuoti reklamos kūrybos kryptį – kokie vizualai ir žinutės veikia jūsų auditorijai ir generuoja daugiau konversijų.' },
+                { icon: '📊', t: 'Nuolatinė optimizacija ir ataskaitos', d: 'Stebime CPA, ROAS ir kitus pagrindinius rodiklius, testuojame naujus kreivius ir reguliariai informuojame apie rezultatus.' },
+              ].map(c => (
+                <div key={c.t} className="get-text-item">
+                  <div className="get-text-title"><span>{c.icon}</span>{c.t}</div>
+                  <p className="get-text-desc">{c.d}</p>
+                </div>
+              ))}
             </div>
-          ))}
+          </div>
         </div>
       </section>
 
@@ -276,44 +301,32 @@ export default function MetaAdsPage() {
         <button onClick={cta} className="btn-primary">Pradėkime →</button>
       </div>
 
-      {/* 6. KAM TINKA */}
-      <section className="sec" id="kam-tinka">
-        <div className="sec-tag">Tikslinė auditorija</div>
-        <h2 className="sec-h">Tinka verslams,<br />kurie nori augti</h2>
-        <div className="fit-list">
-          {[
-            'E-komercijai',
-            'Paslaugų verslams',
-            'Statybų / NT sektoriui',
-            'Grožio ir estetikos verslams',
-            'Brandams, kurie nori auginti žinomumą',
-            'Verslams, kurie nori daugiau užklausų',
-          ].map(t => (
-            <div key={t} className="fit-item">
-              <div className="fit-dot" />
-              <div className="fit-text">{t}</div>
-            </div>
-          ))}
-        </div>
-      </section>
 
       {/* 7. TRUST */}
       <section className="sec" id="rezultatai">
-        <div className="sec-tag">Skaidrumas</div>
-        <h2 className="sec-h">Aiškiai matysite<br />kas veikia</h2>
-        <div className="trust-grid">
-          {[
-            { icon: '📊', t: 'Reklamos rezultatų ataskaitos' },
-            { icon: '💰', t: 'CPA / ROAS stebėjimas' },
-            { icon: '🎨', t: 'Creative performance analizė' },
-            { icon: '🎯', t: 'Auditorijų testavimas' },
-            { icon: '💡', t: 'Rekomendacijos augimui' },
-          ].map(c => (
-            <div key={c.t} className="trust-card">
-              <div className="trust-icon">{c.icon}</div>
-              <div className="trust-title">{c.t}</div>
+        <div className="trust-split">
+          <div>
+            <div className="sec-tag">Skaidrumas</div>
+            <h2 className="sec-h">Aiškiai matysite<br />kas veikia</h2>
+            <div className="prob-text-list" style={{ marginTop: '28px' }}>
+              {[
+                { t: 'Reklamos rezultatų ataskaitos', d: 'Kiekvieną savaitę ar mėnesį gausite aiškią ataskaitą: kiek paspaudimų, kiek konversijų, kiek kainavo kiekvienas lead\'as ar pirkimas. Jokie neaiškūs grafikai — tik skaičiai, kurie reiškia kažką konkrečiai jūsų verslui.' },
+                { t: 'CPA ir ROAS stebėjimas', d: 'Sekame kiekvienos kampanijos pelningumą realiu laiku. Žinome, kiek kainuoja viena konversija ir koks yra reklamos investicijos grąžos koeficientas — tai leidžia priimti greitus sprendimus: investuoti daugiau į tai, kas veikia, ir stabdyti tai, kas švaistymo biudžetą.' },
+                { t: 'Kūrybos efektyvumo analizė', d: 'Testuojame skirtingus vizualus, antraštes ir žinutes A/B formatais. Matuojame, kurie kreatyvai generuoja daugiau konversijų ir žemesnę kliką — tokiu būdu reklaminė kūryba nuolat gerėja ir nesensta.' },
+                { t: 'Auditorijų testavimas ir tikslinimas', d: 'Lygiagrečiai testuojame kelias auditorijų grupes: interesų, demografines, lookalike ir retargeting segmentus. Žinome, kuri auditorija konvertuoja geriausiai, ir palaipsniui perkeliame biudžetą ten, kur jis duoda daugiausiai grąžos.' },
+              ].map(p => (
+                <div key={p.t} className="prob-text-item">
+                  <div className="prob-text-title">{p.t}</div>
+                  <p className="prob-text-desc">{p.d}</p>
+                </div>
+              ))}
             </div>
-          ))}
+          </div>
+          <div className="trust-accent-hide">
+            <div className="trust-accent-wrap">
+              <img src="/meta%20kas%20veikia.webp" alt="Meta Ads rezultatai" />
+            </div>
+          </div>
         </div>
       </section>
 

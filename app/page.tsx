@@ -294,7 +294,9 @@ document.querySelectorAll<HTMLElement>('.svc-row').forEach((row) => {
         .stag::before { content:''; width:24px; height:1px; background: var(--text-dim); flex-shrink:0; opacity: 0.3; }
 
         /* ── APIE ── */
-        #apie { background: var(--bg2); border-top: 1px solid var(--border); }
+        #apie { background: var(--bg2); border-top: 1px solid var(--border); position: relative; overflow: hidden; }
+        #apie::before { content: ''; position: absolute; inset: 0; background: url('/city.webp') center/cover no-repeat; opacity: 0.12; pointer-events: none; z-index: 0; }
+        #apie > * { position: relative; z-index: 1; }
         .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
         .about-h { font-family: 'Raleway', sans-serif; font-size: clamp(36px, 4vw, 56px); line-height: 1.15; font-weight: 400; letter-spacing: -0.02em; }
         .about-h em {
@@ -331,9 +333,6 @@ document.querySelectorAll<HTMLElement>('.svc-row').forEach((row) => {
           text-shadow: 1px 0 0 #6d28d9, 2px 1px 0 #4c1d95, 3px 2px 0 #1e1b4b;
           animation: pixel8glitch 4s steps(1) infinite;
         }
-        .about-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; margin-top: 52px; padding-top: 44px; border-top: 1px solid var(--border); }
-        .sn { font-family: 'Raleway', sans-serif; font-size: 48px; font-weight: 400; line-height: 1; color: var(--text); }
-        .sl { font-size: 13px; color: var(--text-dim); margin-top: 6px; }
         .about-p { font-size: 16px; line-height: 1.8; color: var(--text-muted); margin-bottom: 20px; }
         .pills { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 28px; }
         .pill { background: var(--surface); border: 1px solid var(--border-strong); padding: 8px 16px; border-radius: 100px; font-size: 13px; color: var(--text-muted); font-weight: 400; transition: all 0.3s; cursor: default; }
@@ -522,7 +521,6 @@ document.querySelectorAll<HTMLElement>('.svc-row').forEach((row) => {
           section { padding: 64px 20px; }
 
           .about-grid { grid-template-columns: 1fr; gap: 40px; }
-          .about-stats { grid-template-columns: 1fr 1fr; gap: 20px; }
 
           .svc-row { grid-template-columns: 40px 1fr 20px; gap: 14px; padding: 28px 0; }
           .svc-name { font-size: 24px; }
@@ -557,7 +555,6 @@ document.querySelectorAll<HTMLElement>('.svc-row').forEach((row) => {
           .hero-title { font-size: 54px; }
           .port-grid { grid-template-columns: 1fr; }
           .port-cta-card { grid-column: unset; }
-          .about-stats { grid-template-columns: 1fr 1fr; }
         }
       `}</style>
 
@@ -587,7 +584,7 @@ document.querySelectorAll<HTMLElement>('.svc-row').forEach((row) => {
             <div className="svc-n">01</div>
             <div>
               <div className="svc-name-row">
-                <img src="/googleadss.webp" className="svc-icon" alt="" />
+                <img src="/googleadss.webp" className="svc-icon" alt="Google Ads" />
                 <div className="svc-name">Google Ads</div>
               </div>
               <p className="svc-desc">Valdomos paieškos ir display reklamos, kurios pasiekia žmones aktyviai ieškančius jūsų paslaugų. Optimizuojame kampanijas, kad gautumėte kuo daugiau konversijų už kuo mažesnę kainą.</p>
@@ -601,7 +598,7 @@ document.querySelectorAll<HTMLElement>('.svc-row').forEach((row) => {
             <div className="svc-n">02</div>
             <div>
               <div className="svc-name-row">
-                <img src="/metalogo.webp" className="svc-icon" alt="" />
+                <img src="/metalogo.webp" className="svc-icon" alt="Meta Ads" />
                 <div className="svc-name">Meta Ads</div>
               </div>
               <p className="svc-desc">Kuriame ir valdome tikslines reklamas Facebook ir Instagram platformose. Pasiekiame jūsų idealų klientą tinkamu laiku ir vietoje – taip, kad kiekvienas investuotas euras duotų rezultatą.</p>
@@ -615,7 +612,7 @@ document.querySelectorAll<HTMLElement>('.svc-row').forEach((row) => {
             <div className="svc-n">03</div>
             <div>
               <div className="svc-name-row">
-                <img src="/svetainiulogo.webp" className="svc-icon" alt="" style={{ filter: 'brightness(0) invert(1)' }} />
+                <img src="/svetainiulogo.webp" className="svc-icon" alt="Svetainių kūrimas" style={{ filter: 'brightness(0) invert(1)' }} />
                 <div className="svc-name">Web Dizainas</div>
               </div>
               <p className="svc-desc">Kuriame modernias, individualiai pritaikytas svetaines pagal jūsų verslo tikslus. Dėmesį skiriame ne tik dizainui, bet ir greičiui, patogiam naudojimui bei sklandžiam veikimui visuose įrenginiuose.</p>
@@ -629,7 +626,7 @@ document.querySelectorAll<HTMLElement>('.svc-row').forEach((row) => {
             <div className="svc-n">04</div>
             <div>
               <div className="svc-name-row">
-                <img src="/magnifyingglass.webp" className="svc-icon" alt="" />
+                <img src="/magnifyingglass.webp" className="svc-icon" alt="SEO Optimizacija" />
                 <div className="svc-name">SEO Optimizacija</div>
               </div>
               <p className="svc-desc">Padedame pasirūpinti, kad jūsų svetainė būtų geriau matoma Google paieškoje. Sutvarkome techninius pagrindus, greitį ir svarbiausius SEO elementus, reikalingus geresniam matomumui internete.</p>
@@ -696,17 +693,13 @@ document.querySelectorAll<HTMLElement>('.svc-row').forEach((row) => {
         <div className="stag reveal">Apie mus</div>
         <div className="about-grid">
           <div className="reveal">
-            <h2 className="about-h">Dirbame su tais, kurie vertina<br /><em>dizaino galią.</em></h2>
-            <div className="about-stats">
-              <div><div className="sn">2</div><div className="sl">Kūrėjai</div></div>
-              <div><div className="sn">100%</div><div className="sl">Individualūs sprendimai</div></div>
-            </div>
+            <h2 className="about-h">Skaitmeniniai sprendimai, kurie kuria <em>rezultatą.</em></h2>
           </div>
           <div className="reveal d1">
-            <p className="about-p">Esame nedidelė, bet ambicinga kūrybinė studija iš Vilniaus. Kuriame skaitmeninę prabangą verslams — modernias, greitas ir efektyvias svetaines, kurioms svarbus rezultatas, o ne tik išvaizda.</p>
-            <p className="about-p">Mūsų darbas derina estetiką su technika: kiekvienas projektas optimizuotas greičiui, paieškos sistemoms ir konversijoms. Kiekviena detalė apgalvota taip, kad jūsų verslas išsiskirtų skaitmeninėje erdvėje.</p>
+            <p className="about-p">KOMA Studio — komanda, kuri specializuojasi Google Ads, Meta Ads, SEO optimizacijoje ir modernių svetainių kūrime.</p>
+            <p className="about-p">Kuriame ne tik vizualiai stiprius sprendimus, bet ir sistemas, kurios padeda verslui augti, generuoti užklausas ir išsiskirti konkurencingoje rinkoje.</p>
             <div className="pills">
-              {['Web dizainas','SEO optimizacija','Greitas hostingas','Mobili versija'].map((p,i) => <span key={i} className="pill">{p}</span>)}
+              {['Google Ads','Meta Ads','SEO Optimizacija','Svetainių kūrimas'].map((p,i) => <span key={i} className="pill">{p}</span>)}
             </div>
           </div>
         </div>

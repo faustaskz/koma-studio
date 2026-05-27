@@ -46,22 +46,28 @@ export default function GoogleAdsPage() {
         .sec-sub{font-size:16px;color:rgba(255,255,255,0.5);line-height:1.7;max-width:560px;margin-bottom:48px;}
 
         /* ── PROBLEM SECTION ── */
-        .prob-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2px;margin-top:48px;}
-        .prob-card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);padding:28px 32px;transition:background 0.2s;}
+        .prob-split{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center;}
+        .prob-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2px;margin-top:32px;}
+        .prob-card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);padding:20px 22px;transition:background 0.2s;}
         .prob-card:hover{background:rgba(255,255,255,0.07);}
-        .prob-icon{font-size:22px;margin-bottom:14px;}
-        .prob-text{font-size:15px;font-weight:500;color:#f0ede8;line-height:1.5;}
+        .prob-icon{font-size:18px;margin-bottom:10px;}
+        .prob-text{font-size:13px;font-weight:500;color:#f0ede8;line-height:1.5;}
+        .prob-img-wrap{border-radius:20px;overflow:hidden;border:1px solid rgba(255,255,255,0.1);box-shadow:0 32px 80px rgba(0,0,0,0.6);}
+        .prob-img-wrap img{width:100%;height:auto;display:block;}
 
         /* ── CTA STRIP ── */
         .cta-strip{padding:48px 80px;background:rgba(0,0,0,0.6);backdrop-filter:blur(14px);border-top:1px solid rgba(255,255,255,0.07);display:flex;align-items:center;justify-content:space-between;gap:24px;}
         .cta-strip-text{font-size:18px;font-weight:600;color:#f0ede8;max-width:480px;line-height:1.4;}
 
         /* ── SOLUTION ── */
-        .sol-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:48px;}
-        .sol-card{background:rgba(74,144,217,0.06);border:1px solid rgba(74,144,217,0.15);padding:28px 28px;transition:background 0.2s;}
-        .sol-card:hover{background:rgba(74,144,217,0.1);}
-        .sol-num{font-size:10px;letter-spacing:0.15em;color:rgba(74,144,217,0.6);margin-bottom:12px;}
-        .sol-title{font-size:16px;font-weight:600;color:#f0ede8;line-height:1.4;}
+        .sol-split{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center;}
+        .sol-compact{display:flex;flex-direction:column;}
+        .sol-row{display:flex;align-items:center;gap:16px;padding:11px 0;border-bottom:1px solid rgba(255,255,255,0.07);}
+        .sol-row:first-child{border-top:1px solid rgba(255,255,255,0.07);}
+        .sol-row-n{font-size:10px;letter-spacing:0.12em;color:rgba(74,144,217,0.55);flex-shrink:0;width:22px;}
+        .sol-row-t{font-size:14px;font-weight:500;color:#f0ede8;line-height:1.4;}
+        .sol-img-wrap{border-radius:20px;overflow:hidden;border:1px solid rgba(255,255,255,0.1);box-shadow:0 32px 80px rgba(0,0,0,0.6);}
+        .sol-img-wrap img{width:100%;height:auto;display:block;}
 
         /* ── PROCESS ── */
         .proc-list{display:flex;flex-direction:column;gap:0;margin-top:48px;}
@@ -72,17 +78,23 @@ export default function GoogleAdsPage() {
         .proc-desc{font-size:14px;color:rgba(255,255,255,0.5);line-height:1.65;}
 
         /* ── FIT ── */
-        .fit-list{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:48px;}
-        .fit-item{display:flex;align-items:center;gap:14px;padding:18px 22px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:8px;}
-        .fit-dot{width:6px;height:6px;border-radius:50%;background:linear-gradient(135deg,#4a90d9,#34c4f4);flex-shrink:0;}
-        .fit-text{font-size:15px;color:rgba(255,255,255,0.8);font-weight:400;}
+        .fit-split{display:grid;grid-template-columns:0.6fr 1fr;gap:64px;align-items:center;}
+        .fit-accent-wrap{border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,255,0.07);opacity:0.82;}
+        .fit-accent-wrap img{width:100%;height:auto;display:block;}
+        .fit-list{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;}
+        .fit-item{display:flex;align-items:center;gap:12px;padding:14px 18px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:8px;}
+        .fit-dot{width:5px;height:5px;border-radius:50%;background:linear-gradient(135deg,#4a90d9,#34c4f4);flex-shrink:0;}
+        .fit-text{font-size:14px;color:rgba(255,255,255,0.8);font-weight:400;}
 
         /* ── TRUST ── */
-        .trust-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:2px;margin-top:48px;}
-        .trust-card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);padding:28px 24px;text-align:center;transition:background 0.2s;}
-        .trust-card:hover{background:rgba(255,255,255,0.07);}
-        .trust-icon{font-size:24px;margin-bottom:12px;}
-        .trust-title{font-size:13px;font-weight:600;color:#f0ede8;line-height:1.4;}
+        .trust-split{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center;}
+        .trust-pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:28px;}
+        .trust-pill{display:flex;align-items:center;gap:10px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);padding:10px 16px;border-radius:8px;transition:background 0.2s;}
+        .trust-pill:hover{background:rgba(255,255,255,0.09);}
+        .trust-pill-icon{font-size:16px;line-height:1;}
+        .trust-pill-text{font-size:13px;font-weight:500;color:#f0ede8;white-space:nowrap;}
+        .trust-img-wrap{border-radius:20px;overflow:hidden;border:1px solid rgba(255,255,255,0.1);box-shadow:0 32px 80px rgba(0,0,0,0.6);}
+        .trust-img-wrap img{width:100%;height:auto;display:block;}
 
         /* ── FAQ ── */
         .faq-list{display:flex;flex-direction:column;gap:0;margin-top:48px;max-width:720px;}
@@ -118,9 +130,14 @@ export default function GoogleAdsPage() {
           .svc-hero-actions{flex-direction:column;width:100%;}
           .btn-primary,.btn-outline{width:100%;text-align:center;}
           .sec{padding:64px 24px;}
+          .prob-split{grid-template-columns:1fr;gap:32px;}
+          .prob-img-order{order:-1;}
           .prob-grid{grid-template-columns:1fr;}
-          .sol-grid{grid-template-columns:1fr;}
-          .trust-grid{grid-template-columns:repeat(2,1fr);}
+          .sol-split{grid-template-columns:1fr;gap:32px;}
+          .sol-img-order{order:-1;}
+          .trust-split{grid-template-columns:1fr;gap:32px;}
+          .trust-img-trust-order{order:-1;}
+          .fit-split{grid-template-columns:1fr;gap:28px;}
           .fit-list{grid-template-columns:1fr;}
           .gif-split{grid-template-columns:1fr;gap:32px;padding:48px 24px;}
           .cta-strip{flex-direction:column;align-items:flex-start;padding:40px 24px;}
@@ -145,21 +162,30 @@ export default function GoogleAdsPage() {
 
       {/* 2. PROBLEMA */}
       <section className="sec" id="problema">
-        <div className="sec-tag">Problema</div>
-        <h2 className="sec-h">Mokate už reklamą,<br />bet negaunate klientų?</h2>
-        <p className="sec-sub">Dažniausia problema nėra Google Ads. Problema – bloga struktūra, netikslūs raktažodžiai ir kampanijos be aiškaus tikslo.</p>
-        <div className="prob-grid">
-          {[
-            { icon: '📉', text: 'Daug paspaudimų, mažai užklausų' },
-            { icon: '💸', text: 'Reklama leidžia pinigus be aiškaus rezultato' },
-            { icon: '🤷', text: 'Neaišku, kas veikia ir kas ne' },
-            { icon: '🔕', text: 'Kampanijos paleistos, bet niekas jų neoptimizuoja' },
-          ].map(p => (
-            <div key={p.text} className="prob-card">
-              <div className="prob-icon">{p.icon}</div>
-              <div className="prob-text">{p.text}</div>
+        <div className="prob-split">
+          <div>
+            <div className="sec-tag">Problema</div>
+            <h2 className="sec-h">Mokate už reklamą,<br />bet negaunate klientų?</h2>
+            <p className="sec-sub" style={{ marginBottom: 0 }}>Dažniausia problema nėra Google Ads. Problema – bloga struktūra, netikslūs raktažodžiai ir kampanijos be aiškaus tikslo.</p>
+            <div className="prob-grid">
+              {[
+                { icon: '📉', text: 'Daug paspaudimų, mažai užklausų' },
+                { icon: '💸', text: 'Reklama leidžia pinigus be aiškaus rezultato' },
+                { icon: '🤷', text: 'Neaišku, kas veikia ir kas ne' },
+                { icon: '🔕', text: 'Kampanijos paleistos, bet niekas jų neoptimizuoja' },
+              ].map(p => (
+                <div key={p.text} className="prob-card">
+                  <div className="prob-icon">{p.icon}</div>
+                  <div className="prob-text">{p.text}</div>
+                </div>
+              ))}
             </div>
-          ))}
+          </div>
+          <div className="prob-img-order">
+            <div className="prob-img-wrap">
+              <img src="/low%20conversion.webp" alt="Žemos konversijos problema" />
+            </div>
+          </div>
         </div>
       </section>
 
@@ -171,37 +197,46 @@ export default function GoogleAdsPage() {
 
       {/* GIF — Google naršymas */}
       <div className="gif-split">
+        <div className="gif-frame">
+          <img src="/google%20ads.webp" alt="Google Ads naršymas" />
+        </div>
         <div>
           <div className="gif-copy-tag">Kaip tai veikia</div>
           <h3 className="gif-copy-h">Jūsų reklama pasirodo tada, kai žmogus jau ieško to, ką siūlote</h3>
           <p className="gif-copy-p">Google Ads leidžia pasiekti pirkti pasiruošusius žmones — tik reikia sutvarkyti kampaniją tinkamai.</p>
         </div>
-        <div className="gif-frame">
-          <img src="/google%20ads.webp" alt="Google Ads naršymas" />
-        </div>
       </div>
 
       {/* 3. SPRENDIMAS */}
       <section className="sec" id="sprendimas">
-        <div className="sec-tag">Sprendimas</div>
-        <h2 className="sec-h">Sutvarkome Google Ads taip,<br />kad reklama turėtų aiškų tikslą</h2>
-        <div className="sol-grid">
-          {[
-            { n: '01', t: 'Randame tinkamus raktažodžius' },
-            { n: '02', t: 'Sukuriame aiškią kampanijų struktūrą' },
-            { n: '03', t: 'Parašome skelbimus, kurie parduoda' },
-            { n: '04', t: 'Sutvarkome konversijų sekimą' },
-            { n: '05', t: 'Optimizuojame pagal realius rezultatus' },
-            { n: '06', t: 'Aiškiai parodome, kur keliauja biudžetas' },
-          ].map(s => (
-            <div key={s.n} className="sol-card">
-              <div className="sol-num">{s.n}</div>
-              <div className="sol-title">{s.t}</div>
+        <div className="sol-split">
+          <div>
+            <div className="sec-tag">Sprendimas</div>
+            <h2 className="sec-h" style={{ marginBottom: '32px' }}>Sutvarkome Google Ads taip,<br />kad reklama turėtų aiškų tikslą</h2>
+            <div className="sol-compact">
+              {[
+                { n: '01', t: 'Randame tinkamus raktažodžius' },
+                { n: '02', t: 'Sukuriame aiškią kampanijų struktūrą' },
+                { n: '03', t: 'Parašome skelbimus, kurie parduoda' },
+                { n: '04', t: 'Sutvarkome konversijų sekimą' },
+                { n: '05', t: 'Optimizuojame pagal realius rezultatus' },
+                { n: '06', t: 'Aiškiai parodome, kur keliauja biudžetas' },
+              ].map(s => (
+                <div key={s.n} className="sol-row">
+                  <span className="sol-row-n">{s.n}</span>
+                  <span className="sol-row-t">{s.t}</span>
+                </div>
+              ))}
             </div>
-          ))}
-        </div>
-        <div style={{ marginTop: '40px' }}>
-          <button onClick={cta} className="btn-primary">Noriu sutvarkyti Google Ads →</button>
+            <div style={{ marginTop: '32px' }}>
+              <button onClick={cta} className="btn-primary">Noriu sutvarkyti Google Ads →</button>
+            </div>
+          </div>
+          <div className="sol-img-order">
+            <div className="sol-img-wrap">
+              <img src="/Google%20Ads%20kompas.webp" alt="Google Ads strategija" />
+            </div>
+          </div>
         </div>
       </section>
 
@@ -235,42 +270,58 @@ export default function GoogleAdsPage() {
 
       {/* 5. KAM TINKA */}
       <section className="sec" id="kam-tinka">
-        <div className="sec-tag">Tikslinė auditorija</div>
-        <h2 className="sec-h">Tinka verslams, kurie<br />nori daugiau užklausų</h2>
-        <div className="fit-list">
-          {[
-            'Statybų ir remonto paslaugoms',
-            'B2B paslaugoms',
-            'E-komercijai',
-            'Grožio / sveikatos paslaugoms',
-            'Vietiniams paslaugų verslams',
-            'Įmonėms, kurios jau turi svetainę, bet trūksta srauto',
-          ].map(t => (
-            <div key={t} className="fit-item">
-              <div className="fit-dot" />
-              <div className="fit-text">{t}</div>
+        <div className="fit-split">
+          <div className="fit-accent-wrap">
+            <img src="/verslui%20google%20ads.webp" alt="Google Ads verslui" />
+          </div>
+          <div>
+            <div className="sec-tag">Tikslinė auditorija</div>
+            <h2 className="sec-h" style={{ marginBottom: '28px' }}>Tinka verslams, kurie<br />nori daugiau užklausų</h2>
+            <div className="fit-list">
+              {[
+                'Statybų ir remonto paslaugoms',
+                'B2B paslaugoms',
+                'E-komercijai',
+                'Grožio / sveikatos paslaugoms',
+                'Vietiniams paslaugų verslams',
+                'Įmonėms, kurios jau turi svetainę, bet trūksta srauto',
+              ].map(t => (
+                <div key={t} className="fit-item">
+                  <div className="fit-dot" />
+                  <div className="fit-text">{t}</div>
+                </div>
+              ))}
             </div>
-          ))}
+          </div>
         </div>
       </section>
 
       {/* 6. TRUST */}
       <section className="sec" id="rezultatai">
-        <div className="sec-tag">Skaidrumas</div>
-        <h2 className="sec-h">Matysite ne pažadus,<br />o aiškius skaičius</h2>
-        <div className="trust-grid">
-          {[
-            { icon: '📊', t: 'Konversijų sekimas' },
-            { icon: '🔑', t: 'Raktažodžių ataskaitos' },
-            { icon: '💰', t: 'Biudžeto panaudojimas' },
-            { icon: '📬', t: 'Užklausų kaina' },
-            { icon: '💡', t: 'Rekomendacijos, ką gerinti' },
-          ].map(c => (
-            <div key={c.t} className="trust-card">
-              <div className="trust-icon">{c.icon}</div>
-              <div className="trust-title">{c.t}</div>
+        <div className="trust-split">
+          <div>
+            <div className="sec-tag">Skaidrumas</div>
+            <h2 className="sec-h">Matysite ne pažadus,<br />o aiškius skaičius</h2>
+            <div className="trust-pills">
+              {[
+                { icon: '📊', t: 'Konversijų sekimas' },
+                { icon: '🔑', t: 'Raktažodžių ataskaitos' },
+                { icon: '💰', t: 'Biudžeto panaudojimas' },
+                { icon: '📬', t: 'Užklausų kaina' },
+                { icon: '💡', t: 'Rekomendacijos, ką gerinti' },
+              ].map(c => (
+                <div key={c.t} className="trust-pill">
+                  <span className="trust-pill-icon">{c.icon}</span>
+                  <span className="trust-pill-text">{c.t}</span>
+                </div>
+              ))}
             </div>
-          ))}
+          </div>
+          <div className="trust-img-trust-order">
+            <div className="trust-img-wrap">
+              <img src="/google%20ads%20dashboard.webp" alt="Google Ads dashboard" />
+            </div>
+          </div>
         </div>
       </section>
 
@@ -311,8 +362,8 @@ export default function GoogleAdsPage() {
 
       {/* 8. FINAL CTA */}
       <section className="final-cta">
-        <h2 className="final-h">Norite, kad Google Ads<br />pradėtų dirbti normaliai?</h2>
-        <p className="final-sub">Parašykite – įvertinsime situaciją ir pasakysime, ką verta daryti pirmiausia.</p>
+        <h2 className="final-h">Norite, kad Google Ads<br />pagaliau pradėtų nešti rezultatus?</h2>
+        <p className="final-sub">Parašykite – peržiūrėsime situaciją ir pasiūlysime ką verta tvarkyti pirmiausia.</p>
         <button onClick={cta} className="btn-primary">Gauti Google Ads pasiūlymą →</button>
       </section>
 
